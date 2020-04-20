@@ -1,0 +1,24 @@
+{% extends 'template/base.html' %}
+
+{% block content %}
+
+<h2>{{sub.name}}</h2>
+
+{% if sub.is_leaf_node %}
+    <ul>
+        {% for i in product %}
+        <a href="{% url 'product_detail' slug=i.slug %}"> <li>{{ i.title }}</li></a>
+        {% endfor %}
+    </ul>
+{% else %}
+    {% if  sub.children.all %}
+        <h4>Sub Categories</h4>
+        <ul>
+            {% for i in sub.children.all %}
+                <li><a href="{% url 'show_category' slug=i.slug %}"> {{ i.name }} </a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
+
+{% endblock %}
