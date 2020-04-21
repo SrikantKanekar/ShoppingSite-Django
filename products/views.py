@@ -16,3 +16,7 @@ def show_category(request, slug):
 def product_detail(request, slug):
     product = Product.objects.get(slug=slug)
     return render(request, 'template/product_detail.html', {'product': product})
+
+
+def index(request):
+    return render(request, 'template/index.html')
