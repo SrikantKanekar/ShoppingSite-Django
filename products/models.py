@@ -26,6 +26,8 @@ class Product(models.Model):
 class Category(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+    image_url = models.URLField(null=True)
+    description = models.CharField(max_length=100, null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
 
     class MPTTMeta:
