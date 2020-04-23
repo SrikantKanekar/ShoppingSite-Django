@@ -103,7 +103,7 @@
               {% for i in category %}
                 <div class="col-lg-4" data-aos="fade-up" style="margin-bottom:40px">
                     <div class="single-banner">
-                        <img src="{% static 'img/banner-1.jpg' %}" alt="">
+                        <img src="/media/{{ i.image_url}}" alt="">
                         <div class="inner-text">
                           <h4><a href="{% url 'category' slug=i.slug %}" class="stretched-link">{{ i.name }}</a></h4>
                         </div>

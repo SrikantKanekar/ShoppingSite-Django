@@ -3,91 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/counters-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/intro-bg - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/intro-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/overlay-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/post-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/post-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/post-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/testimonial-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/testimonial-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/img/work-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/animate.css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/animate.css/animate.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/counterup/jquery.counterup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/counterup/jquery.counterup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/css/font-awesome.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/css/ionicons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/css/ionicons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/fonts/ionicons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/fonts/ionicons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/fonts/ionicons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/ionicons/fonts/ionicons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/jquery.easing/jquery.easing.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/jquery/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/jquery/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.carousel.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.theme.default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.theme.default.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.theme.green.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.theme.green.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/assets/owl.video.play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/owl.carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/owl.carousel/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/php-email-form/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/typed.js/typed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/typed.js/typed.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/typed.js/typed.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/venobox/venobox.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/venobox/venobox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/venobox/venobox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/assets/vendor/waypoints/jquery.waypoints.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/css/product.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/products/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/categories.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/templates/template/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/homepage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../windows/djangogirls" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SvnConfiguration">
@@ -171,10 +93,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1587367222571">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1587576118458">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587367222571" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587576118458" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587358836653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

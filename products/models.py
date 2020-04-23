@@ -8,9 +8,9 @@ class Product(models.Model):
     category = TreeForeignKey('Category', null=True, blank=True, on_delete=models.CASCADE)
     price = models.FloatField()
     description = models.TextField()
-    image_url_1 = models.CharField(max_length=2083)
-    image_url_2 = models.CharField(max_length=2083)
-    image_url_3 = models.CharField(max_length=2083)
+    image_url_1 = models.ImageField(upload_to='product/img', null=True, blank=True)
+    image_url_2 = models.ImageField(upload_to='product/img', null=True, blank=True)
+    image_url_3 = models.ImageField(upload_to='product/img', null=True, blank=True)
     quantity_left = models.IntegerField()
     return_days = models.IntegerField()
     slug = models.SlugField(unique=True, blank=True)
@@ -26,7 +26,7 @@ class Product(models.Model):
 class Category(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
-    image_url = models.CharField(max_length=2083, null=True, blank=True)
+    image_url = models.ImageField(upload_to='category/img', null=True, blank=True)
     description = models.CharField(max_length=100, null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
 
