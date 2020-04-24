@@ -5,9 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/product_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
