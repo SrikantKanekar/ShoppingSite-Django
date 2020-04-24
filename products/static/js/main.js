@@ -1,11 +1,6 @@
-/**
-* Template Name: Moderna - v2.0.1
-* Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-!(function($) {
+(function($) {
   "use strict";
+
 
   // Toggle .header-scrolled class to #header when page is scrolled
   $(window).scroll(function() {
@@ -176,5 +171,26 @@
     duration: 1000,
     easing: "ease-in-out-back"
   });
+
+  /*-------------------
+		Range Slider
+    --------------------- */
+    var rangeSlider = $(".price-range"),
+    	minamount = $("#minamount"),
+    	maxamount = $("#maxamount"),
+		minPrice = rangeSlider.data('min'),
+		maxPrice = rangeSlider.data('max');
+        rangeSlider.slider({
+		range: true,
+		min: minPrice,
+        max: maxPrice,
+		values: [minPrice, maxPrice],
+		slide: function (event, ui) {
+			minamount.val('$' + ui.values[0]);
+			maxamount.val('$' + ui.values[1]);
+		}
+	});
+	minamount.val('$' + rangeSlider.slider("values", 0));
+    maxamount.val('$' + rangeSlider.slider("values", 1));
 
 })(jQuery);
