@@ -2136,6 +2136,8 @@ section {
 
 .portfolio .work-img img {
   transition: all 1s;
+  	min-width: 100%;
+	max-width: 100%;
 }
 
 .portfolio .work-content {
@@ -2212,7 +2214,11 @@ section {
 # product-list
 --------------------------------------------------------------*/
 .product-item {
-	margin-bottom: 26px;
+    margin-bottom: 3rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+    box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
 }
 
 .product-item:hover .pi-pic .icon {
@@ -2220,9 +2226,6 @@ section {
 	opacity: 1;
 }
 
-.product-item:hover .pi-pic ul {
-	bottom: 0;
-}
 
 .product-item .pi-pic {
 	overflow: hidden;
@@ -2292,35 +2295,28 @@ section {
 	padding: 16px 18px 12px 19px;
 }
 
-.product-item .pi-text {
+.pi-text {
 	text-align: center;
-	padding-top: 26px;
+	padding-top: 10px;
 }
 
-.product-item .pi-text .catagory-name {
-	font-size: 10px;
-	color: #b2b2b2;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	margin-bottom: 10px;
-}
-
-.product-item .pi-text a {
+.pi-text a {
 	display: block;
 }
 
-.product-item .pi-text a h5 {
+
+.pi-text a h5 {
 	color: #252525;
 }
 
-.product-item .pi-text .product-price {
+.pi-text .product-price {
 	color: #1e4356;
 	font-size: 20px;
 	font-weight: 700;
+	padding-bottom: 8px;
 }
 
-.product-item .pi-text .product-price span {
+.pi-text .product-price span {
 	font-size: 14px;
 	font-weight: 400;
 	color: #b2b2b2;

@@ -141,21 +141,45 @@
                     <div class="product-list">
                         <div class="row">
                             {% for i in product %}
-                            <div class="col-lg-4 col-sm-6" style="padding: 15px" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="/media/{{ i.image_url_1 }}" alt="">
-                                        <div class="sale pp-sale">Sale</div>
-                                        <div class="icon"><i class="fa fa-heart"></i></div>
-                                    </div>
-                                    <div class="pi-text">
-                                        <a href="{% url 'product_detail' slug=i.slug %}" class="stretched-link">
-                                            <h5>{{ i.title }}</h5>
-                                        </a>
-                                        <div class="product-price">${{ i.offer_price }}<span>${{ i.original_price }}</span>
+                            <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+
+
+
+
+
+                                <div class="work-box">
+                                    <a href="{% url 'product_detail' slug=i.slug %}" class="stretched-link">
+                                        <div class="work-img">
+                                            <img src="/media/{{ i.image_url_1 }}" alt="" class="img-fluid">
                                         </div>
-                                    </div>
+                                        <div class="pi-text">
+                                            <h5 style="margin-bottom: 2px;">{{ i.title }}</h5>
+                                            <div class="product-price">${{ i.offer_price }}<span>${{ i.original_price }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
+
+
+
+
+
+<!--                                <div class="product-item">-->
+<!--                                    <div class="pi-pic">-->
+<!--                                        <img src="/media/{{ i.image_url_1 }}" alt="">-->
+<!--                                        <div class="icon"><i class="fa fa-heart"></i></div>-->
+<!--                                    </div>-->
+<!--                                    <div class="pi-text">-->
+<!--                                        <a href="{% url 'product_detail' slug=i.slug %}" class="stretched-link">-->
+<!--                                            <h5>{{ i.title }}</h5>-->
+<!--                                        </a>-->
+<!--                                        <div class="product-price">${{ i.offer_price }}<span>${{ i.original_price }}</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+
+
                             </div>
                             {% endfor %}
                         </div>
