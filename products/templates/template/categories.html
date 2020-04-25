@@ -50,7 +50,7 @@
 
 <!-- ======= Portfolio Section ======= -->
 <section class="portfolio sect-pt4">
-    <div class="container">
+    <div class="container" style="padding: 0px;">
 
         <div class="row">
             <div class="col-sm-12">
@@ -84,7 +84,7 @@
                                 <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
                             </div>
                         </div>
-                        <a href="#" class="filter-btn">Filter</a>
+                        <a href="" class="filter-btn">Filter</a>
                     </div>
                     <div class="filter-widget">
                         <h4 class="fw-title">Color</h4>
@@ -137,24 +137,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 order-1 order-lg-2">
+                <div class="col-lg-9 order-1 order-lg-2" style="padding-right: 0px;">
                     <div class="product-list">
                         <div class="row">
                             {% for i in product %}
-                            <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                            <div class="col-lg-4 col-sm-6" style="padding: 15px" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
                                 <div class="product-item">
                                     <div class="pi-pic">
                                         <img src="/media/{{ i.image_url_1 }}" alt="">
                                         <div class="sale pp-sale">Sale</div>
-                                        <div class="icon"><i class="icon_heart_alt"></i></div>
+                                        <div class="icon"><i class="fa fa-heart"></i></div>
                                     </div>
                                     <div class="pi-text">
                                         <a href="{% url 'product_detail' slug=i.slug %}" class="stretched-link">
                                             <h5>{{ i.title }}</h5>
                                         </a>
-                                        <div class="product-price">
-                                            $14.00
-                                            <span>$35.00</span>
+                                        <div class="product-price">${{ i.offer_price }}<span>${{ i.original_price }}</span>
                                         </div>
                                     </div>
                                 </div>

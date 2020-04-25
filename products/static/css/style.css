@@ -646,6 +646,10 @@ section {
 /*--------------------------------------------------------------
 # Features
 --------------------------------------------------------------*/
+.features {
+    padding-top: 0px;
+}
+
 .features .row + .row {
   margin-top: 100px;
 }
@@ -2037,7 +2041,7 @@ section {
 }
 
 .banner-section {
-	padding: 80px 50px;
+	padding: 40px 50px;
 }
 
 .single-banner {
@@ -2186,7 +2190,7 @@ section {
 .portfolio .line-mf {
   width: 40px;
   height: 5px;
-  background-color: #0078ff;
+  background-color: #1e4356;
   margin: 0 auto;
 }
 
@@ -2242,7 +2246,7 @@ section {
 }
 
 .product-item .pi-pic .sale.pp-sale {
-	background: #e7ab3c;
+	background: #1e4356;
 }
 
 .product-item .pi-pic .icon {
@@ -2276,7 +2280,7 @@ section {
 }
 
 .product-item .pi-pic ul li.w-icon.active a {
-	background: #e7ab3c;
+	background: #1e4356;
 	color: #ffffff;
 }
 
@@ -2311,7 +2315,7 @@ section {
 }
 
 .product-item .pi-text .product-price {
-	color: #e7ab3c;
+	color: #1e4356;
 	font-size: 20px;
 	font-weight: 700;
 }
@@ -2344,7 +2348,7 @@ section {
 }
 
 .product-shop {
-	padding-bottom: 80px;
+	padding: 0px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2397,8 +2401,8 @@ section {
 }
 
 .filter-widget .fw-brand-check .bc-item label input:checked~span {
-	background: #e7ab3c;
-	border-color: #e7ab3c;
+	background: #1e4356;
+	border-color: #1e4356;
 }
 
 .filter-widget .fw-brand-check .bc-item label .checkmark {
@@ -2480,19 +2484,19 @@ section {
 }
 
 .filter-widget .filter-range-wrap .price-range .ui-slider-range {
-	background: #ebebeb;
+	background: #1e4356;
 	border-radius: 0;
 }
 
 .filter-widget .filter-range-wrap .price-range .ui-slider-range.ui-corner-all.ui-widget-header:last-child {
-	background: #e7ab3c;
+	background: #1e4356;
 }
 
 .filter-widget .filter-btn {
 	font-size: 14px;
 	color: #ffffff;
 	font-weight: 700;
-	background: #e7ab3c;
+	background: #1e4356;
 	padding: 7px 20px 5px;
 	border-radius: 2px;
 	display: inline-block;
@@ -2639,7 +2643,6 @@ section {
 	height: 100%;
 	left: 0;
 	top: 0;
-	border: 1px solid #e7ab3c;
 	z-index: 1;
 }
 
@@ -2715,12 +2718,8 @@ section {
 	margin-bottom: 24px;
 }
 
-.product-details .pd-desc p {
-	color: #636363;
-}
-
 .product-details .pd-desc h4 {
-	color: #e7ab3c;
+	color: #1e4356;
 	font-weight: 700;
 }
 
@@ -2936,7 +2935,7 @@ section {
 	top: -1px;
 	width: 100%;
 	height: 5px;
-	background: #e7ab3c;
+	background: #1e4356;
 	content: "";
 	opacity: 0;
 }
@@ -2997,7 +2996,7 @@ section {
 }
 
 .specification-table table tr td .p-price {
-	color: #e7ab3c;
+	color: #1e4356;
 	font-size: 16px;
 	font-weight: 700;
 }
@@ -3154,8 +3153,8 @@ section {
 
 .site-btn {
 	color: #ffffff;
-	background: #e7ab3c;
-	border: 1px solid #e7ab3c;
+	background: #1e4356;
+	border: 1px solid #1e4356;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -3169,7 +3168,7 @@ section {
 	font-weight: 700;
 	padding: 12px 30px;
 	color: #ffffff;
-	background: #e7ab3c;
+	background: #1e4356;
 	text-transform: uppercase;
 }
 
