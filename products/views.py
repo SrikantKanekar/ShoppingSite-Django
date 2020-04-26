@@ -44,6 +44,14 @@ def services(request):
     return render(request, 'template/services.html')
 
 
+def user(request):
+    return render(request, 'template/user.html')
+
+
+def wishlist(request):
+    return render(request, 'template/wishlist.html')
+
+
 def login_view(request):
     form = UserLoginForm(request.POST or None)
     if form.is_valid():

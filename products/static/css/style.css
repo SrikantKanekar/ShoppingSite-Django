@@ -3867,11 +3867,11 @@ section {
 }
 
 .login a {
-     color: #1e1e1e;
+     color: #1e4356;
 }
 
 .login a:hover {
-  color: #1e1e1e;
+  color: #1e4356;
   text-underline: none;
   text-decoration: none;
   transition: all 0.5s ease-in-out;

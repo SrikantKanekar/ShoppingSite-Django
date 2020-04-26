@@ -15,9 +15,9 @@
             <ul>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
-                <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="">{{ user.username }}</a></li>
+                <li><a href="{% url 'user' %}">{{ user.username }}</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}

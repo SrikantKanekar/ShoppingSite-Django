@@ -125,8 +125,8 @@
                     </label><br>
                     <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">{{title}}</button>
                     <br>
-                    {% if title == "login" %}<h7>Not Registered? <a href="{% url 'register' %}">Register Here</a></h7>{% endif %}
-                    {% if title == "register" %}<h7>Already Registered? <a href="{% url 'login' %}">Login Here</a></h7>{% endif %}
+                    {% if title == "login" %}<h6>Not Registered? <a href="{% url 'register' %}">Register Here</a></h6>{% endif %}
+                    {% if title == "register" %}<h6>Already Registered? <a href="{% url 'login' %}">Login Here</a></h6>{% endif %}
                 </form>
             </div>
         </div>
