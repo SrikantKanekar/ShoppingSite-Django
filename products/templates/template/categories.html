@@ -13,16 +13,23 @@
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
-                <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
+                <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="">{{ user.username }}</a></li>
+                {% else %}
+                <li><a href="">Login</a></li>
+                {% endif %}
+
                 <li class="drop-down"><a href="">Category</a>
                     <ul>
                         <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
                             <ul>
                                 <li><a href="{% url 'show_category' slug='camera' %}">Camera</a></li>
                                 <li><a href="{% url 'show_category' slug='laptops' %}">Laptops</a></li>
-                                <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile Accessories</a></li>
+                                <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile Accessories</a>
+                                </li>
                                 <li><a href="{% url 'show_category' slug='mobiles' %}">Mobiles</a></li>
                                 <li><a href="{% url 'show_category' slug='speakers' %}">Speakers</a></li>
                             </ul>
@@ -39,9 +46,12 @@
                             <ul>
                                 <li><a href="{% url 'show_category' slug='home-furnishing' %}">Home Furnishing</a></li>
                                 <li><a href="{% url 'show_category' slug='home-decor' %}">Home Decor</a></li>
-                                <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a></li>
-                                <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House Keeping Essentials</a></li>
-                                <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen Accessories</a></li>
+                                <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a>
+                                </li>
+                                <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House Keeping
+                                    Essentials</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen
+                                    Accessories</a></li>
                             </ul>
                         </li>
                         <li class="drop-down"><a href="{% url 'show_category' slug='sports-books-and-more' %}">Sports,
@@ -61,7 +71,8 @@
                                 <li><a href="{% url 'show_category' slug='washing-machine' %}">Washing Machine</a></li>
                                 <li><a href="{% url 'show_category' slug='televisions' %}">Televisions</a></li>
                                 <li><a href="{% url 'show_category' slug='refrigerator' %}">Refrigerator</a></li>
-                                <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen Appliances</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen Appliances</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="drop-down"><a href="{% url 'show_category' slug='toys-and-baby' %}">Toys and Baby</a>
@@ -75,7 +86,6 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="">Login</a></li>
             </ul>
         </nav><!-- .nav-menu -->
     </div>
