@@ -19,7 +19,7 @@
                 {% if user.is_authenticated %}
                 <li><a href="">{{ user.username }}</a></li>
                 {% else %}
-                <li><a href="">Login</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
 
                 <li class="drop-down"><a href="">Category</a>

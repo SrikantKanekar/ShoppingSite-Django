@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Product
+from django.contrib.auth import authenticate, login
+from .forms import UserLoginForm, UsersRegisterForm
 
 
 def homepage(request):
@@ -40,3 +42,33 @@ def about_us(request):
 
 def services(request):
     return render(request, 'template/services.html')
+
+
+def login_view(request):
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect("/")
+    return render(request, "registration/login.html", {
+        'form': form,
+        'title': 'login',
+    })
+
+
+def register_view(request):
+    form = UsersRegisterForm(request.POST or None)
+    if form.is_valid():
+        user = form.save()
+        password = form.cleaned_data.get("password")
+        user.set_password(password)
+        user.save()
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        return redirect("/")
+    return render(request, "registration/login.html", {
+        "title": "register",
+        "form": form,
+    })

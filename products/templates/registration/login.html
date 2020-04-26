@@ -2,4 +2,136 @@
 
 {% block content %}
 
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top header">
+    <div class="container">
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>DjangoShop</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'cart' %}">Cart</a></li>
+                <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="">{{ user.username }}</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+
+                <li class="drop-down"><a href="">Category</a>
+                    <ul>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='camera' %}">Camera</a></li>
+                                <li><a href="{% url 'show_category' slug='laptops' %}">Laptops</a></li>
+                                <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile Accessories</a>
+                                </li>
+                                <li><a href="{% url 'show_category' slug='mobiles' %}">Mobiles</a></li>
+                                <li><a href="{% url 'show_category' slug='speakers' %}">Speakers</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='fashion' %}">Fashion</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='men' %}">Men's</a></li>
+                                <li><a href="{% url 'show_category' slug='women' %}">Women's</a></li>
+                                <li><a href="{% url 'show_category' slug='kids-and-baby' %}">Kids and Baby</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='home-and-furniture' %}">Home and
+                            Furniture</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='home-furnishing' %}">Home Furnishing</a></li>
+                                <li><a href="{% url 'show_category' slug='home-decor' %}">Home Decor</a></li>
+                                <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a>
+                                </li>
+                                <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House Keeping
+                                    Essentials</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen
+                                    Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='sports-books-and-more' %}">Sports,
+                            Books and More</a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='tv-appliances' %}">Tv &
+                            Appliances</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='air-conditioner' %}">Air Conditioner</a></li>
+                                <li><a href="{% url 'show_category' slug='washing-machine' %}">Washing Machine</a></li>
+                                <li><a href="{% url 'show_category' slug='televisions' %}">Televisions</a></li>
+                                <li><a href="{% url 'show_category' slug='refrigerator' %}">Refrigerator</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen Appliances</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='toys-and-baby' %}">Toys and Baby</a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
+
+
+<br>
+<br>
+<br>
+
+
+<!-- ======= title ======= -->
+<section class="portfolio sect-pt4" style="padding-bottom: 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">
+                        {{ title }}
+                    </h3>
+                    <div class="line-mf"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- ======= end title ======= -->
+
+
+
+<div class="login container">
+    <div class="row justify-content-center">
+        <div class="col-sm-7 col-md-6 col-lg-5 col-xl-5">
+            <div class="wrapper">
+                <form class="form-signin" method='POST' action='' enctype="multipart/form-data"
+                      style="margin-top: -30px; margin-bottom: -18px;">{% csrf_token %}
+                    {{form.as_p }}
+                    </label><br>
+                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">{{title}}</button>
+                    <br>
+                    {% if title == "login" %}<h7>Not Registered? <a href="{% url 'register' %}">Register Here</a></h7>{% endif %}
+                    {% if title == "register" %}<h7>Already Registered? <a href="{% url 'login' %}">Login Here</a></h7>{% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
