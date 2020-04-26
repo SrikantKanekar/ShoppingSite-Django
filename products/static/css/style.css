@@ -3253,7 +3253,7 @@ section {
 	float: left;
 	font-size: 13px;
 	color: #ffffff;
-	background: #e7ab3c;
+	background: #1e4356;
 }
 
 
@@ -3318,7 +3318,7 @@ section {
 
 .cart-table table tr td.p-price,
 .cart-table table tr td.total-price {
-	color: #e7ab3c;
+	color: #1e4356;
 	font-size: 16px;
 	font-weight: 700;
 }
@@ -3470,7 +3470,7 @@ section {
 }
 
 .proceed-checkout ul li.cart-total span {
-	color: #e7ab3c;
+	color: #1e4356;
 }
 
 .proceed-checkout ul li span {
@@ -3481,7 +3481,7 @@ section {
 	font-size: 14px;
 	font-weight: 700;
 	color: #ffffff;
-	background: #252525;
+	background: #1e4356;
 	text-transform: uppercase;
 	padding: 15px 25px 14px 25px;
 	display: block;
@@ -3563,8 +3563,8 @@ section {
 }
 
 .checkout-form .create-item label input:checked~span {
-	background: #e7ab3c;
-	border-color: #e7ab3c;
+	background: #1e4356;
+	border-color: #1e4356;
 }
 
 .checkout-form .create-item label .checkmark {
@@ -3628,7 +3628,7 @@ section {
 }
 
 .checkout-form .place-order .order-total .order-table li.total-price span {
-	color: #e7ab3c;
+	color: #1e4356;
 }
 
 .checkout-form .place-order .order-total .order-table li span {
@@ -3654,8 +3654,8 @@ section {
 }
 
 .checkout-form .place-order .order-total .payment-check .pc-item label input:checked~span {
-	background: #e7ab3c;
-	border-color: #e7ab3c;
+	background: #1e4356;
+	border-color: #1e4356;
 }
 
 .checkout-form .place-order .order-total .payment-check .pc-item label .checkmark {
@@ -3686,8 +3686,8 @@ section {
 
 .checkout-form .place-order .order-total .order-btn .place-btn {
 	padding: 13px 40px 11px;
-	background: #000000;
-	border-color: #000000;
+	background: #1e4356;
+	border-color: #1e4356;
 }
 
 
