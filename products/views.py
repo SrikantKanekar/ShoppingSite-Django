@@ -37,3 +37,6 @@ def order_track(request):
 def about_us(request):
     return render(request, 'template/About us.html')
 
+
+def services(request):
+    return render(request, 'template/services.html')
