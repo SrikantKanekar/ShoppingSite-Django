@@ -3916,10 +3916,3 @@ section {
 	  border-top-right-radius: 0;
 	}
 }
-@media(max-width: 500px){
-	footer{
-		height: 130px !important;
-		padding-bottom: 10px;
-		padding-top: 10px;
-	}
-}
