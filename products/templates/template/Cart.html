@@ -17,7 +17,13 @@
                 <li class="active"><a href="{% url 'cart' %}">Cart</a></li>
                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'user' %}">{{ user.username }}</a></li>
+                <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
+                    <ul>
+                        <li><a href="{% url 'user' %}">User Profile</a></li>
+                        <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                        <li><a href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                </li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
@@ -113,7 +119,6 @@
 </section><!-- ======= end title ======= -->
 
 
-
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad" style="padding-top: 0px;">
     <div class="container">
@@ -133,7 +138,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td class="cart-pic first-row"><img src="img/cart-page/product-1.jpg" alt=""></td>
+                            <td class="cart-pic first-row"><img src="/media/product-1.jpg" alt=""></td>
                             <td class="cart-title first-row">
                                 <h5>Pure Pineapple</h5>
                             </td>
@@ -149,7 +154,7 @@
                             <td class="close-td first-row"><i class="ti-close"></i></td>
                         </tr>
                         <tr>
-                            <td class="cart-pic"><img src="img/cart-page/product-2.jpg" alt=""></td>
+                            <td class="cart-pic"><img src="/media/product-2.jpg" alt=""></td>
                             <td class="cart-title">
                                 <h5>American lobster</h5>
                             </td>
@@ -165,7 +170,7 @@
                             <td class="close-td"><i class="ti-close"></i></td>
                         </tr>
                         <tr>
-                            <td class="cart-pic"><img src="img/cart-page/product-3.jpg" alt=""></td>
+                            <td class="cart-pic"><img src="/media/product-3.jpg" alt=""></td>
                             <td class="cart-title">
                                 <h5>Guangzhou sweater</h5>
                             </td>
@@ -203,7 +208,7 @@
                                 <li class="subtotal">Subtotal <span>$240.00</span></li>
                                 <li class="cart-total">Total <span>$240.00</span></li>
                             </ul>
-                            <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                            <a href="{% url 'checkout' %}" class="proceed-btn">PROCEED TO CHECK OUT</a>
                         </div>
                     </div>
                 </div>

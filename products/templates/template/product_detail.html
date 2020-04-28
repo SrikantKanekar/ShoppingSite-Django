@@ -3,7 +3,6 @@
 {% block content %}
 
 
-
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top header">
     <div class="container">
@@ -18,7 +17,13 @@
                 <li><a href="{% url 'cart' %}">Cart</a></li>
                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'user' %}">{{ user.username }}</a></li>
+                <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
+                    <ul>
+                        <li><a href="{% url 'user' %}">User Profile</a></li>
+                        <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                        <li><a href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                </li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
@@ -108,7 +113,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="product-pic-zoom">
-                            <img class="container-fluid product-big-img" style="padding: 0px;" src="/media/{{ product.image_url_1 }}" alt="">
+                            <img class="container-fluid product-big-img" style="padding: 0px;"
+                                 src="/media/{{ product.image_url_1 }}" alt="">
                         </div>
                         <div class="container-fluid product-thumbs" style="padding: 0px;">
                             <div class="product-thumbs-track ps-slider owl-carousel">

@@ -2959,7 +2959,7 @@ section {
 }
 
 .specification-table {
-	padding-top: 52px;
+	padding-top: 40px;
 }
 
 .specification-table table {
@@ -3263,7 +3263,7 @@ section {
 -----------------------*/
 
 .shopping-cart {
-	padding-top: 80px;
+	padding-top: 40px;
 	padding-bottom: 60px;
 }
 
@@ -3309,6 +3309,10 @@ section {
 }
 
 .cart-table table tr td.cart-title h5 {
+	color: #252525;
+}
+
+.cart-table table tr td.cart-title a {
 	color: #252525;
 }
 
@@ -3477,7 +3481,7 @@ section {
 	float: right;
 }
 
-.proceed-checkout .proceed-btn {
+.proceed-btn {
 	font-size: 14px;
 	font-weight: 700;
 	color: #ffffff;
@@ -3915,4 +3919,30 @@ section {
 	  border-top-left-radius: 0;
 	  border-top-right-radius: 0;
 	}
+}
+
+
+.user-sidebar {
+	margin-bottom: 40px;
+}
+
+.user-sidebar table {
+	width: 100%;
+	min-width: 250px;
+	border: 1px solid #ebebeb;
+}
+
+.user-sidebar table tr td a {
+	font-size: 16px;
+	color: #252525;
+	font-weight: 700;
+	border-bottom: 1px solid #ebebeb;
+	text-align: center;
+	padding: 18px 0 19px;
+	text-transform: uppercase;
+}
+
+.user-sidebar table tr td {
+	text-align: center;
+	padding-bottom: 34px;
 }

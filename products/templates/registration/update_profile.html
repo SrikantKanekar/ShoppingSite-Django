@@ -110,7 +110,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        wishlist
+                        {{ user.username }}
                     </h3>
                     <div class="line-mf"></div>
                 </div>
@@ -120,42 +120,12 @@
 </section><!-- ======= end title ======= -->
 
 
-<!-- Shopping Cart Section Begin -->
-<section class="shopping-cart spad" style="padding-top: 0px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cart-table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th class="p-name">Product Name</th>
-                            <th>Price</th>
-                            <th><i class="ti-close"></i></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="cart-pic first-row"><img src="/media/product-1.jpg" alt=""></td>
-                            <td class="cart-title first-row"><h5>Pure Pineapple</h5></td>
-                            <td class="p-price first-row">$60.00</td>
-                            <td>
-                                <div class="proceed-checkout" style="padding-top: 30px; padding-left: 40px;">
-                                    <a href="{% url 'checkout' %}" class="proceed-btn">Add To Cart</a>
-                                </div>
-                            </td>
-                            <td class="close-td first-row"><i class="ti-close"></i></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Shopping Cart Section End -->
-
+<form method="post">
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <button type="submit">Save changes</button>
+</form>
 
 
 {% endblock %}

@@ -17,7 +17,13 @@
                 <li><a href="{% url 'cart' %}">Cart</a></li>
                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'user' %}">{{ user.username }}</a></li>
+                <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
+                    <ul>
+                        <li><a href="{% url 'user' %}">User Profile</a></li>
+                        <li><a href="{% url 'order_track' %}">Track Order</a></li>
+                        <li><a href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                </li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {% endif %}
@@ -114,8 +120,102 @@
 </section><!-- ======= end title ======= -->
 
 
-<a href="{% url 'logout' %}">logout</a>
-<li><a href="{% url 'order_track' %}">Track Order</a></li>
-
+<section class="product-shop spad page-details">
+    <div class="container">
+        <div class="product-tab" style="padding-top: 0px;">
+            <div class="row justify-content-around">
+                <div class="col-lg-3" style="padding-top: 80px;">
+                    <div class="tab-item">
+                        <ul class="nav justify-content-center" role="tablist">
+                            <li>
+                                <a class="active" data-toggle="tab" href="#tab-1" role="tab">Profile</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab-2" role="tab">Wishlist</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#tab-3" role="tab">Track Orders</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="tab-item-content">
+                        <div class="tab-content">
+                            <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+                                <div class="specification-table">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table>
+                                                <tr>
+                                                    <td class="p-catagory">Name</td>
+                                                    <td class="p-catagory">{{ user.username }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-catagory">gender</td>
+                                                    <td class="p-catagory">{{ profile.gender }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-catagory">Birthday</td>
+                                                    <td class="p-catagory">{{ profile.birth_date }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="p-catagory">Address</td>
+                                                    <td class="p-catagory">{{ profile.location }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
+                                            <a href="{% url 'update_profile' %}" class="proceed-btn">update profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                                <section class="shopping-cart spad">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="cart-table">
+                                                <table>
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Image</th>
+                                                        <th class="p-name">Product Name</th>
+                                                        <th>Price</th>
+                                                        <th><i class="ti-close"></i></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td class="cart-pic first-row"><img
+                                                                src="/media/product-1.jpg" alt=""></td>
+                                                        <td class="cart-title first-row"><h5>Pure Pineapple</h5>
+                                                        </td>
+                                                        <td class="p-price first-row">$60.00</td>
+                                                        <td>
+                                                            <div class="proceed-checkout" style="padding-top: 30px; padding-left: 30px;">
+                                                                <a href="{% url 'checkout' %}" class="proceed-btn">Add
+                                                                    To Cart</a>
+                                                            </div>
+                                                        </td>
+                                                        <td class="close-td first-row"><i class="ti-close"></i></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                                <!--                                track order-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
