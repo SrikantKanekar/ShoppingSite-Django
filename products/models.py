@@ -64,7 +64,7 @@ class Category(MPTTModel):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.TextField(max_length=30, blank=True, null=True)
-    birth_date = models.DateField(blank=True, null=True)
+    birth_date = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
 
     def __str__(self):

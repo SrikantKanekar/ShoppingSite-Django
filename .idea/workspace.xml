@@ -6,9 +6,6 @@
       <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/update_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

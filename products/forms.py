@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
 from .models import Profile
-from bootstrap_datepicker_plus import DatePickerInput
 
 
 class UserLoginForm(forms.Form):
@@ -97,4 +96,4 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('location', 'gender', 'birth_date')
-        widgets = {'birth_date': DatePickerInput(format='%d-%m-%Y', attrs={'type': 'date'})}
+        widgets = {'birth_date': forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'})}
