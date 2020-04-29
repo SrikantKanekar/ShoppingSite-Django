@@ -1,4 +1,9 @@
 {% extends 'template/base.html' %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
 {% load static %}
 {% block content %}
 
@@ -110,7 +115,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        {{ user.username }}
+                        update profile
                     </h3>
                     <div class="line-mf"></div>
                 </div>
@@ -120,12 +125,48 @@
 </section><!-- ======= end title ======= -->
 
 
-<form method="post">
-  {% csrf_token %}
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
-  <button type="submit">Save changes</button>
-</form>
-
-
+<div class="user-profile">
+    <div class="row justify-content-center">
+        <div class="col-sm-7 col-md-6 col-lg-5 col-xl-5">
+            <div class="wrapper">
+                <form class="form-signin" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6">
+                            <p>
+                                <label>First Name </label>
+                                {{ user_form.first_name }}
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <p>
+                                <label>Last Name </label>
+                                {{ user_form.last_name }}
+                            </p>
+                        </div>
+                    </div>
+                    <p>
+                        <label>Email </label>
+                        {{ user_form.email }}
+                    </p>
+                    <p>
+                        <label>Location </label>
+                        {{ profile_form.location }}
+                    </p>
+                    <p>
+                        <label>Gender </label>
+                        {{ profile_form.gender }}
+                    </p>
+                    <p>
+                        <label>Birthday </label>
+                        {{ profile_form.birth_date }}
+                    </p>
+                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">Save
+                        changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

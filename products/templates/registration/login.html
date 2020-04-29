@@ -122,7 +122,7 @@
                 <form class="form-signin" method='POST' action='' enctype="multipart/form-data"
                       style="margin-top: -30px; margin-bottom: -18px;">{% csrf_token %}
                     {{form.as_p }}
-                    </label><br>
+                    <br>
                     <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">{{title}}</button>
                     <br>
                     {% if title == "login" %}<h6>Not Registered? <a href="{% url 'register' %}">Register Here</a></h6>{% endif %}
