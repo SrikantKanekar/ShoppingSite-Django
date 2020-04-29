@@ -3998,3 +3998,103 @@ section {
     border: 1px solid #ccc;
     border-radius: 2px;
 }
+
+<----     search     ------>
+<-------------------------------------------->
+
+.search {
+  display: table;
+}
+.search input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 250px;
+  min-width: 0;
+  padding-right: 40px;
+  z-index: 1;
+  position: relative;
+  line-height: 31px;
+  margin: 5px 0;
+  font-size: 18px;
+  -webkit-appearance: none;
+  font-family: "Open Sans", sans-serif;
+  transition: all .6s ease;
+  cursor: pointer;
+  color: #fff;
+}
+.search input + div {
+  position: relative;
+  height: 31px;
+  width: 100%;
+  margin: -28px 0 0 0;
+}
+.search input + div svg {
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 130px;
+  right: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-dashoffset: 271.908;
+  stroke-dasharray: 59 212.908;
+  transition: all .6s ease;
+}
+.search input:not(:placeholder-shown), .search input:focus {
+  width: 160px;
+  padding: 0 4px;
+  cursor: text;
+}
+.search input:not(:placeholder-shown) + div svg, .search input:focus + div svg {
+  stroke-dasharray: 150 212.908;
+  stroke-dashoffset: 300;
+}
+
+::-moz-selection {
+}
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-moz-selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search {
+    html {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    * {
+      box-sizing: inherit;
+    }
+    *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Mukta Malar', Arial;
+      background: #F3628D;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    body .dribbble {
+      position: fixed;
+      display: block;
+      right: 24px;
+      bottom: 24px;
+    }
+    body .dribbble img {
+      display: block;
+      width: 76px;
+    }
+}
