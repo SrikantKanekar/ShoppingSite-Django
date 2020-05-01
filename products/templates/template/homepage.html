@@ -8,20 +8,20 @@
     <div class="container">
         <div class="logo float-left">
             <h1 class="text-light"><a href="{% url 'homepage' %}"><span>DjangoShop</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
                 <li>
-                    <div class="search">
-                        <input type="text" placeholder=" ">
-                        <div>
-                            <svg>
-                                <use xlink:href="#path"/>
-                            </svg>
+                    <form>
+                        <div class="search">
+                            <input type="text" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </li>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
@@ -109,52 +109,14 @@
 
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex justify-cntent-center align-items-center">
+<section id="hero" class="d-flex justify-content-center align-items-center">
     <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
-
-        <!-- Slide 1 -->
         <div class="carousel-item active">
             <div class="carousel-container">
-                <h2 class="animated fadeInDown">Welcome to <span>DjangoShop</span></h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est
-                    quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse
-                    doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+                <h2 class="animated fadeInDown">Welcome to DjangoShop</h2>
+                <p class="animated fadeInUp"></p>
             </div>
         </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <div class="carousel-container">
-                <h2 class="animated fadeInDown">Lorem Ipsum Dolor</h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est
-                    quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse
-                    doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item">
-            <div class="carousel-container">
-                <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</h2>
-                <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est
-                    quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse
-                    doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
-            </div>
-        </div>
-
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-
     </div>
 </section><!-- End Hero -->
 
