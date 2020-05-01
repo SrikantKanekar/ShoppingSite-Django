@@ -295,7 +295,7 @@ h6,
   ------------------------------------------------------------------------------------------------*/
 .search {
   height                : 41px;
-  width                 : 250px;
+  width                 : 280px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -303,8 +303,9 @@ h6,
   background        : none;
   border            : none;
   outline           : none;
-  min-width         : 250px;
+  min-width         : 280px;
   padding           : 0;
+  padding-left      : 5px;
   z-index           : 1;
   position          : relative;
   line-height       : 41px;
