@@ -2623,8 +2623,7 @@ h6,
 }
 
 .cart-table table {
-  width    : 100%;
-  min-width: 1108px;
+  width    : 1100px;
   border   : 1px solid #ebebeb;
 }
 
@@ -2648,7 +2647,7 @@ h6,
 }
 
 .cart-table table tr td.cart-pic {
-  width: 21%;
+  width: 18%;
 }
 
 .cart-table table tr td.cart-title h5 {
@@ -2663,7 +2662,7 @@ h6,
   width: 16%;
 }
 
-.cart-table table tr td.p-price,
+.cart-table table tr td .p-price,
 .cart-table table tr td.total-price {
   color      : #1e4356;
   font-size  : 16px;
@@ -2816,11 +2815,22 @@ h6,
 
 .proceed-btn {
   font-size     : 14px;
-  font-weight   : 700;
+  font-weight   : 600;
   color         : #ffffff;
   background    : #1e4356;
   text-transform: uppercase;
   padding       : 15px 25px 14px 25px;
+  display       : block;
+  text-align    : center;
+}
+
+.remove-btn {
+  font-size     : 14px;
+  font-weight   : 600;
+  color         : #ffffff;
+  background    : #1e4356;
+  text-transform: uppercase;
+  padding       : 10px 0px 10px 0px;
   display       : block;
   text-align    : center;
 }
