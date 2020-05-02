@@ -2623,13 +2623,15 @@ h6,
 
 .cart-table table {
   width    : 100%;
+  min-width: 1108px;
+  overflow-x: auto;
   border   : 1px solid #ebebeb;
 }
 
 .cart-table table tr th {
   font-size     : 16px;
   color         : #252525;
-  font-weight   : 700;
+  font-weight   : 600;
   border-bottom : 1px solid #ebebeb;
   text-align    : center;
   padding       : 18px 0 19px;
@@ -2693,7 +2695,7 @@ h6,
   width  : 123px;
   height : 46px;
   border : 2px solid #ebebeb;
-  padding: 0 15px;
+  padding: 0;
   float  : left;
 }
 
@@ -2703,7 +2705,7 @@ h6,
   float      : left;
   line-height: 38px;
   cursor     : pointer;
-  width      : 18px;
+  width      : 33px;
 }
 
 .cart-table table tr td.qua-col .pro-qty .qtybtn.dec {
@@ -2723,16 +2725,6 @@ h6,
 
 .cart-table table tr td.total-price {
   width: 12%;
-}
-
-.cart-table table tr td.close-td {
-  font-size: 16px;
-  color    : #252525;
-  width    : 8%;
-}
-
-.cart-table table tr td.close-td i {
-  cursor: pointer;
 }
 
 .cart-buttons {
