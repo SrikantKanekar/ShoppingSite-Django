@@ -2619,11 +2619,12 @@ h6,
 
 .cart-table {
   margin-bottom: 40px;
+  overflow-x: auto;
 }
 
 .cart-table table {
   width    : 100%;
-  overflow-x: auto;
+  min-width: 1108px;
   border   : 1px solid #ebebeb;
 }
 
