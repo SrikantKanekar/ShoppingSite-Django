@@ -2623,7 +2623,6 @@ h6,
 
 .cart-table table {
   width    : 100%;
-  min-width: 1108px;
   overflow-x: auto;
   border   : 1px solid #ebebeb;
 }
@@ -2638,10 +2637,6 @@ h6,
   text-transform: uppercase;
 }
 
-.cart-table table tr th.p-name {
-  text-align: left;
-}
-
 .cart-table table tr td {
   text-align    : center;
   padding-bottom: 34px;
@@ -2653,10 +2648,6 @@ h6,
 
 .cart-table table tr td.cart-pic {
   width: 21%;
-}
-
-.cart-table table tr td.cart-title {
-  text-align: left;
 }
 
 .cart-table table tr td.cart-title h5 {
