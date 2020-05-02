@@ -299,7 +299,7 @@ h6,
   -webkit-font-smoothing: antialiased;
 }
 
-.search input {
+.search input[type=text] {
   background        : none;
   border            : none;
   outline           : none;
@@ -316,6 +316,10 @@ h6,
   cursor            : pointer;
   color             : #ddecf5;
   font-family       : "Open Sans", sans-serif;
+}
+
+.submit {
+  display: none;
 }
 
 .search div {
@@ -340,15 +344,15 @@ h6,
   transition       : all .6s ease;
 }
 
-.search input:not(:placeholder-shown),
-.search input:focus {
+.search input[type=text]:not(:placeholder-shown),
+.search input[type=text]:focus {
   width        : 160px;
   padding-right: 20px;
   cursor       : text;
 }
 
-.search input:not(:placeholder-shown)+div svg,
-.search input:focus+div svg {
+.search input[type=text]:not(:placeholder-shown)+div svg,
+.search input[type=text]:focus+div svg {
   stroke-dasharray : 300 212.908;
   stroke-dashoffset: 300;
 }
@@ -1521,6 +1525,7 @@ h6,
 
 .portfolio .sect-pt4 {
   padding-top: 4rem;
+  margin-top: 30px;
 }
 
 .portfolio .title-box {

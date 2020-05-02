@@ -7,12 +7,25 @@
 <header id="header" class="fixed-top header">
     <div class="container">
         <div class="logo float-left">
-            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>DjangoShop</span></a></h1>
+            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                        <div class="search">
+                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" name="submit" value="Search"/>
+                    </form>
+                </li>
                 <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
@@ -101,7 +114,8 @@
 <br>
 <br>
 <br>
-
+<br>
+<br>
 
 <!-- ======= title ======= -->
 <section class="portfolio sect-pt4" style="padding-bottom: 0px;">
@@ -193,7 +207,8 @@
                                                         </td>
                                                         <td class="p-price first-row">$60.00</td>
                                                         <td>
-                                                            <div class="proceed-checkout" style="padding-top: 30px; padding-left: 30px;">
+                                                            <div class="proceed-checkout"
+                                                                 style="padding-top: 30px; padding-left: 30px;">
                                                                 <a href="{% url 'checkout' %}" class="proceed-btn">Add
                                                                     To Cart</a>
                                                             </div>

@@ -6,6 +6,7 @@ from .forms import ProfileForm, UserForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.db.models import Q
 
 
 def homepage(request):
@@ -111,3 +112,19 @@ def update_profile(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+
+def search(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        submitbutton = request.GET.get('submit')
+        if query is not None:
+            lookups = Q(title__icontains=query)
+            results = Product.objects.filter(lookups).distinct()
+            context = {'results': results,
+                       'submitbutton': submitbutton}
+            return render(request, 'template/search.html', context)
+        else:
+            return render(request, 'template/search.html')
+    else:
+        return render(request, 'template/search.html')

@@ -8,8 +8,6 @@
     <div class="container">
         <div class="logo float-left">
             <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
@@ -26,7 +24,7 @@
                         <input class="submit" type="submit" name="submit" value="Search"/>
                     </form>
                 </li>
-                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'cart' %}">Cart</a></li>
                 <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                 {% if user.is_authenticated %}
@@ -117,58 +115,58 @@
 <br>
 <br>
 
-<!-- ======= title ======= -->
-<section class="portfolio sect-pt4" style="padding-bottom: 0px;">
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+
+
+<section class="portfolio sect-pt4">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div class="title-box text-center">
-                    <h3 class="title-a">
-                        wishlist
-                    </h3>
+                    <h1>
+                        Results for <b>{{ request.GET.q }}</b>
+                    </h1>
                     <div class="line-mf"></div>
                 </div>
             </div>
         </div>
-    </div>
-</section><!-- ======= end title ======= -->
-
-
-<!-- Shopping Cart Section Begin -->
-<section class="shopping-cart spad" style="padding-top: 0px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cart-table">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th class="p-name">Product Name</th>
-                            <th>Price</th>
-                            <th><i class="ti-close"></i></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="cart-pic first-row"><img src="/media/assets/img/product-1.jpg" alt=""></td>
-                            <td class="cart-title first-row"><h5>Pure Pineapple</h5></td>
-                            <td class="p-price first-row">$60.00</td>
-                            <td>
-                                <div class="proceed-checkout" style="padding-top: 30px; padding-left: 40px;">
-                                    <a href="{% url 'checkout' %}" class="proceed-btn">Add To Cart</a>
+        <section class="product-shop">
+            <div class="row">
+                <div class="col-lg-12 order-1 order-lg-2">
+                    <div class="product-list">
+                        <div class="row">
+                            {% if results %}
+                            {% for result in results %}
+                            <div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                                <div class="work-box">
+                                    <a href="{% url 'product_detail' slug=result.slug %}" class="stretched-link">
+                                        <div class="work-img">
+                                            <img src="/media/{{ result.image_url_1 }}" alt="" class="img-fluid">
+                                        </div>
+                                        <div class="pi-text">
+                                            <h5 style="margin-bottom: 2px;">{{ result.title }}</h5>
+                                            <div class="product-price">${{ result.offer_price }}
+                                                <span>${{ result.original_price }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </td>
-                            <td class="close-td first-row"><i class="ti-close"></i></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <h2>No search results for this query</h2>
+                            <br><br><br><br><br><br>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </section>
-<!-- Shopping Cart Section End -->
+
+{% endif %}
 
 
 {% endblock %}

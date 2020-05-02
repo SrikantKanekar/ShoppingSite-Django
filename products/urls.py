@@ -19,4 +19,5 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'),
     path('user/', views.user, name='user'),
     path('user/update_profile', views.update_profile, name='update_profile'),
+    path('search/', views.search, name='search'),
 ]
