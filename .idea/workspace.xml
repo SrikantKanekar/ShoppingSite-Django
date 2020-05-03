@@ -3,8 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/Cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/Cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0010_auto_20200428_1655.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0011_auto_20200429_1117.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0012_auto_20200429_1119.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0013_auto_20200429_1141.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0014_auto_20200429_1242.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0015_auto_20200429_1243.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0016_auto_20200429_1246.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0017_auto_20200429_1246.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0018_auto_20200429_1248.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0019_auto_20200429_1249.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0020_auto_20200429_1252.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0021_auto_20200429_1410.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0022_auto_20200429_1426.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0023_auto_20200429_1434.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/migrations/0024_auto_20200429_1435.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
