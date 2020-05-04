@@ -23,8 +23,8 @@ def show_category(request, slug):
 def product_detail(request, slug):
     if request.user.is_authenticated:
         product = Product.objects.get(slug=slug)
-        cart = Profile.objects.get(user=request.user)
-        return render(request, 'template/product_detail.html', {'product': product, 'cart': cart})
+        profile = Profile.objects.get(user=request.user)
+        return render(request, 'template/product_detail.html', {'product': product, 'profile': profile})
     else:
         product = Product.objects.get(slug=slug)
         return render(request, 'template/product_detail.html', {'product': product})
@@ -52,10 +52,6 @@ def about_us(request):
 
 def services(request):
     return render(request, 'template/services.html')
-
-
-def wishlist(request):
-    return render(request, 'template/wishlist.html')
 
 
 def login_view(request):
@@ -133,24 +129,41 @@ def search(request):
 
 def cart(request):
     if request.user.is_authenticated:
-        cart = Profile.objects.get(user=request.user)
-        products = cart.products.all()
+        profile = Profile.objects.get(user=request.user)
+        products = profile.cart_products.all()
         total = 0
-        print(cart)
         for x in products:
             total += x.offer_price
-        cart.total = total
-        cart.save()
-        return render(request, 'template/Cart.html', {'cart': cart})
+        profile.total = total
+        profile.save()
+        return render(request, 'template/Cart.html', {'profile': profile})
     else:
         return render(request, 'template/Cart.html')
 
 
 def cart_update(request, product_id):
     product_obj = Product.objects.get(id=product_id)
-    cart = Profile.objects.get(user=request.user)
-    if product_obj in cart.products.all():
-        cart.products.remove(product_obj)
+    profile = Profile.objects.get(user=request.user)
+    if product_obj in profile.cart_products.all():
+        profile.cart_products.remove(product_obj)
     else:
-        cart.products.add(product_obj)
+        profile.cart_products.add(product_obj)
     return redirect('/cart/')
+
+
+def wishlist(request):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        return render(request, 'template/wishlist.html', {'profile': profile})
+    else:
+        return render(request, 'template/wishlist.html')
+
+
+def wishlist_update(request, product_id):
+    product_obj = Product.objects.get(id=product_id)
+    profile = Profile.objects.get(user=request.user)
+    if product_obj in profile.wishlist_products.all():
+        profile.wishlist_products.remove(product_obj)
+    else:
+        profile.wishlist_products.add(product_obj)
+    return redirect('/wishlist/')

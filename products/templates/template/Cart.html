@@ -153,11 +153,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for product in cart.products.all %}
+                        {% for cart_product in profile.cart_products.all %}
                         <tr>
-                            <td class="cart-pic first-row"><img src="/media/{{ product.image_url_1 }}" alt=""></td>
-                            <td class="cart-title first-row"><h5>{{ product.title }}</h5></td>
-                            <td class="p-price first-row">₹{{ product.offer_price }}</td>
+                            <td class="cart-pic first-row"><img src="/media/{{ cart_product.image_url_1 }}" alt=""></td>
+                            <td class="cart-title first-row"><h5>{{ cart_product.title }}</h5></td>
+                            <td class="p-price first-row">₹{{ cart_product.offer_price }}</td>
                             <td class="qua-col first-row">
                                 <div class="quantity">
                                     <div class="pro-qty">
@@ -165,8 +165,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="total-price first-row">₹{{ product.offer_price }}</td>
-                            <td><a href="{% url 'cart_update' product_id=product.id %}" class="remove-btn first-row">remove</a>
+                            <td class="total-price first-row">₹{{ cart_product.offer_price }}</td>
+                            <td><a href="{% url 'cart_update' product_id=cart_product.id %}" class="remove-btn first-row">remove</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -190,8 +190,8 @@
                     <div class="col-lg-4 offset-lg-4">
                         <div class="proceed-checkout">
                             <ul>
-                                <li class="subtotal">Subtotal <span>₹{{ cart.total }}</span></li>
-                                <li class="cart-total">Total <span>₹{{ cart.total }}</span></li>
+                                <li class="subtotal">Subtotal <span>₹{{ profile.total }}</span></li>
+                                <li class="cart-total">Total <span>₹{{ profile.total }}</span></li>
                             </ul>
                             <a href="{% url 'checkout' %}" class="proceed-btn">PROCEED TO CHECK OUT</a>
                         </div>

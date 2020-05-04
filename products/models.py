@@ -69,7 +69,8 @@ class Profile(models.Model):
     location = models.TextField(max_length=30, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
-    products = models.ManyToManyField(Product, blank=True)
+    cart_products = models.ManyToManyField(Product, blank=True)
+    wishlist_products = models.ManyToManyField(Product, blank=True, related_name='wishlist')
     total = models.IntegerField(default=0)
 
     def __str__(self):

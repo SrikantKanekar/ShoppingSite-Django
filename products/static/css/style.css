@@ -1521,7 +1521,7 @@ h6,
 
 .portfolio .sect-pt4 {
   padding-top: 4rem;
-  margin-top: 30px;
+  margin-top : 30px;
 }
 
 .portfolio .title-box {
@@ -1560,6 +1560,7 @@ h6,
 .cart-text {
   text-align: center;
 }
+
 /*----------------------------------------------------------------------------------------------------
 # product-list
 ----------------------------------------------------------------------------------------------------*/
@@ -2039,19 +2040,19 @@ h6,
 }
 
 .product-details .pd-title .heart-icon {
-  color    : #252525;
-  font-size: 18px;
+  font-size: 1em;
+  color    : rgb(243, 24, 24);
   position : absolute;
-  right    : 0;
-  top      : 0;
+  right    : 40px;
+  top      : 0px;
 }
 
 .product-details .pd-rating {
   margin-bottom: 10px;
 }
 
-.product-details .pd-rating i {
-  font-size   : 12px;
+.product-details .pd-rating {
+  font-size   : 10px;
   display     : inline-block;
   color       : #FAC451;
   margin-right: -3px;
@@ -2617,12 +2618,12 @@ h6,
 
 .cart-table {
   margin-bottom: 40px;
-  overflow-x: auto;
+  overflow-x   : auto;
 }
 
 .cart-table table {
-  width    : 1100px;
-  border   : 1px solid #ebebeb;
+  width : 1100px;
+  border: 1px solid #ebebeb;
 }
 
 .cart-table table tr th {

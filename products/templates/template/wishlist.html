@@ -133,7 +133,7 @@
     </div>
 </section><!-- ======= end title ======= -->
 
-
+{% if user.is_authenticated %}
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad" style="padding-top: 0px;">
     <div class="container">
@@ -150,16 +150,24 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {% for wishlist_product in profile.wishlist_products.all %}
                         <tr>
-                            <td class="cart-pic first-row"><img src="/media/assets/img/product-1.jpg" alt=""></td>
-                            <td class="cart-title first-row"><h5>Pure Pineapple</h5></td>
-                            <td class="p-price first-row">$60.00</td>
+                            <td class="cart-pic first-row"><img src="/media/{{ wishlist_product.image_url_1 }}" alt="">
+                            </td>
+                            <td class="cart-title first-row"><h5>{{ wishlist_product.title }}</h5></td>
+                            <td class="p-price first-row">₹{{ wishlist_product.offer_price }}</td>
                             <td>
                                 <div class="proceed-checkout" style="padding-top: 30px; padding-left: 40px;">
-                                    <a href="{% url 'checkout' %}" class="proceed-btn">Add To Cart</a>
+                                    <a href="{% url 'wishlist_update' product_id=wishlist_product.id %}" class="proceed-btn">remove</a>
                                 </div>
                             </td>
-                            </tr>
+                            <td>
+                                <div class="proceed-checkout" style="padding-top: 30px; padding-left: 40px;">
+                                    <a href="{% url 'cart_update' product_id=wishlist_product.id %}" class="proceed-btn">Add To Cart</a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -168,6 +176,38 @@
     </div>
 </section>
 <!-- Shopping Cart Section End -->
+{% else %}
+<section class="portfolio sect-pt4">
+    <div class="container">
+        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="work-box">
+                <div class="row" style="padding: 20px 50px;">
+                    <div class="col">
+                        <h3>My Wishlist</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="work-img cart-img">
+                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-content">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <h3 class="cart-text">Missing Wishlist Items?</h3>
+                            <h6 class="cart-text">Login to see the items u added previously</h6>
+                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                               href="{% url 'login' %}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 
 
 {% endblock %}

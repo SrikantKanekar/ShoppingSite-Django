@@ -145,18 +145,28 @@
                         <div class="product-details">
                             <div class="pd-title">
                                 <h3>{{product.title}}</h3>
-                                <a href="" class="heart-icon"><i class="fa fa-heart"></i></a>
+                                {% if user.is_authenticated %}
+                                {% if product in profile.wishlist_products.all %}
+                                <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
+                                        class="fas fa-heart"></i></a>
+                                {% else %}
+                                <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
+                                        class="far fa-heart"></i></a>
+                                {% endif %}
+                                {% else %}
+                                <a href="{% url 'wishlist' %}" class="heart-icon"><i class="far fa-heart"></i></a>
+                                {% endif %}
                             </div>
-                            <div class="pd-rating">
+                            <span class="pd-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
+                                <i class="far fa-star"></i>
                                 <span>(4)</span>
-                            </div>
+                            </span>
                             <div class="pd-desc">
-                                <h4>₹{{ product.offer_price }}<span>{{ product.original_price }}</span></h4>
+                                <h4>₹{{ product.offer_price }}<span>₹{{ product.original_price }}</span></h4>
                             </div>
                             <div class="pd-color">
                                 <h6>Color</h6>
@@ -195,11 +205,13 @@
                             </div>
                             <div class="quantity">
                                 {% if user.is_authenticated %}
-                                    {% if product in cart.products.all %}
-                                    <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove from cart</a>
-                                    {% else %}
-                                    <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add To Cart</a>
-                                    {% endif %}
+                                {% if product in profile.cart_products.all %}
+                                <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove
+                                    from cart</a>
+                                {% else %}
+                                <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add
+                                    To Cart</a>
+                                {% endif %}
                                 {% else %}
                                 <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
                                 {% endif %}
@@ -254,7 +266,7 @@
                                                 <tr>
                                                     <td class="p-catagory">Price</td>
                                                     <td>
-                                                        <div class="p-price">{{ product.offer_price }}</div>
+                                                        <div class="p-price">₹{{ product.offer_price }}</div>
                                                     </td>
                                                 </tr>
                                                 <tr>
