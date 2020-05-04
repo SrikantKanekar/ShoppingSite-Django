@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Category, Product, Profile
 from django.contrib.auth import authenticate, login
 from .forms import UserLoginForm, UsersRegisterForm
@@ -148,7 +148,7 @@ def cart_update(request, product_id):
         profile.cart_products.remove(product_obj)
     else:
         profile.cart_products.add(product_obj)
-    return redirect('/cart/')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def wishlist(request):
@@ -166,4 +166,4 @@ def wishlist_update(request, product_id):
         profile.wishlist_products.remove(product_obj)
     else:
         profile.wishlist_products.add(product_obj)
-    return redirect('/wishlist/')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

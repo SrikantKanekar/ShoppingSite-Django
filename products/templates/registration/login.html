@@ -7,21 +7,26 @@
 <header id="header" class="fixed-top header">
     <div class="container">
         <div class="logo float-left">
-            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>DjangoShop</span></a></h1>
+            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                        <div class="search">
+                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" name="submit" value="Search"/>
+                    </form>
+                </li>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="{% url 'cart' %}">Cart</a></li>
-                <li><a href="{% url 'order_track' %}">Track Order</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="">{{ user.username }}</a></li>
-                {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-
                 <li class="drop-down"><a href="">Category</a>
                     <ul>
                         <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
@@ -114,7 +119,6 @@
 </section><!-- ======= end title ======= -->
 
 
-
 <div class="login container">
     <div class="row justify-content-center">
         <div class="col-sm-7 col-md-6 col-lg-5 col-xl-5">
@@ -123,7 +127,9 @@
                       style="margin-top: -30px; margin-bottom: -18px;">{% csrf_token %}
                     {{form.as_p }}
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">{{title}}</button>
+                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">
+                        {{title}}
+                    </button>
                     <br>
                     {% if title == "login" %}<h6>Not Registered? <a href="{% url 'register' %}">Register Here</a></h6>{% endif %}
                     {% if title == "register" %}<h6>Already Registered? <a href="{% url 'login' %}">Login Here</a></h6>{% endif %}
