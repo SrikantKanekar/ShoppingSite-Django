@@ -21,8 +21,13 @@ def show_category(request, slug):
 
 
 def product_detail(request, slug):
-    product = Product.objects.get(slug=slug)
-    return render(request, 'template/product_detail.html', {'product': product})
+    if request.user.is_authenticated:
+        product = Product.objects.get(slug=slug)
+        cart = Profile.objects.get(user=request.user)
+        return render(request, 'template/product_detail.html', {'product': product, 'cart': cart})
+    else:
+        product = Product.objects.get(slug=slug)
+        return render(request, 'template/product_detail.html', {'product': product})
 
 
 def faq(request):
@@ -31,10 +36,6 @@ def faq(request):
 
 def contact_us(request):
     return render(request, 'template/Contact us.html')
-
-
-def Cart(request):
-    return render(request, 'template/Cart.html')
 
 
 def track_order(request):
@@ -128,3 +129,28 @@ def search(request):
             return render(request, 'template/search.html')
     else:
         return render(request, 'template/search.html')
+
+
+def cart(request):
+    if request.user.is_authenticated:
+        cart = Profile.objects.get(user=request.user)
+        products = cart.products.all()
+        total = 0
+        print(cart)
+        for x in products:
+            total += x.offer_price
+        cart.total = total
+        cart.save()
+        return render(request, 'template/Cart.html', {'cart': cart})
+    else:
+        return render(request, 'template/Cart.html')
+
+
+def cart_update(request, product_id):
+    product_obj = Product.objects.get(id=product_id)
+    cart = Profile.objects.get(user=request.user)
+    if product_obj in cart.products.all():
+        cart.products.remove(product_obj)
+    else:
+        cart.products.add(product_obj)
+    return redirect('/cart/')

@@ -692,10 +692,6 @@ h6,
   color        : #68A4C4;
 }
 
-.features p:last-child {
-  margin-bottom: 0;
-}
-
 /*-----------------------------------------------------------------------------------------------
 # About
 -----------------------------------------------------------------------------------------------*/
@@ -1561,7 +1557,9 @@ h6,
   transition     : all 0.5s ease-in-out;
 }
 
-
+.cart-text {
+  text-align: center;
+}
 /*----------------------------------------------------------------------------------------------------
 # product-list
 ----------------------------------------------------------------------------------------------------*/
@@ -2640,14 +2638,15 @@ h6,
 .cart-table table tr td {
   text-align    : center;
   padding-bottom: 34px;
+
 }
 
 .cart-table table tr td.first-row {
   padding-top: 30px;
 }
 
-.cart-table table tr td.cart-pic {
-  width: 18%;
+.cart-table table td img {
+  width: 50%;
 }
 
 .cart-table table tr td.cart-title h5 {
@@ -2834,6 +2833,8 @@ h6,
   display       : block;
   text-align    : center;
 }
+
+
 
 /*-------------------------------------------------------------------------------------------------
  # Check Out

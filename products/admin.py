@@ -5,3 +5,4 @@ from mptt.admin import MPTTModelAdmin
 admin.site.register(Product)
 admin.site.register(Category, MPTTModelAdmin)
 admin.site.register(Profile)
+

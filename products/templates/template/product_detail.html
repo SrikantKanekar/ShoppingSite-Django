@@ -156,7 +156,7 @@
                                 <span>(4)</span>
                             </div>
                             <div class="pd-desc">
-                                <h4>${{ product.offer_price }}<span>{{ product.original_price }}</span></h4>
+                                <h4>₹{{ product.offer_price }}<span>{{ product.original_price }}</span></h4>
                             </div>
                             <div class="pd-color">
                                 <h6>Color</h6>
@@ -194,10 +194,15 @@
                                 </div>
                             </div>
                             <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                                <a href="#" class="primary-btn pd-cart">Add To Cart</a>
+                                {% if user.is_authenticated %}
+                                    {% if product in cart.products.all %}
+                                    <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove from cart</a>
+                                    {% else %}
+                                    <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add To Cart</a>
+                                    {% endif %}
+                                {% else %}
+                                <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

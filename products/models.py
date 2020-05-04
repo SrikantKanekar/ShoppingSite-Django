@@ -4,7 +4,6 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.utils.timezone import timezone
 
 
 class Product(models.Model):
@@ -13,8 +12,8 @@ class Product(models.Model):
     image_url_1 = models.ImageField(upload_to='product/img', null=True, blank=True)
     image_url_2 = models.ImageField(upload_to='product/img', null=True, blank=True)
     image_url_3 = models.ImageField(upload_to='product/img', null=True, blank=True)
-    offer_price = models.FloatField(null=True, blank=True)
-    original_price = models.FloatField(null=True, blank=True)
+    offer_price = models.FloatField(default=0)
+    original_price = models.FloatField(default=0)
     description = models.TextField(null=True, blank=True)
     quantity_left = models.IntegerField(null=True, blank=True)
     return_days = models.IntegerField(null=True, blank=True)
@@ -23,6 +22,9 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Product, self).save(*args, **kwargs)
+
+    def get_product_id(self):
+        return self.id
 
     def __str__(self):
         return self.title
@@ -67,6 +69,8 @@ class Profile(models.Model):
     location = models.TextField(max_length=30, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
+    products = models.ManyToManyField(Product, blank=True)
+    total = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username
