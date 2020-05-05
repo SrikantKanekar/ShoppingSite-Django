@@ -135,7 +135,42 @@
 </section><!-- ======= end title ======= -->
 
 {% if user.is_authenticated %}
-<!-- Shopping Cart Section Begin -->
+{% if count == 0 %}
+<!--cart page if cart has no items-->
+<section class="portfolio sect-pt4">
+    <div class="container">
+        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="work-box">
+                <div class="row" style="padding: 20px 50px;">
+                    <div class="col">
+                        <h3>My Cart</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="work-img cart-img">
+                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-content">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <h5 class="cart-text">No Cart Items Added Yet</h5>
+                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                               href="{% url 'homepage' %}">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% else %}
+<!-- normal Cart page -->
 <section class="portfolio">
     <div class="container">
         {% for cart_product in profile.cart_products.all %}
@@ -210,9 +245,12 @@
     </div>
 </section>
 <!-- Shopping Cart Section End -->
+{% endif %}
+
 
 
 {% else %}
+<!--cart page if user is not authenticated-->
 <section class="portfolio sect-pt4">
     <div class="container">
         <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
@@ -244,5 +282,6 @@
     </div>
 </section>
 {% endif %}
+
 
 {% endblock %}

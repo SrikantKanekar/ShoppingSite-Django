@@ -134,7 +134,41 @@
 </section><!-- ======= end title ======= -->
 
 {% if user.is_authenticated %}
-<!-- Shopping wishlist Section Begin -->
+{% if count == 0 %}
+<!--wishlist page if wishlist has no items-->
+<section class="portfolio sect-pt4">
+    <div class="container">
+        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="work-box">
+                <div class="row" style="padding: 20px 50px;">
+                    <div class="col">
+                        <h3>My Wishlist</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="work-img cart-img">
+                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-content">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <h5 class="cart-text">No Wishlist Items Added Yet</h5>
+                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                               href="{% url 'homepage' %}">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% else %}
+<!-- normal wishlist page -->
 <section class="portfolio">
     <div class="container">
         {% for wishlist_product in profile.wishlist_products.all %}
@@ -149,7 +183,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="work-content" style="padding:10px;">
                                 <div class="row">
                                     <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
@@ -161,15 +195,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 proceed-checkout" style="padding: 10px 0px; text-align: right;">
-                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}">
-                                <span style="color: grey;">
-                                <i class="fas fa-shopping-cart"></i>
-                                </span>
-                            </a>
+                        <div class="col-3 proceed-checkout" style="padding-top:50px">
+                            {% if wishlist_product in profile.cart_products.all %}
+                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white"
+                               class="proceed-btn">remove
+                                from cart</a>
+                            {% else %}
+                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white"
+                               class="proceed-btn">Add
+                                To Cart</a>
+                            {% endif %}
                         </div>
                         <div class="col-1" style="padding-top:10px;">
-                            <a href="{% url 'wishlist_update' product_id=wishlist_product.id %}">
+                            <a href="{% url 'wishlist_update' product_id=wishlist_product.id %}" data-toggle="tooltip"
+                               data-placement="top" title="Remove">
                                 <span style="color: grey;">
                                 <i class="fas fa-trash"></i>
                                 </span>
@@ -182,8 +221,11 @@
         {% endfor %}
     </div>
 </section>
+{% endif %}
+
 
 {% else %}
+<!-wishlist page if user is not authenticated-->
 <section class="portfolio sect-pt4">
     <div class="container">
         <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>

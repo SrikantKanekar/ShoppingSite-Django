@@ -130,13 +130,14 @@ def search(request):
 def cart(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
+        count = profile.cart_products.all().count()
         products = profile.cart_products.all()
         total = 0
         for x in products:
             total += x.offer_price
         profile.total = total
         profile.save()
-        return render(request, 'template/Cart.html', {'profile': profile})
+        return render(request, 'template/Cart.html', {'profile': profile, 'count': count})
     else:
         return render(request, 'template/Cart.html')
 
@@ -154,7 +155,8 @@ def cart_update(request, product_id):
 def wishlist(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        return render(request, 'template/wishlist.html', {'profile': profile})
+        count = profile.wishlist_products.all().count()
+        return render(request, 'template/wishlist.html', {'profile': profile, 'count': count})
     else:
         return render(request, 'template/wishlist.html')
 
