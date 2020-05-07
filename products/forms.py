@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
-from .models import Profile
+from .models import Profile, Comment
 
 
 class UserLoginForm(forms.Form):
@@ -95,5 +95,11 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('location', 'gender', 'birth_date')
+        fields = ('location', 'gender', 'birth_date', 'dp')
         widgets = {'birth_date': forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'})}
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text', 'rating')

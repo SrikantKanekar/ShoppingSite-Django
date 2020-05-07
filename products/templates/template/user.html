@@ -138,6 +138,17 @@
     <div class="container">
         <div class="product-tab" style="padding-top: 0px;">
             <div class="row justify-content-center">
+                <div class="col-lg-1">
+                    {% if profile.dp %}
+                    <img style="height: 110px; width: 110px; border-radius: 50%;"
+                         src="/media/{{ profile.dp }}" alt="">
+                    {% else %}
+                    <img style="height: 110px; width: 110px; border-radius: 50%;"
+                         src="/media/profile/img/default_profile_pic.png" alt="">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="specification-table">
                         <div class="row">
@@ -145,23 +156,31 @@
                                 <table>
                                     <tr>
                                         <td class="p-catagory">First name</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">{{ user.first_name }}</td>
+                                        <td class="p-catagory" style="text-transform: capitalize;">
+                                            {{ user.first_name }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">last name</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">{{ user.last_name }}</td>
+                                        <td class="p-catagory" style="text-transform: capitalize;">
+                                            {{ user.last_name }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">Name</td>
-                                        <td class="p-catagory" style="text-transform: none;">{{ user.username }}</td>
+                                        <td class="p-catagory" style="text-transform: none;">{{ user.username }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">email</td>
-                                        <td class="p-catagory" style="text-transform: lowercase;">{{ user.email }}</td>
+                                        <td class="p-catagory" style="text-transform: lowercase;">{{ user.email }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">gender</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">{{ profile.gender }}</td>
+                                        <td class="p-catagory" style="text-transform: capitalize;">
+                                            {{ profile.gender }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">Birthday</td>
@@ -169,7 +188,9 @@
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">Address</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">{{ profile.location }}</td>
+                                        <td class="p-catagory" style="text-transform: capitalize;">
+                                            {{ profile.location }}
+                                        </td>
                                     </tr>
                                 </table>
                             </div>

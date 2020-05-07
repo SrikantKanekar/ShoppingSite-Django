@@ -304,64 +304,45 @@
                             </div>
                             <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                 <div class="customer-review-option">
-                                    <h4>2 Comments</h4>
+                                    <h4>{{ comment_count }} Comments</h4>
                                     <div class="comment-option">
+                                        {% for comment in comments %}
                                         <div class="co-item">
                                             <div class="avatar-pic">
-                                                <img src="{% static 'img/comments-5.jpg' %}" alt="">
+                                                <img src="/media/{{ comment.user.profile.dp }}" alt="">
                                             </div>
                                             <div class="avatar-text">
-                                                <div class="at-rating">
+                                                <span class="at-rating">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <h5>Brandon Kelley <span>27 Aug 2019</span></h5>
-                                                <div class="at-reply">Nice !</div>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                <h5>{{ comment.user }}<span>{{ comment.created_date }}</span></h5>
+                                                <div class="at-reply">{{ comment.text }}</div>
                                             </div>
                                         </div>
-                                        <div class="co-item">
-                                            <div class="avatar-pic">
-                                                <img src="{% static 'img/comments-3.jpg' %}" alt="">
-                                            </div>
-                                            <div class="avatar-text">
-                                                <div class="at-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                                <h5>Roy Banks <span>27 Aug 2019</span></h5>
-                                                <div class="at-reply">Nice !</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="personal-rating">
-                                        <h6>Your Ratind</h6>
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                     <div class="leave-comment">
                                         <h4>Leave A Comment</h4>
-                                        <form action="#" class="comment-form">
+                                        <form class="comment-form" method="post"> {% csrf_token %}
                                             <div class="row">
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="Name">
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <input type="text" placeholder="Email">
-                                                </div>
                                                 <div class="col-lg-8">
-                                                    <textarea placeholder="Messages"></textarea>
-                                                    <button type="submit" class="site-btn">Send message</button>
+                                                    {{ comment_form.text }}
+                                                    <div class="personal-rating">
+                                                        <h6>Your Ratind</h6>
+                                                        <div class="rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-o"></i>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="site-btn">Add Comment</button>
                                                 </div>
                                             </div>
                                         </form>

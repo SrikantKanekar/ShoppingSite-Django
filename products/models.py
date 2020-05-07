@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils import timezone
 
 
 class Product(models.Model):
@@ -66,6 +67,7 @@ class Category(MPTTModel):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    dp = models.ImageField(upload_to='profile/img', blank=True, null=True)
     location = models.TextField(max_length=30, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
@@ -86,3 +88,11 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+class Comment(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments', blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now, blank=True)
+    rating = models.IntegerField(default=5, blank=True)

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from .models import Category, Product, Profile
+from .models import Category, Product, Profile,Comment
 from django.contrib.auth import authenticate, login
 from .forms import UserLoginForm, UsersRegisterForm
-from .forms import ProfileForm, UserForm
+from .forms import ProfileForm, UserForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -24,10 +24,24 @@ def product_detail(request, slug):
     if request.user.is_authenticated:
         product = Product.objects.get(slug=slug)
         profile = Profile.objects.get(user=request.user)
-        return render(request, 'template/product_detail.html', {'product': product, 'profile': profile})
+        comments = Comment.objects.filter(product=product)
+        comment_count = comments.count()
+        if request.method == "POST":
+            comment_form = CommentForm(request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.product = product
+                comment.user = request.user
+                comment.save()
+                return redirect('product_detail', slug=product.slug)
+        else:
+            comment_form = CommentForm()
+            return render(request, 'template/product_detail.html', {'product': product, 'profile': profile, 'comment_form': comment_form, 'comments': comments, 'comment_count': comment_count})
     else:
         product = Product.objects.get(slug=slug)
-        return render(request, 'template/product_detail.html', {'product': product})
+        comments = Comment.objects.filter(product=product)
+        comment_count = comments.count()
+        return render(request, 'template/product_detail.html', {'product': product, 'comments': comments, 'comment_count': comment_count})
 
 
 def faq(request):
@@ -94,7 +108,7 @@ def user(request):
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
