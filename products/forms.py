@@ -95,11 +95,49 @@ class UserForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('location', 'gender', 'birth_date', 'dp')
-        widgets = {'birth_date': forms.DateInput(format='%d-%m-%Y', attrs={'type': 'date'})}
+        fields = ('gender', 'phone_number')
+
+
+class ProfilePicForm(forms.ModelForm):
+    dp = forms.ImageField(widget=forms.FileInput(attrs=None))
+
+    class Meta:
+        model = Profile
+        fields = ('dp',)
+
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('city', 'country', 'street_address', 'postcode', 'state')
+
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('phone_number', 'city', 'country', 'street_address', 'postcode', 'state')
 
 
 class CommentForm(forms.ModelForm):
+    rating_0 = forms.ChoiceField(label='no_rate',
+                               choices=(('0', '0'),),
+                               initial='0', widget=forms.RadioSelect)
+    rating_1 = forms.ChoiceField(label='rate1',
+                               choices=(('0', '0'), ('1', '1')),
+                               initial='0', widget=forms.RadioSelect)
+    rating_2 = forms.ChoiceField(label='rate2',
+                               choices=(('0', '0'), ('2', '2')),
+                               initial='0', widget=forms.RadioSelect)
+    rating_3 = forms.ChoiceField(label='rate3',
+                               choices=(('0', '0'), ('3', '3')),
+                               initial='0', widget=forms.RadioSelect)
+    rating_4 = forms.ChoiceField(label='rate4',
+                               choices=(('0', '0'), ('4', '4')),
+                               initial='0', widget=forms.RadioSelect)
+    rating_5 = forms.ChoiceField(label='rate5',
+                               choices=(('0', '0'), ('5', '5')),
+                               initial='0', widget=forms.RadioSelect)
+
     class Meta:
         model = Comment
         fields = ('text', 'rating')

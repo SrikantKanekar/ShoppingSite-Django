@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from .models import Category, Product, Profile,Comment
+from .models import Category, Product, Profile, Comment
 from django.contrib.auth import authenticate, login
 from .forms import UserLoginForm, UsersRegisterForm
-from .forms import ProfileForm, UserForm, CommentForm
+from .forms import ProfileForm, UserForm, CommentForm, AddressForm, CheckoutForm, ProfilePicForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db import transaction
 from django.db.models import Q
 
 
@@ -56,10 +55,6 @@ def track_order(request):
     return render(request, 'template/track_order.html')
 
 
-def checkout(request):
-    return render(request, 'template/checkout.html')
-
-
 def about_us(request):
     return render(request, 'template/About us.html')
 
@@ -104,7 +99,6 @@ def user(request):
 
 
 @login_required
-@transaction.atomic
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -125,6 +119,40 @@ def update_profile(request):
     })
 
 
+@login_required
+def update_profile_pic(request):
+    if request.method == 'POST':
+        profile_pic_form = ProfilePicForm(request.POST, request.FILES, instance=request.user.profile)
+        if profile_pic_form.is_valid():
+            profile_pic_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('/user/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        profile_pic_form = ProfilePicForm(instance=request.user.profile)
+        return render(request, 'registration/update_profile_pic.html', {
+            'profile_pic_form': profile_pic_form
+        })
+
+
+@login_required
+def update_address(request):
+    if request.method == 'POST':
+        profile_form = AddressForm(request.POST, instance=request.user.profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('/user/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        profile_form = AddressForm(instance=request.user.profile)
+    return render(request, 'registration/update_address.html', {
+        'profile_form': profile_form
+    })
+
+
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('q')
@@ -139,6 +167,37 @@ def search(request):
             return render(request, 'template/search.html')
     else:
         return render(request, 'template/search.html')
+
+
+@login_required
+def checkout(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        checkout_form = CheckoutForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and checkout_form.is_valid():
+            user_form.save()
+            checkout_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('/track_order/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = UserForm(instance=request.user)
+        checkout_form = CheckoutForm(instance=request.user.profile)
+        profile = Profile.objects.get(user=request.user)
+        count = profile.cart_products.all().count()
+        products = profile.cart_products.all()
+        total = 0
+        for x in products:
+            total += x.offer_price
+        profile.total = total
+        profile.save()
+        return render(request, 'template/checkout.html', {
+            'user_form': user_form,
+            'checkout_form': checkout_form,
+            'profile': profile,
+            'count': count
+        })
 
 
 def cart(request):

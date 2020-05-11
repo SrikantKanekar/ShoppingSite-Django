@@ -97,6 +97,7 @@
     </div>
 </header><!-- End Header -->
 
+
 <br>
 <br>
 <br>
@@ -127,31 +128,9 @@
             <div class="wrapper">
                 <form class="form-signin" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-6">
-                            <p>
-                                <label>First Name </label>
-                                {{ user_form.first_name }}
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <p>
-                                <label>Last Name </label>
-                                {{ user_form.last_name }}
-                            </p>
-                        </div>
-                    </div>
                     <p>
-                        <label>Email </label>
-                        {{ user_form.email }}
-                    </p>
-                    <p>
-                        <label>Gender </label>
-                        {{ profile_form.gender }}
-                    </p>
-                    <p>
-                        <label>Phone number</label>
-                        {{ profile_form.phone_number }}
+                        <label>Upload Profile Pic</label>
+                        {{ profile_pic_form.dp }}
                     </p>
                     <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">Save
                         changes

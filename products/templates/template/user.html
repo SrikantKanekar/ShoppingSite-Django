@@ -167,11 +167,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="p-catagory">Name</td>
-                                        <td class="p-catagory" style="text-transform: none;">{{ user.username }}
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td class="p-catagory">email</td>
                                         <td class="p-catagory" style="text-transform: lowercase;">{{ user.email }}
                                         </td>
@@ -183,19 +178,28 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="p-catagory">Birthday</td>
-                                        <td class="p-catagory">{{ profile.birth_date }}</td>
+                                        <td class="p-catagory">Phone Number</td>
+                                        <td class="p-catagory" style="text-transform: capitalize;">
+                                            {{ profile.phone_number }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="p-catagory">Address</td>
                                         <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ profile.location }}
+                                            {{ profile.street_address }}, {{ profile.city }}, {{ profile.state }},
+                                            {{ profile.country }}
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
                                 <a href="{% url 'update_profile' %}" class="proceed-btn">update profile</a>
+                            </div>
+                            <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
+                                <a href="{% url 'update_address' %}" class="proceed-btn">update Address</a>
+                            </div>
+                            <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
+                                <a href="{% url 'update_profile_pic' %}" class="proceed-btn">update Picture</a>
                             </div>
                         </div>
                     </div>
