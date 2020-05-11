@@ -99,4 +99,4 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now, blank=True)
-    rating = models.CharField(max_length=5)
+    rating = models.CharField(max_length=5, blank=True, null=True)

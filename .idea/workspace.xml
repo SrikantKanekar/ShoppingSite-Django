@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/update_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
