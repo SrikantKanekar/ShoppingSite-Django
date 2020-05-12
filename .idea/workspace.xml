@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_address.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/update_address.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/update_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile_pic.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/registration/update_profile_pic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/About us.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/About us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/Cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/Cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/Contact us.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/Contact us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/track_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/track_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/wishlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

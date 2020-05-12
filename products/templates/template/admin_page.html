@@ -134,7 +134,7 @@
     </div>
 </section><!-- ======= end title ======= -->
 
-{% if user.is_authenticated %}
+{% if user.is_superuser %}
 {% if count == 0 %}
 <!--cart page if cart has no items-->
 <section class="portfolio sect-pt4">
@@ -231,8 +231,8 @@
                 <div class="work-content">
                     <div class="row justify-content-center">
                         <div class="col-sm-8">
-                            <h5 class="cart-text">You are not superuser</h5>
-                            <h6 class="cart-text">Login with a superuser account</h6>
+                            <h5 class="cart-text">You are not Staff</h5>
+                            <h6 class="cart-text">Login with a staff account</h6>
                             <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
                                href="{% url 'login' %}">Login</a>
                         </div>
