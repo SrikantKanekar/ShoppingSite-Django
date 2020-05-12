@@ -33,7 +33,8 @@ class Product(models.Model):
 
 class Category(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True,
+                            on_delete=models.CASCADE)
     image_url = models.ImageField(upload_to='category/img', null=True, blank=True)
     description = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
@@ -54,7 +55,7 @@ class Category(MPTTModel):
             ancestors = [i.slug for i in ancestors]
         slugs = []
         for i in range(len(ancestors)):
-            slugs.append('/'.join(ancestors[:i+1]))
+            slugs.append('/'.join(ancestors[:i + 1]))
         return slugs
 
     def save(self, *args, **kwargs):
@@ -75,8 +76,8 @@ class Profile(models.Model):
     postcode = models.IntegerField(blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
-    cart_products = models.ManyToManyField(Product, blank=True)
     wishlist_products = models.ManyToManyField(Product, blank=True, related_name='wishlist')
+    cart_products = models.ManyToManyField(Product, blank=True)
     total = models.IntegerField(default=0)
 
     def __str__(self):
@@ -100,3 +101,23 @@ class Comment(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now, blank=True)
     rating = models.CharField(max_length=5, blank=True, null=True)
+
+
+order_status = [('Order Placed', 'Order Placed'),
+                ('Order Confirmed', 'Order Confirmed'),
+                ('Packing', 'Packing'),
+                ('Shipped', 'Shipped'),
+                ('Out for Delivery', 'Out for Delivery'),
+                ('Delivered', 'Delivered'),
+                ('Returned', 'Returned')
+                ]
+
+
+class Admin(models.Model):
+    ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin', blank=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    ordered_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
+    status = models.CharField(choices=order_status, max_length=20, default='Order Placed')
+
+    def __str__(self):
+        return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.status)

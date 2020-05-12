@@ -1,6 +1,4 @@
 {% extends 'template/base.html' %}
-
-
 {% load static %}
 {% block content %}
 
@@ -15,7 +13,21 @@
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                        <div class="search">
+                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" name="submit" value="Search"/>
+                    </form>
+                </li>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'admin_page' %}">Admin</a></li>
                 {% if user.is_authenticated %}
                 <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
                     <ul>
@@ -103,6 +115,8 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 
 
 <!-- ======= title ======= -->
@@ -112,7 +126,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        update profile
+                        Admin page
                     </h3>
                     <div class="line-mf"></div>
                 </div>
@@ -121,45 +135,75 @@
     </div>
 </section><!-- ======= end title ======= -->
 
+<br>
+<br>
 
-<div class="user-profile">
-    <div class="row justify-content-center">
-        <div class="col-sm-7 col-md-6 col-lg-5 col-xl-5">
-            <div class="wrapper">
-                <form class="form-signin" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-6">
-                            <p>
-                                <label>Country </label>
-                                {{ profile_form.country }}
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <p>
-                                <label>State </label>
-                                {{ profile_form.state }}
-                            </p>
-                        </div>
-                    </div>
-                    <p>
-                        <label>City </label>
-                        {{ profile_form.city }}
-                    </p>
-                    <p>
-                        <label>street_address </label>
-                        {{ profile_form.street_address }}
-                    </p>
-                    <p>
-                        <label>postcode </label>
-                        {{ profile_form.postcode }}
-                    </p>
-                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">Save
-                        changes
-                    </button>
-                </form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style="margin: auto;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>{{ order.ordered_product.title }}</h6>
+                    <h6>Ordered On : {{ order.ordered_date }}</h6>
+                    <h6>Status : {{ order.status }}</h6>
+                    <h6>Return Before : {{ order.ordered_product.return_days }} days</h6>
+                    <br>
+                    <h6>Name : {{ order.customer.first_name }} {{ order.customer.last_name }} </h6>
+                    <h6>Email : {{ order.customer.email }}</h6>
+                    <h6>Phone Number : {{ order.customer.profile.phone_number }}</h6>
+                </div>
+                <div class="col-md-6">
+                    <h6>Country : {{ order.customer.profile.country }}</h6>
+                    <h6>State : {{ order.customer.profile.state }}</h6>
+                    <h6>City : {{ order.customer.profile.city }}</h6>
+                    <h6>Street Address : {{ order.customer.profile.street_address }}</h6>
+                    <h6>Pin : {{ order.customer.profile.postcode }}</h6>
+                    <br>
+                    <h6>Cash on Delivery : ₹{{ order.ordered_product.offer_price }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12" style="margin: auto;">
+            <div class="row">
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Order Confirmed' %}" style="color: white"
+                       class="proceed-btn">Confirmed
+                    </a>
+                </div>
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Packing' %}" style="color: white"
+                       class="proceed-btn">Packing
+                    </a>
+                </div>
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Shipped' %}" style="color: white"
+                       class="proceed-btn">Shipped
+                    </a>
+                </div>
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Out for Delivery' %}" style="color: white"
+                       class="proceed-btn">Delivering
+                    </a>
+                </div>
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Delivered' %}" style="color: white"
+                       class="proceed-btn">Delivered
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from .models import Category, Product, Profile, Comment
+from .models import Category, Product, Profile, Comment, Admin
 from django.contrib.auth import authenticate, login
 from .forms import UserLoginForm, UsersRegisterForm
 from .forms import ProfileForm, UserForm, CommentForm, AddressForm, CheckoutForm, ProfilePicForm
@@ -49,10 +49,6 @@ def faq(request):
 
 def contact_us(request):
     return render(request, 'template/Contact us.html')
-
-
-def track_order(request):
-    return render(request, 'template/track_order.html')
 
 
 def about_us(request):
@@ -169,35 +165,23 @@ def search(request):
         return render(request, 'template/search.html')
 
 
-@login_required
-def checkout(request):
-    if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
-        checkout_form = CheckoutForm(request.POST, instance=request.user.profile)
-        if user_form.is_valid() and checkout_form.is_valid():
-            user_form.save()
-            checkout_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
-            return redirect('/track_order/')
-        else:
-            messages.error(request, 'Please correct the error below.')
-    else:
-        user_form = UserForm(instance=request.user)
-        checkout_form = CheckoutForm(instance=request.user.profile)
+def wishlist(request):
+    if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        count = profile.cart_products.all().count()
-        products = profile.cart_products.all()
-        total = 0
-        for x in products:
-            total += x.offer_price
-        profile.total = total
-        profile.save()
-        return render(request, 'template/checkout.html', {
-            'user_form': user_form,
-            'checkout_form': checkout_form,
-            'profile': profile,
-            'count': count
-        })
+        count = profile.wishlist_products.all().count()
+        return render(request, 'template/wishlist.html', {'profile': profile, 'count': count})
+    else:
+        return render(request, 'template/wishlist.html')
+
+
+def wishlist_update(request, product_id):
+    product_obj = Product.objects.get(id=product_id)
+    profile = Profile.objects.get(user=request.user)
+    if product_obj in profile.wishlist_products.all():
+        profile.wishlist_products.remove(product_obj)
+    else:
+        profile.wishlist_products.add(product_obj)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def cart(request):
@@ -225,20 +209,73 @@ def cart_update(request, product_id):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def wishlist(request):
-    if request.user.is_authenticated:
+@login_required
+def checkout(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        checkout_form = CheckoutForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and checkout_form.is_valid():
+            user_form.save()
+            checkout_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('/order_history_update/')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = UserForm(instance=request.user)
+        checkout_form = CheckoutForm(instance=request.user.profile)
         profile = Profile.objects.get(user=request.user)
-        count = profile.wishlist_products.all().count()
-        return render(request, 'template/wishlist.html', {'profile': profile, 'count': count})
+        count = profile.cart_products.all().count()
+        products = profile.cart_products.all()
+        total = 0
+        for x in products:
+            total += x.offer_price
+        profile.total = total
+        profile.save()
+        return render(request, 'template/checkout.html', {
+            'user_form': user_form,
+            'checkout_form': checkout_form,
+            'profile': profile,
+            'count': count
+        })
+
+
+def order_history(request):
+    if request.user.is_authenticated:
+        orders = Admin.objects.filter(customer=request.user)
+        count = orders.count()
+        return render(request, 'template/order_history.html', {'orders': orders, 'count': count})
     else:
-        return render(request, 'template/wishlist.html')
+        return render(request, 'template/order_history.html')
 
 
-def wishlist_update(request, product_id):
-    product_obj = Product.objects.get(id=product_id)
+def order_history_update(request):
     profile = Profile.objects.get(user=request.user)
-    if product_obj in profile.wishlist_products.all():
-        profile.wishlist_products.remove(product_obj)
-    else:
-        profile.wishlist_products.add(product_obj)
+    for ordered_products in profile.cart_products.all():
+        Admin.objects.create(ordered_product=ordered_products, customer=profile.user)
+        profile.cart_products.remove(ordered_products)
+    return redirect('/order_history/')
+
+
+def track_order(request, order_id):
+    order = Admin.objects.get(id=order_id)
+    return render(request, 'template/track_order.html', {'order': order})
+
+
+def admin_page(request):
+    orders = Admin.objects.all()
+    count = orders.count()
+    return render(request, 'template/admin_page.html', {'orders': orders,
+                                                        'count': count})
+
+
+def admin_product_page(request, order_id):
+    order = Admin.objects.get(id=order_id)
+    return render(request, 'template/admin_product_page.html', {'order': order})
+
+
+def admin_status_update(request, order_id, status):
+    order = Admin.objects.get(id=order_id)
+    order.status = status
+    order.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

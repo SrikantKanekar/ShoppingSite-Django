@@ -1,6 +1,4 @@
 {% extends 'template/base.html' %}
-
-
 {% load static %}
 {% block content %}
 
@@ -15,6 +13,19 @@
         </div>
         <nav class="nav-menu float-right d-none d-lg-block">
             <ul>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                        <div class="search">
+                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" name="submit" value="Search"/>
+                    </form>
+                </li>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
                 {% if user.is_authenticated %}
                 <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
@@ -103,7 +114,8 @@
 <br>
 <br>
 <br>
-
+<br>
+<br>
 
 <!-- ======= title ======= -->
 <section class="portfolio sect-pt4" style="padding-bottom: 0px;">
@@ -112,7 +124,7 @@
             <div class="col-sm-12">
                 <div class="title-box text-center">
                     <h3 class="title-a">
-                        update profile
+                        Order History
                     </h3>
                     <div class="line-mf"></div>
                 </div>
@@ -121,45 +133,114 @@
     </div>
 </section><!-- ======= end title ======= -->
 
-
-<div class="user-profile">
-    <div class="row justify-content-center">
-        <div class="col-sm-7 col-md-6 col-lg-5 col-xl-5">
-            <div class="wrapper">
-                <form class="form-signin" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col-6">
-                            <p>
-                                <label>Country </label>
-                                {{ profile_form.country }}
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <p>
-                                <label>State </label>
-                                {{ profile_form.state }}
-                            </p>
+{% if user.is_authenticated %}
+{% if count == 0 %}
+<!--order page if order history has no items-->
+<section class="portfolio sect-pt4">
+    <div class="container">
+        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="work-box">
+                <div class="row" style="padding: 20px 50px;">
+                    <div class="col">
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="work-img cart-img">
+                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
                         </div>
                     </div>
-                    <p>
-                        <label>City </label>
-                        {{ profile_form.city }}
-                    </p>
-                    <p>
-                        <label>street_address </label>
-                        {{ profile_form.street_address }}
-                    </p>
-                    <p>
-                        <label>postcode </label>
-                        {{ profile_form.postcode }}
-                    </p>
-                    <button class="btn btn-lg btn-primary btn-block" style="background: #1e4356;" type="submit">Save
-                        changes
-                    </button>
-                </form>
+                </div>
+                <div class="work-content">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <h5 class="cart-text">No Items Purchased Yet</h5>
+                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                               href="{% url 'homepage' %}">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+{% else %}
+<!-- normal order history page -->
+<section class="portfolio">
+    <div class="container">
+        {% for i in orders reversed %}
+        <div class="row">
+            <div class="col-md-8" style="margin:auto;" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                <div class="work-box" style="margin-bottom:15px;">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="work-img" style="padding:8px;">
+                                <a href="{% url 'product_detail' slug=i.ordered_product.slug %}">
+                                    <img src="/media/{{ i.ordered_product.image_url_1 }}" alt="" class="img-fluid">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="work-content" style="padding:10px;">
+                                <div class="row">
+                                    <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
+                                        <h5>{{ i.ordered_product.title }}</h5>
+                                        <h6>₹{{ i.ordered_product.offer_price }}</h6>
+                                        <h6>{{ i.ordered_date }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 proceed-checkout" style="padding-top:50px">
+                            <a href="{% url 'track_order' order_id=i.id %}" style="color: white"
+                               class="proceed-btn">Track Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+
+{% else %}
+<!--order page if user is not authenticated -->
+<section class="portfolio sect-pt4">
+    <div class="container">
+        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="work-box">
+                <div class="row" style="padding: 20px 50px;">
+                    <div class="col">
+                        <h3>My Orders</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="work-img cart-img">
+                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="work-content">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8">
+                            <h6 class="cart-text">Login to see the items u ordered previously</h6>
+                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                               href="{% url 'login' %}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
 {% endblock %}
