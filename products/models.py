@@ -109,6 +109,8 @@ order_status = [('Order Placed', 'Order Placed'),
                 ('Shipped', 'Shipped'),
                 ('Out for Delivery', 'Out for Delivery'),
                 ('Delivered', 'Delivered'),
+                ('Order Cancelled', 'Order Cancelled'),
+                ('Returning', 'Returning'),
                 ('Returned', 'Returned')
                 ]
 

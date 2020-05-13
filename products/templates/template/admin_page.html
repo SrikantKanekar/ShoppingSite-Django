@@ -134,7 +134,7 @@
     </div>
 </section><!-- ======= end title ======= -->
 
-{% if user.is_superuser %}
+{% if user.is_superuser or user.is_staff %}
 {% if count == 0 %}
 <!--cart page if cart has no items-->
 <section class="portfolio sect-pt4">

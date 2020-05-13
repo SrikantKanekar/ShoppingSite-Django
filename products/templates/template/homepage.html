@@ -25,6 +25,9 @@
                     </form>
                 </li>
                 <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                <li><a href="{% url 'admin_page' %}">Admin</a></li>
+                {% endif %}
                 {% if user.is_authenticated %}
                 <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
                     <ul>

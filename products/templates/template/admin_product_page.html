@@ -195,6 +195,11 @@
                        class="proceed-btn">Delivered
                     </a>
                 </div>
+                <div class="col-md-2" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Returned' %}" style="color: white"
+                       class="proceed-btn">Returned
+                    </a>
+                </div>
             </div>
         </div>
     </div>
