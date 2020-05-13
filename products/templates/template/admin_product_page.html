@@ -171,7 +171,8 @@
         <div class="col-md-12" style="margin: auto;">
             <div class="row">
                 <div class="col-md-2" style="margin: auto;">
-                    <a href="{% url 'admin_status_update' order_id=order.id status='Order Confirmed' %}" style="color: white"
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Order Confirmed' %}"
+                       style="color: white"
                        class="proceed-btn">Confirmed
                     </a>
                 </div>
@@ -186,7 +187,8 @@
                     </a>
                 </div>
                 <div class="col-md-2" style="margin: auto;">
-                    <a href="{% url 'admin_status_update' order_id=order.id status='Out for Delivery' %}" style="color: white"
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Out for Delivery' %}"
+                       style="color: white"
                        class="proceed-btn">Delivering
                     </a>
                 </div>
@@ -195,9 +197,32 @@
                        class="proceed-btn">Delivered
                     </a>
                 </div>
-                <div class="col-md-2" style="margin: auto;">
-                    <a href="{% url 'admin_status_update' order_id=order.id status='Returned' %}" style="color: white"
-                       class="proceed-btn">Returned
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-3" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Return Request Acknowledged' %}"
+                       style="color: white"
+                       class="proceed-btn">Return Acknowledged
+                    </a>
+                </div>
+                <div class="col-md-3" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Courier Service Informed' %}"
+                       style="color: white"
+                       class="proceed-btn">Courier Service Informed
+                    </a>
+                </div>
+                <div class="col-md-3" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Return Product Verified' %}"
+                       style="color: white"
+                       class="proceed-btn">Product Verified
+                    </a>
+                </div>
+                <div class="col-md-3" style="margin: auto;">
+                    <a href="{% url 'admin_status_update' order_id=order.id status='Refund Completed' %}"
+                       style="color: white"
+                       class="proceed-btn">Refund Completed
                     </a>
                 </div>
             </div>

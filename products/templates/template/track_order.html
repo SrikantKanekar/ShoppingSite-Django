@@ -141,140 +141,266 @@
 {% if order.status == 'Order Placed' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 0%;" aria-valuenow="0" aria-valuemin="0"
-                     aria-valuemax="100">0%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Order Placed</h3>
-        </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Order Confirmed' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 20%;" aria-valuenow="20" aria-valuemin="0"
-                     aria-valuemax="100">20%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Order Confirmed</h3>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Packing' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 40%;" aria-valuenow="40" aria-valuemin="0"
-                     aria-valuemax="100">40%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Packing</h3>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Shipped' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
-                     aria-valuemax="100">60%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Shipped</h3>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Out for Delivery' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
-                     aria-valuemax="100">80%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Out for Delivery</h3>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Delivered' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
-                     aria-valuemax="100">100%
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Delivered</h3>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
 {% elif order.status == 'Order Cancelled' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
-                     aria-valuemax="100">Cancelled
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Order Placed </h6>
                 </div>
-            </div>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Order Confirmed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Packing </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Shipped </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Out for Delivery </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-cancel">
+                    <h6> Delivered </h6>
+                </div>
+            </li>
+        </ul>
     </div>
     <br>
     <br>
@@ -285,45 +411,168 @@
     </div>
 </div>
 
-{% elif order.status == 'Returning' %}
+{% elif order.status == 'Return Request Placed' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
-                     aria-valuemax="100">Returning
+        <ul class="col-md-11 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Placed </h6>
                 </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Returning Order</h3>
-        </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Return Request Acknowledged </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Courier Service Informed </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Return Product Verified </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Refund Completed </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
-{% elif order.status == 'Returned' %}
+{% elif order.status == 'Return Request Acknowledged' %}
 <div class="container">
     <div class="row">
-        <div class="col-md-8" style="margin: auto;">
-            <div class="progress">
-                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar"
-                     style="width: 100%;" aria-valuenow="100" aria-valuemin="0"
-                     aria-valuemax="100">100%
+        <ul class="col-md-11 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Placed </h6>
                 </div>
-            </div>
-        </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Acknowledged </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Courier Service Informed </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Return Product Verified </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Refund Completed </h6>
+                </div>
+            </li>
+        </ul>
     </div>
-    <br>
-    <br>
+</div>
+
+{% elif order.status == 'Courier Service Informed' %}
+<div class="container">
     <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <h3>Returned</h3>
-        </div>
+        <ul class="col-md-11 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Placed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Acknowledged </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Courier Service Informed </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Return Product Verified </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Refund Completed </h6>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% elif order.status == 'Return Product Verified' %}
+<div class="container">
+    <div class="row">
+        <ul class="col-md-11 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Placed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Acknowledged </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Courier Service Informed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Product Verified </h6>
+                </div>
+            </li>
+            <li class="li">
+                <div class="status-return">
+                    <h6> Refund Completed </h6>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% elif order.status == 'Refund Completed' %}
+<div class="container">
+    <div class="row">
+        <ul class="col-md-11 timeline" style="margin: auto;">
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Placed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Request Acknowledged </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Courier Service Informed </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Return Product Verified </h6>
+                </div>
+            </li>
+            <li class="li complete">
+                <div class="status-return">
+                    <h6> Refund Completed </h6>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 {% endif %}
@@ -335,7 +584,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2" style="margin: auto;">
-            <a href="{% url 'admin_status_update' order_id=order.id status='Order Cancelled' %}" style="color: white"
+            <a href="{% url 'admin_status_update' order_id=order.id status='Order Cancelled' %}"
+               style="color: white"
                class="proceed-btn">Cancel Order
             </a>
         </div>
@@ -347,7 +597,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2" style="margin: auto;">
-            <a href="{% url 'admin_status_update' order_id=order.id status='Returning' %}" style="color: white"
+            <a href="{% url 'admin_status_update' order_id=order.id status='Return Request Placed' %}" style="color: white"
                class="proceed-btn">Return Order
             </a>
         </div>

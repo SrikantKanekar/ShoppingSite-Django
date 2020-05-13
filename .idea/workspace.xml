@@ -3,6 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/check-out.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/faq.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/product.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/services.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/shopping-cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/static/fishi/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/admin_product_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/admin_product_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/product_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/templates/template/track_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/track_order.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

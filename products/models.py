@@ -110,8 +110,11 @@ order_status = [('Order Placed', 'Order Placed'),
                 ('Out for Delivery', 'Out for Delivery'),
                 ('Delivered', 'Delivered'),
                 ('Order Cancelled', 'Order Cancelled'),
-                ('Returning', 'Returning'),
-                ('Returned', 'Returned')
+                ('Return Request Placed', 'Return Request Placed'),
+                ('Return Request Acknowledged', 'Return Request Acknowledged'),
+                ('Courier Service Informed', 'Courier Service Informed'),
+                ('Return Product Verified', 'Return Product Verified'),
+                ('Refund Completed', 'Refund Completed')
                 ]
 
 
