@@ -1955,14 +1955,20 @@ h6,
     margin-bottom: 10px;
     position     : relative;
     z-index      : 1;
-    width        : 460px;
+    width        : 400px;
     height       : 280px;
   }
 
   .product-pic-zoom img {
-    width: 460px;
+    width: 100%;
   }
 
+  .product-thumbs .pt {
+    cursor  : pointer;
+    position: relative;
+    width   : 120px;
+    height  : 100px;
+  }
 }
 
 /* for laptop */
@@ -1976,17 +1982,15 @@ h6,
   }
 
   .product-pic-zoom img {
-    width: 540px;
+    width: 100%;
   }
 
-}
-
-
-.product-thumbs .pt {
-  cursor  : pointer;
-  position: relative;
-  width   : 174px;
-  height  : 115px;
+  .product-thumbs .pt {
+    cursor  : pointer;
+    position: relative;
+    width   : 174px;
+    height  : 115px;
+  }
 }
 
 .product-thumbs .pt.active:after {
