@@ -1955,8 +1955,8 @@ h6,
     margin-bottom: 10px;
     position     : relative;
     z-index      : 1;
-    width        : 400px;
-    height       : 280px;
+    width        : 330px;
+    height       : 220px;
   }
 
   .product-pic-zoom img {
@@ -1966,8 +1966,8 @@ h6,
   .product-thumbs .pt {
     cursor  : pointer;
     position: relative;
-    width   : 120px;
-    height  : 100px;
+    width   : 100px;
+    height  : 90px;
   }
 }
 
