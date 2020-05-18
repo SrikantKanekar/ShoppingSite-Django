@@ -1953,13 +1953,12 @@ h6,
   margin-bottom: 10px;
   position     : relative;
   z-index      : 1;
-  width: 540px;
+  width: auto;
   height: 360px;
 }
 
 .product-pic-zoom img {
   width: 100%;
- 
 }
 
 .product-thumbs .pt {
