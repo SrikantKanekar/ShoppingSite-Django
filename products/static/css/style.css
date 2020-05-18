@@ -1949,17 +1949,38 @@ h6,
   padding-bottom: 60px;
 }
 
-.product-pic-zoom {
-  margin-bottom: 10px;
-  position     : relative;
-  z-index      : 1;
-  width: auto;
-  height: 360px;
+/* for mobile */
+@media only screen and (max-width:800px) {
+  .product-pic-zoom {
+    margin-bottom: 10px;
+    position     : relative;
+    z-index      : 1;
+    width: 460px;
+    height: 300px;
+  }
+  
+  .product-pic-zoom img {
+    width: 100%;
+  }
+  
 }
 
-.product-pic-zoom img {
-  width: 100%;
+/* for laptop */
+@media only screen and (min-width:801px) {
+  .product-pic-zoom {
+    margin-bottom: 10px;
+    position     : relative;
+    z-index      : 1;
+    width: 540px;
+    height: 360px;
+  }
+  
+  .product-pic-zoom img {
+    width: 100%;
+  }
+  
 }
+
 
 .product-thumbs .pt {
   cursor  : pointer;
