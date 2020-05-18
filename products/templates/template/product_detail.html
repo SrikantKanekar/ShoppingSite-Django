@@ -119,45 +119,42 @@
 
 
 <!-- Product Shop Section Begin -->
-<section class="product-shop spad page-details">
+<section class="product-shop">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="product-pic-zoom">
-                            <img class="container-fluid product-big-img" style="padding: 0px;"
-                                 src="/media/{{ product.image_url_1 }}" alt="">
-                        </div>
-                        <div class="container-fluid product-thumbs" style="padding: 0px;">
-                            <div class="product-thumbs-track ps-slider owl-carousel">
-                                <div class="pt active" data-imgbigurl="/media/{{ product.image_url_1 }}"><img
-                                        src="/media/{{ product.image_url_1 }}" alt=""></div>
-                                <div class="pt" data-imgbigurl="/media/{{ product.image_url_2 }}"><img
-                                        src="/media/{{ product.image_url_2 }}" alt=""></div>
-                                <div class="pt" data-imgbigurl="/media/{{ product.image_url_3 }}"><img
-                                        src="/media/{{ product.image_url_3 }}" alt=""></div>
-                            </div>
-                        </div>
+            <div class="col-lg-6">
+                <div class="product-pic-zoom">
+                    <img class="product-big-img" src="/media/{{ product.image_url_1 }}">
+                </div>
+                <div class="product-thumbs">
+                    <div class="product-thumbs-track ps-slider owl-carousel">
+                        <div class="pt active" data-imgbigurl="/media/{{ product.image_url_1 }}"><img
+                                src="/media/{{ product.image_url_1 }}" alt=""></div>
+                        <div class="pt" data-imgbigurl="/media/{{ product.image_url_2 }}"><img
+                                src="/media/{{ product.image_url_2 }}" alt=""></div>
+                        <div class="pt" data-imgbigurl="/media/{{ product.image_url_3 }}"><img
+                                src="/media/{{ product.image_url_3 }}" alt=""></div>
                     </div>
-                    <div class="col-lg-6">
-                        <br>
-                        <div class="product-details">
-                            <div class="pd-title">
-                                <h3>{{product.title}}</h3>
-                                {% if user.is_authenticated %}
-                                {% if product in profile.wishlist_products.all %}
-                                <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
-                                        class="fas fa-heart"></i></a>
-                                {% else %}
-                                <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
-                                        class="far fa-heart"></i></a>
-                                {% endif %}
-                                {% else %}
-                                <a href="{% url 'wishlist' %}" class="heart-icon"><i class="far fa-heart"></i></a>
-                                {% endif %}
-                            </div>
-                            <span class="pd-rating">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <br>
+                <div class="product-details">
+                    <div class="pd-title">
+                        <h3>{{product.title}}</h3>
+                        {% if user.is_authenticated %}
+                        {% if product in profile.wishlist_products.all %}
+                        <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
+                                class="fas fa-heart"></i></a>
+                        {% else %}
+                        <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
+                                class="far fa-heart"></i></a>
+                        {% endif %}
+                        {% else %}
+                        <a href="{% url 'wishlist' %}" class="heart-icon"><i class="far fa-heart"></i></a>
+                        {% endif %}
+                    </div>
+                    <span class="pd-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -165,94 +162,94 @@
                                 <i class="far fa-star"></i>
                                 <span>(4)</span>
                             </span>
-                            <div class="pd-desc">
-                                <h4>₹{{ product.offer_price }}<span>₹{{ product.original_price }}</span></h4>
+                    <div class="pd-desc">
+                        <h4>₹{{ product.offer_price }}<span>₹{{ product.original_price }}</span></h4>
+                    </div>
+                    <div class="pd-color">
+                        <h6>Color</h6>
+                        <div class="pd-color-choose">
+                            <div class="cc-item">
+                                <input type="radio" id="cc-black">
+                                <label for="cc-black"></label>
                             </div>
-                            <div class="pd-color">
-                                <h6>Color</h6>
-                                <div class="pd-color-choose">
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-black">
-                                        <label for="cc-black"></label>
-                                    </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-yellow">
-                                        <label for="cc-yellow" class="cc-yellow"></label>
-                                    </div>
-                                    <div class="cc-item">
-                                        <input type="radio" id="cc-violet">
-                                        <label for="cc-violet" class="cc-violet"></label>
-                                    </div>
-                                </div>
+                            <div class="cc-item">
+                                <input type="radio" id="cc-yellow">
+                                <label for="cc-yellow" class="cc-yellow"></label>
                             </div>
-                            <div class="pd-size-choose">
-                                <div class="sc-item">
-                                    <input type="radio" id="sm-size">
-                                    <label for="sm-size">s</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="md-size">
-                                    <label for="md-size">m</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="lg-size">
-                                    <label for="lg-size">l</label>
-                                </div>
-                                <div class="sc-item">
-                                    <input type="radio" id="xl-size">
-                                    <label for="xl-size">xs</label>
-                                </div>
-                            </div>
-                            <div class="quantity">
-                                {% if user.is_authenticated %}
-                                {% if product in profile.cart_products.all %}
-                                <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove
-                                    from cart</a>
-                                {% else %}
-                                <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add
-                                    To Cart</a>
-                                {% endif %}
-                                {% else %}
-                                <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
-                                {% endif %}
+                            <div class="cc-item">
+                                <input type="radio" id="cc-violet">
+                                <label for="cc-violet" class="cc-violet"></label>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="product-tab">
-                    <div class="tab-item">
-                        <ul class="nav" role="tablist">
-                            <li>
-                                <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews</a>
-                            </li>
-                        </ul>
+                    <div class="pd-size-choose">
+                        <div class="sc-item">
+                            <input type="radio" id="sm-size">
+                            <label for="sm-size">s</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="md-size">
+                            <label for="md-size">m</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="lg-size">
+                            <label for="lg-size">l</label>
+                        </div>
+                        <div class="sc-item">
+                            <input type="radio" id="xl-size">
+                            <label for="xl-size">xs</label>
+                        </div>
                     </div>
-                    <div class="tab-item-content">
-                        <div class="tab-content">
-                            <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-                                <div class="product-content">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <h5>Specification</h5>
-                                            <p>{{ product.description|linebreaks }}</p>
-                                        </div>
-                                    </div>
+                    <div class="quantity">
+                        {% if user.is_authenticated %}
+                        {% if product in profile.cart_products.all %}
+                        <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove
+                            from cart</a>
+                        {% else %}
+                        <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add
+                            To Cart</a>
+                        {% endif %}
+                        {% else %}
+                        <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-tab">
+            <div class="tab-item">
+                <ul class="nav" role="tablist">
+                    <li>
+                        <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-item-content">
+                <div class="tab-content">
+                    <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h5>Specification</h5>
+                                    <p>{{ product.description|linebreaks }}</p>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="tab-2" role="tabpanel">
-                                <div class="specification-table">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <table>
-                                                <tr>
-                                                    <td class="p-catagory">Customer Rating</td>
-                                                    <td>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                        <div class="specification-table">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <table>
+                                        <tr>
+                                            <td class="p-catagory">Customer Rating</td>
+                                            <td>
                                                         <span class="pd-rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -261,103 +258,101 @@
                                                             <i class="far fa-star"></i>
                                                             <span>(4)</span>
                                                         </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Price</td>
-                                                    <td>
-                                                        <div class="p-price">₹{{ product.offer_price }}</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Add To Cart</td>
-                                                    <td>
-                                                        <div class="cart-add">+ add to cart</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Availability</td>
-                                                    <td>
-                                                        <div class="p-stock">{{ product.quantity_left }} in stock</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Weight</td>
-                                                    <td>
-                                                        <div class="p-weight">1,3kg</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Size</td>
-                                                    <td>
-                                                        <div class="p-size">Xxl</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="p-catagory">Color</td>
-                                                    <td><span class="cs-color"></span></td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Price</td>
+                                            <td>
+                                                <div class="p-price">₹{{ product.offer_price }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Add To Cart</td>
+                                            <td>
+                                                <div class="cart-add">+ add to cart</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Availability</td>
+                                            <td>
+                                                <div class="p-stock">{{ product.quantity_left }} in stock</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Weight</td>
+                                            <td>
+                                                <div class="p-weight">1,3kg</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Size</td>
+                                            <td>
+                                                <div class="p-size">Xxl</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Color</td>
+                                            <td><span class="cs-color"></span></td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="tab-3" role="tabpanel">
-                                <div class="customer-review-option">
-                                    <h4>{{ comment_count }} Comments</h4>
-                                    <div class="comment-option">
-                                        {% for comment in comments %}
-                                        <div class="co-item">
-                                            <div class="avatar-pic">
-                                                <img src="/media/{{ comment.user.profile.dp }}" alt="">
-                                            </div>
-                                            <div class="avatar-text">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                        <div class="customer-review-option">
+                            <h4>{{ comment_count }} Comments</h4>
+                            <div class="comment-option">
+                                {% for comment in comments %}
+                                <div class="co-item">
+                                    <div class="avatar-pic">
+                                        <img src="/media/{{ comment.user.profile.dp }}" alt="">
+                                    </div>
+                                    <div class="avatar-text">
                                                 <span class="at-rating">
                                                     <p class="starability-result" data-rating="4"></p>
                                                 </span>
-                                                <h5>{{ comment.user }}<span>{{ comment.created_date }}</span></h5>
-                                                <div class="at-reply">{{ comment.text }}</div>
-                                            </div>
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                    <div class="leave-comment">
-                                        <h4>Leave A Comment</h4>
-                                        <form class="comment-form" method="post"> {% csrf_token %}
-                                            <div class="row">
-                                                <div class="col-lg-8">
-                                                    {{ comment_form.text }}
-                                                    <div class="personal-rating">
-                                                        <h6>Your Ratind</h6>
-                                                        <div class="rating">
-                                                            <fieldset class="starability-growRotate">
-                                                                <input type="radio" id="no-rate" class="input-no-rate"
-                                                                       name="rating" value="0" checked
-                                                                       aria-label="No rating."/>
-
-                                                                <input type="radio" id="rate1" name="rating" value="1"/>
-                                                                <label for="rate1">1 star.</label>
-
-                                                                <input type="radio" id="rate2" name="rating" value="2"/>
-                                                                <label for="rate2">2 stars.</label>
-
-                                                                <input type="radio" id="rate3" name="rating" value="3"/>
-                                                                <label for="rate3">3 stars.</label>
-
-                                                                <input type="radio" id="rate4" name="rating" value="4"/>
-                                                                <label for="rate4">4 stars.</label>
-
-                                                                <input type="radio" id="rate5" name="rating" value="5"/>
-                                                                <label for="rate5">5 stars.</label>
-                                                            </fieldset>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="site-btn">Add Comment</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <h5>{{ comment.user }}<span>{{ comment.created_date }}</span></h5>
+                                        <div class="at-reply">{{ comment.text }}</div>
                                     </div>
                                 </div>
+                                {% endfor %}
+                            </div>
+                            <div class="leave-comment">
+                                <h4>Leave A Comment</h4>
+                                <form class="comment-form" method="post"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            {{ comment_form.text }}
+                                            <div class="personal-rating">
+                                                <h6>Your Ratind</h6>
+                                                <div class="rating">
+                                                    <fieldset class="starability-growRotate">
+                                                        <input type="radio" id="no-rate" class="input-no-rate"
+                                                               name="rating" value="0" checked
+                                                               aria-label="No rating."/>
+
+                                                        <input type="radio" id="rate1" name="rating" value="1"/>
+                                                        <label for="rate1">1 star.</label>
+
+                                                        <input type="radio" id="rate2" name="rating" value="2"/>
+                                                        <label for="rate2">2 stars.</label>
+
+                                                        <input type="radio" id="rate3" name="rating" value="3"/>
+                                                        <label for="rate3">3 stars.</label>
+
+                                                        <input type="radio" id="rate4" name="rating" value="4"/>
+                                                        <label for="rate4">4 stars.</label>
+
+                                                        <input type="radio" id="rate5" name="rating" value="5"/>
+                                                        <label for="rate5">5 stars.</label>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="site-btn">Add Comment</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
