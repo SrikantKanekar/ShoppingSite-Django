@@ -1949,48 +1949,31 @@ h6,
   padding-bottom: 60px;
 }
 
-/* for mobile */
-@media only screen and (max-width:800px) {
-  .product-pic-zoom {
-    margin-bottom: 10px;
-    position     : relative;
-    z-index      : 1;
-    width        : 330px;
-    height       : 220px;
-  }
-
-  .product-pic-zoom img {
-    width: 100%;
-  }
-
-  .product-thumbs .pt {
-    cursor  : pointer;
-    position: relative;
-    width   : 100px;
-    height  : 90px;
-  }
+.product-pic-zoom {
+  margin-bottom: 10px;
+  position     : relative;
+  z-index      : 1;
+  max-height   : 350px;
 }
 
-/* for laptop */
-@media only screen and (min-width:801px) {
-  .product-pic-zoom {
-    margin-bottom: 10px;
-    position     : relative;
-    z-index      : 1;
-    width        : 540px;
-    height       : 360px;
-  }
+.product-pic-zoom img {
+  width: 100%;
+}
 
-  .product-pic-zoom img {
-    width: 100%;
-  }
+.product-thumbs {
+  padding: 0 10px;
+}
 
-  .product-thumbs .pt {
-    cursor  : pointer;
-    position: relative;
-    width   : 174px;
-    height  : 115px;
-  }
+.product-thumbs .pt {
+  cursor  : pointer;
+  position: relative;
+  padding : 0 5px;
+  height  : 110px;
+  overflow: hidden;
+}
+
+.product-thumbs .pt img {
+  width: inherit;
 }
 
 .product-thumbs .pt.active:after {
@@ -2001,30 +1984,6 @@ h6,
   left    : 0;
   top     : 0;
   z-index : 1;
-}
-
-.ps-slider .owl-nav button[type=button] {
-  height            : 30px;
-  width             : 30px;
-  background        : #ffffff;
-  color             : #a7a7a7;
-  text-align        : center;
-  line-height       : 30px;
-  border-radius     : 50%;
-  font-size         : 20px;
-  -webkit-box-shadow: 0px 6px 10px -1px #e9e9e9;
-  box-shadow        : 0px 6px 10px -1px #e9e9e9;
-  position          : absolute;
-  left              : -16px;
-  top               : 50%;
-  -webkit-transform : translateY(-15px);
-  -ms-transform     : translateY(-15px);
-  transform         : translateY(-15px);
-}
-
-.ps-slider .owl-nav button[type=button].owl-next {
-  left : auto;
-  right: -16px;
 }
 
 .product-details .pd-title {
