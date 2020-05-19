@@ -1481,7 +1481,7 @@ h6,
 .portfolio .work-img {
   display : block;
   overflow: hidden;
-  padding: 0 5px 0 0;
+  padding : 0 5px 0 0;
 }
 
 .portfolio .work-img img {
@@ -1561,9 +1561,9 @@ h6,
 }
 
 .portfolio .title-a {
-  font-size     : 3rem;
-  font-weight   : bold;
-  text-transform: uppercase;
+  font-size     : 70px;
+  font-weight   : 500;
+  text-transform: capitalize;
 }
 
 .portfolio .subtitle-a {
@@ -1587,6 +1587,30 @@ h6,
   color          : #1e1e1e;
   text-decoration: none;
   transition     : all 0.5s ease-in-out;
+}
+
+.cart-empty-text {
+  font-size : 22px;
+  text-align: center;
+  padding   : 10px 0;
+}
+
+.cart-empty-title {
+  position: absolute;
+  top     : 10px;
+  left    : 30px;
+}
+
+.shop-now-btn {
+  font-size     : 18px;
+  font-weight   : 500;
+  color         : #f7f7f7;
+  background    : #1e4356;
+  text-transform: uppercase;
+  padding       : 10px 15px;
+  display       : block;
+  text-align    : center;
+  margin        : 20px;
 }
 
 /*----------------------------------------------------------------------------------------------------
@@ -3233,7 +3257,7 @@ h6,
   }
 
   .portfolio .cart-text {
-    padding-top: 13px;
+    padding-top : 13px;
     padding-left: 0;
   }
 
@@ -3251,7 +3275,23 @@ h6,
     font-size: 14px;
   }
 
-  .portfolio .cart-text .product-price span{
+  .portfolio .cart-text .product-price span {
     font-size: 10px;
   }
+
+  .portfolio .title-a {
+    font-size     : 40px;
+    font-weight   : 500;
+    text-transform: capitalize;
+  }
+
+  .cart-empty-text {
+    padding  : 5px 0;
+    font-size: 12px;
+  }
+
+  .shop-now-btn {
+    font-size: 14px;
+  }
+
 }
