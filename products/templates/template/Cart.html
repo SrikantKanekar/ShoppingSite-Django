@@ -174,7 +174,7 @@
     <div class="container">
         {% for cart_product in profile.cart_products.all %}
         <div class="row">
-            <div class="col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
                 <div class="row">
                     <div class="col-6 col-md-5 work-img">
                         <a href="{% url 'product_detail' slug=cart_product.slug %}">

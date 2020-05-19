@@ -1481,6 +1481,7 @@ h6,
 .portfolio .work-img {
   display : block;
   overflow: hidden;
+  padding: 0 5px 0 0;
 }
 
 .portfolio .work-img img {
@@ -3237,7 +3238,7 @@ h6,
   }
 
   .portfolio .cart-text h3 {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   .portfolio .cart-text a {
@@ -3247,7 +3248,7 @@ h6,
   }
 
   .portfolio .cart-text .product-price {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .portfolio .cart-text .product-price span{
