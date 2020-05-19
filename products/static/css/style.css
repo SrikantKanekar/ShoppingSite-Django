@@ -1466,7 +1466,8 @@ h6,
 # Portfolio
 ------------------------------------------------------------------------------------------------*/
 .portfolio .work-box {
-  margin-bottom              : 3rem;
+  margin                     : auto;
+  margin-bottom              : 15px;
   -webkit-backface-visibility: hidden;
   backface-visibility        : hidden;
   background-color           : #fff;
@@ -1489,8 +1490,38 @@ h6,
 }
 
 .portfolio .work-content {
-  padding: 2rem 3% 1rem 4%;
+  padding: 10px;
 }
+
+.portfolio .cart-text {
+  padding-top: 20px;
+}
+
+.portfolio .cart-text h3 {
+  color: #252525;
+}
+
+.portfolio .cart-text a {
+  position: absolute;
+  top     : 10px;
+  right   : 20px;
+  color   : rgb(94, 92, 92);
+}
+
+.portfolio .cart-text .product-price {
+  color         : #1e4356;
+  font-size     : 20px;
+  font-weight   : 700;
+  padding-bottom: 8px;
+}
+
+.portfolio .cart-text .product-price span {
+  font-size      : 14px;
+  font-weight    : 400;
+  color          : #b2b2b2;
+  text-decoration: line-through;
+}
+
 
 .portfolio .work-content .w-more {
   color    : #4e4e4e;
@@ -1555,10 +1586,6 @@ h6,
   color          : #1e1e1e;
   text-decoration: none;
   transition     : all 0.5s ease-in-out;
-}
-
-.cart-text {
-  text-align: center;
 }
 
 /*----------------------------------------------------------------------------------------------------
@@ -2236,32 +2263,6 @@ h6,
   background: #1e4356;
   content   : "";
   opacity   : 0;
-}
-
-/* laptop */
-@media only screen and (min-width: 801px) {
-  .tab-item ul li a {
-    font-size  : 16px;
-    font-weight: 700;
-    padding    : 18px 61px;
-  }
-
-  .product-thumbs .pt {
-    height: 110px;
-  }
-}
-
-/* mobile */
-@media only screen and (max-width: 800px) {
-  .tab-item ul li a {
-    font-size  : 12px;
-    font-weight: 600;
-    padding    : 8px 5px;
-  }
-
-  .product-thumbs .pt {
-    height: 80px;
-  }
 }
 
 .product-content {
@@ -3203,4 +3204,53 @@ h6,
   padding      : 1px 8px;
   border       : 1px solid #ccc;
   border-radius: 2px;
+}
+
+/* laptop */
+@media only screen and (min-width: 801px) {
+  .tab-item ul li a {
+    font-size  : 16px;
+    font-weight: 700;
+    padding    : 18px 61px;
+  }
+
+  .product-thumbs .pt {
+    height: 110px;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 800px) {
+  .tab-item ul li a {
+    font-size  : 12px;
+    font-weight: 600;
+    padding    : 8px 5px;
+  }
+
+  .product-thumbs .pt {
+    height: 80px;
+  }
+
+  .portfolio .cart-text {
+    padding-top: 13px;
+    padding-left: 0;
+  }
+
+  .portfolio .cart-text h3 {
+    font-size: 17px;
+  }
+
+  .portfolio .cart-text a {
+    top      : 10px;
+    right    : 15px;
+    font-size: 12px;
+  }
+
+  .portfolio .cart-text .product-price {
+    font-size: 15px;
+  }
+
+  .portfolio .cart-text .product-price span{
+    font-size: 10px;
+  }
 }

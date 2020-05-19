@@ -174,34 +174,22 @@
     <div class="container">
         {% for cart_product in profile.cart_products.all %}
         <div class="row">
-            <div class="col-md-8" style="margin:auto;" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                <div class="work-box" style="margin-bottom:15px;">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="work-img" style="padding:8px;">
-                                <a href="{% url 'product_detail' slug=cart_product.slug %}">
-                                    <img src="/media/{{ cart_product.image_url_1 }}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="work-content" style="padding:10px;">
-                                <div class="row">
-                                    <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
-                                        <h3>{{ cart_product.title }}</h3>
-                                        <div class="product-price">₹{{ cart_product.offer_price }}
-                                            <span>₹{{ cart_product.original_price }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-1" style="padding-top:10px;">
-                            <a href="{% url 'cart_update' product_id=cart_product.id %}">
-                                <span style="color: grey;">
+            <div class="col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                <div class="row">
+                    <div class="col-6 col-md-5 work-img">
+                        <a href="{% url 'product_detail' slug=cart_product.slug %}">
+                            <img src="/media/{{ cart_product.image_url_1 }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-7 cart-text">
+                        <h3>{{ cart_product.title }}</h3>
+                        <a href="{% url 'cart_update' product_id=cart_product.id %}">
+                            <span>
                                 <i class="fas fa-trash"></i>
-                                </span>
-                            </a>
+                            </span>
+                        </a>
+                        <div class="product-price">₹{{ cart_product.offer_price }}
+                            <span>₹{{ cart_product.original_price }}</span>
                         </div>
                     </div>
                 </div>
