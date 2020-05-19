@@ -141,7 +141,7 @@
                 <br>
                 <div class="product-details">
                     <div class="pd-title">
-                        <h3>{{product.title}}</h3>
+                        <h3>{{product.title}}</h3><span>{{product.category}}</span>
                         {% if user.is_authenticated %}
                         {% if product in profile.wishlist_products.all %}
                         <a href="{% url 'wishlist_update' product_id=product.id %}" class="heart-icon"><i
@@ -164,6 +164,7 @@
                             </span>
                     <div class="pd-desc">
                         <h4>₹{{ product.offer_price }}<span>₹{{ product.original_price }}</span></h4>
+                        <h6 class="price-discount">65% Off </h6>
                     </div>
                     <div class="pd-color">
                         <h6>Color</h6>
@@ -200,17 +201,17 @@
                             <label for="xl-size">xs</label>
                         </div>
                     </div>
-                    <div class="quantity">
+                    <div class="add-to-cart">
                         {% if user.is_authenticated %}
                         {% if product in profile.cart_products.all %}
-                        <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">remove
+                        <a href="{% url 'cart_update' product_id=product.id %}" class="add-to-cart-btn">remove
                             from cart</a>
                         {% else %}
-                        <a href="{% url 'cart_update' product_id=product.id %}" class="primary-btn pd-cart">Add
+                        <a href="{% url 'cart_update' product_id=product.id %}" class="add-to-cart-btn">Add
                             To Cart</a>
                         {% endif %}
                         {% else %}
-                        <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
+                        <a href="{% url 'cart' %}" class="add-to-cart-btn">Add To Cart</a>
                         {% endif %}
                     </div>
                 </div>
@@ -220,90 +221,23 @@
             <div class="tab-item">
                 <ul class="nav" role="tablist">
                     <li>
-                        <a class="active" data-toggle="tab" href="#tab-1" role="tab">DESCRIPTION</a>
+                        <a class="active" data-toggle="tab" href="#tab-1" role="tab">Customer Reviews</a>
                     </li>
                     <li>
                         <a data-toggle="tab" href="#tab-2" role="tab">SPECIFICATIONS</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#tab-3" role="tab">Customer Reviews</a>
+                        <a data-toggle="tab" href="#tab-3" role="tab">description</a>
                     </li>
                 </ul>
             </div>
             <div class="tab-item-content">
                 <div class="tab-content">
                     <div class="tab-pane fade-in active" id="tab-1" role="tabpanel">
-                        <div class="product-content">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <h5>Specification</h5>
-                                    <p>{{ product.description|linebreaks }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-2" role="tabpanel">
-                        <div class="specification-table">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <table>
-                                        <tr>
-                                            <td class="p-catagory">Customer Rating</td>
-                                            <td>
-                                                        <span class="pd-rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <span>(4)</span>
-                                                        </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Price</td>
-                                            <td>
-                                                <div class="p-price">₹{{ product.offer_price }}</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Add To Cart</td>
-                                            <td>
-                                                <div class="cart-add">+ add to cart</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Availability</td>
-                                            <td>
-                                                <div class="p-stock">{{ product.quantity_left }} in stock</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Weight</td>
-                                            <td>
-                                                <div class="p-weight">1,3kg</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Size</td>
-                                            <td>
-                                                <div class="p-size">Xxl</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-catagory">Color</td>
-                                            <td><span class="cs-color"></span></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-3" role="tabpanel">
                         <div class="customer-review-option">
                             <h4>{{ comment_count }} Comments</h4>
                             <div class="comment-option">
-                                {% for comment in comments %}
+                                {% for comment in comments reversed %}
                                 <div class="co-item">
                                     <div class="avatar-pic">
                                         <img src="/media/{{ comment.user.profile.dp }}" alt="">
@@ -353,6 +287,73 @@
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-2" role="tabpanel">
+                        <div class="specification-table">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <table>
+                                        <tr>
+                                            <td class="p-catagory">Customer Rating</td>
+                                            <td>
+                                                <span class="pd-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <span>(4)</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Price</td>
+                                            <td>
+                                                <div class="p-price">₹{{ product.offer_price }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Brand</td>
+                                            <td>
+                                                <div class="p-stock">{{ product.category }}</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Availability</td>
+                                            <td>
+                                                <div class="p-stock">{{ product.quantity_left }} in stock</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Weight</td>
+                                            <td>
+                                                <div class="p-weight">1,3kg</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Size</td>
+                                            <td>
+                                                <div class="p-size">Xxl</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-catagory">Color</td>
+                                            <td><span class="cs-color"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                        <div class="product-content">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <h5>Description</h5>
+                                    <p>{{ product.description|linebreaks }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
