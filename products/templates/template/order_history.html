@@ -168,37 +168,25 @@
     <div class="container">
         {% for i in orders reversed %}
         <div class="row">
-            <div class="col-md-8" style="margin:auto;" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                <div class="work-box" style="margin-bottom:15px;">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="work-img" style="padding:8px;">
-                                <a href="{% url 'product_detail' slug=i.ordered_product.slug %}">
-                                    <img src="/media/{{ i.ordered_product.image_url_1 }}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="work-content" style="padding:10px;">
-                                <div class="row">
-                                    <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
-                                        <h5>{{ i.ordered_product.title }}</h5>
-                                        <h6>₹{{ i.ordered_product.offer_price }}</h6>
-                                        <h6>{{ i.ordered_date }}</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 proceed-checkout" style="padding-top:50px">
-                            <a href="{% url 'track_order' order_id=i.id %}" style="color: white"
-                               class="proceed-btn">Track Order
-                            </a>
+            <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                <div class="row">
+                    <div class="col-6 col-md-5 work-img">
+                        <a href="{% url 'product_detail' slug=i.ordered_product.slug %}">
+                            <img src="/media/{{ i.ordered_product.image_url_1 }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-7 cart-text">
+                        <h3>{{ i.ordered_product.title }}</h3>
+                        <h6>₹{{ i.ordered_product.offer_price }}</h6>
+                        <h6>{{ i.ordered_date }}</h6>
+                        <div class="add-to-cart-btn-2">
+                            <a href="{% url 'track_order' order_id=i.id %}" style="color: white">Track Order</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
+    {% endfor %}
     </div>
 </section>
 {% endif %}
@@ -210,9 +198,9 @@
     <div class="container">
         <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
             <div class="work-box">
-                <div class="row" style="padding: 20px 50px;">
+                <div class="row">
                     <div class="col">
-                        <h3>My Orders</h3>
+                        <h3 class="cart-empty-title">My Orders</h3>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -225,8 +213,8 @@
                 <div class="work-content">
                     <div class="row justify-content-center">
                         <div class="col-sm-8">
-                            <h6 class="cart-text">Login to see the items u ordered previously</h6>
-                            <a class="proceed-btn " style="margin: auto; width: 30%; color: #ffffff;"
+                            <h6 class="cart-empty-text">Login to see the items u ordered previously</h6>
+                            <a class="shop-now-btn " style="margin: auto; width: 30%; color: #ffffff;"
                                href="{% url 'login' %}">Login</a>
                         </div>
                     </div>

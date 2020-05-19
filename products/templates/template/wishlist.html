@@ -168,46 +168,33 @@
     <div class="container">
         {% for wishlist_product in profile.wishlist_products.all %}
         <div class="row">
-            <div class="col-md-8" style="margin:auto;" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                <div class="work-box" style="margin-bottom:15px;">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="work-img" style="padding:8px;">
-                                <a href="{% url 'product_detail' slug=wishlist_product.slug %}">
-                                    <img src="/media/{{ wishlist_product.image_url_1 }}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="work-content" style="padding:10px;">
-                                <div class="row">
-                                    <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
-                                        <h3>{{ wishlist_product.title }}</h3>
-                                        <div class="product-price">₹{{ wishlist_product.offer_price }}
-                                            <span>₹{{ wishlist_product.original_price }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 proceed-checkout" style="padding-top:50px">
-                            {% if wishlist_product in profile.cart_products.all %}
-                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white"
-                               class="proceed-btn">remove
-                                from cart</a>
-                            {% else %}
-                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white"
-                               class="proceed-btn">Add
-                                To Cart</a>
-                            {% endif %}
-                        </div>
-                        <div class="col-1" style="padding-top:10px;">
-                            <a href="{% url 'wishlist_update' product_id=wishlist_product.id %}" data-toggle="tooltip"
-                               data-placement="top" title="Remove">
-                                <span style="color: grey;">
-                                <i class="fas fa-trash"></i>
+            <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                <div class="row">
+                    <div class="col-6 col-md-5 work-img">
+                        <a href="{% url 'product_detail' slug=wishlist_product.slug %}">
+                            <img src="/media/{{ wishlist_product.image_url_1 }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-7 cart-text">
+                        <h3>{{ wishlist_product.title }}</h3>
+                        <div class="icon-class">
+                            <a href="{% url 'wishlist_update' product_id=wishlist_product.id %}">
+                                <span>
+                                    <i class="fas fa-trash"></i>
                                 </span>
                             </a>
+                        </div>
+                        <div class="product-price">₹{{ wishlist_product.offer_price }}
+                            <span>₹{{ wishlist_product.original_price }}</span>
+                        </div>
+                        <div class="add-to-cart-btn-2">
+                            {% if wishlist_product in profile.cart_products.all %}
+                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white">
+                                remove from cart</a>
+                            {% else %}
+                            <a href="{% url 'cart_update' product_id=wishlist_product.id %}" style="color: white">
+                                Add To Cart</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

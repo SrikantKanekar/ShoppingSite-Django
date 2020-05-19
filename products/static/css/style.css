@@ -1500,9 +1500,15 @@ h6,
 
 .portfolio .cart-text h3 {
   color: #252525;
+  margin-bottom: 0;
 }
 
-.portfolio .cart-text a {
+.portfolio .cart-text h6 {
+  color: #252525;
+  margin-bottom: 0;
+}
+
+.portfolio .cart-text .icon-class a {
   position: absolute;
   top     : 10px;
   right   : 20px;
@@ -3231,6 +3237,18 @@ h6,
   border-radius: 2px;
 }
 
+.add-to-cart-btn-2 a {
+  position      : absolute;
+  top           : 85px;
+  right         : 60px;
+  font-size     : 16px;
+  font-weight   : 600;
+  padding       : 12px 20px;
+  color         : #ffffff;
+  background    : #1e4356;
+  text-transform: capitalize;
+}
+
 /* laptop */
 @media only screen and (min-width: 801px) {
   .tab-item ul li a {
@@ -3265,7 +3283,11 @@ h6,
     font-size: 15px;
   }
 
-  .portfolio .cart-text a {
+  .portfolio .cart-text h6 {
+    font-size: 10px;
+  }
+
+  .portfolio .cart-text .icon-class a {
     top      : 10px;
     right    : 15px;
     font-size: 12px;
@@ -3294,4 +3316,12 @@ h6,
     font-size: 14px;
   }
 
+  .add-to-cart-btn-2 a {
+    top        : 75px;
+    right      : 8px;
+    font-size  : 10px;
+    font-weight: 500;
+    padding    : 5px 10px;
+
+  }
 }
