@@ -134,78 +134,73 @@
 </section><!-- ======= end title ======= -->
 
 
-<section class="product-shop spad page-details">
+<section class="user-page">
     <div class="container">
-        <div class="product-tab" style="padding-top: 0px;">
-            <div class="row justify-content-center">
-                <div class="col-lg-1">
-                    {% if profile.dp %}
-                    <img style="height: 110px; width: 110px; border-radius: 50%;"
-                         src="/media/{{ profile.dp }}" alt="">
-                    {% else %}
-                    <img style="height: 110px; width: 110px; border-radius: 50%;"
-                         src="/media/profile/img/default_profile_pic.png" alt="">
-                    {% endif %}
-                </div>
+        <div class="row">
+            <div class="col-12 dp">
+                {% if profile.dp %}
+                <img src="/media/{{ profile.dp }}" alt="">
+                {% else %}
+                <img src="/media/profile/img/default_profile_pic.png" alt="">
+                {% endif %}
+                <a href="{% url 'update_profile_pic' %}"><i class="fas fa-pencil-alt"></i></a>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="specification-table">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <table>
-                                    <tr>
-                                        <td class="p-catagory">First name</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ user.first_name }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-catagory">last name</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ user.last_name }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-catagory">email</td>
-                                        <td class="p-catagory" style="text-transform: lowercase;">{{ user.email }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-catagory">gender</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ profile.gender }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-catagory">Phone Number</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ profile.phone_number }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-catagory">Address</td>
-                                        <td class="p-catagory" style="text-transform: capitalize;">
-                                            {{ profile.street_address }}, {{ profile.city }}, {{ profile.state }},
-                                            {{ profile.country }}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
-                                <a href="{% url 'update_profile' %}" class="proceed-btn">update profile</a>
-                            </div>
-                            <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
-                                <a href="{% url 'update_address' %}" class="proceed-btn">update Address</a>
-                            </div>
-                            <div class="col-xs-4" style="padding-top: 30px; padding-left: 30px;">
-                                <a href="{% url 'update_profile_pic' %}" class="proceed-btn">update Picture</a>
-                            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="specification-table">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table>
+                                <tr>
+                                    <td class="p-catagory">First name</td>
+                                    <td class="p-catagory" style="text-transform: capitalize;">
+                                        {{ user.first_name }}
+                                        <a href="{% url 'update_profile' %}">
+                                            <i class="fas fa-user-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-catagory">last name</td>
+                                    <td class="p-catagory" style="text-transform: capitalize;">
+                                        {{ user.last_name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-catagory">email</td>
+                                    <td class="p-catagory" style="text-transform: lowercase;">{{ user.email }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-catagory">gender</td>
+                                    <td class="p-catagory" style="text-transform: capitalize;">
+                                        {{ profile.gender }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-catagory">Phone Number</td>
+                                    <td class="p-catagory" style="text-transform: capitalize;">
+                                        {{ profile.phone_number }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-catagory">Address</td>
+                                    <td class="p-catagory" style="text-transform: capitalize;">
+                                        {{ profile.street_address }}, {{ profile.city }}, {{ profile.state }},
+                                        {{ profile.country }}
+                                        <a href="{% url 'update_address' %}">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
