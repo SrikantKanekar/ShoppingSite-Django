@@ -179,6 +179,7 @@
                         <h3>{{ i.ordered_product.title }}</h3>
                         <h6>₹{{ i.ordered_product.offer_price }}</h6>
                         <h6>{{ i.ordered_date }}</h6>
+                        <h6>{{ i.status }}</h6>
                         <div class="add-to-cart-btn-2">
                             <a href="{% url 'track_order' order_id=i.id %}" style="color: white">Track Order</a>
                         </div>

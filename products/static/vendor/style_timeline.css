@@ -149,3 +149,73 @@
 .timeline .li.complete .status-return h6 {
   color: rgb(250, 186, 48);
 }
+
+
+
+/* mobile */
+@media only screen and (max-width: 800px) {
+
+  /* for delivery */
+  .timeline .status {
+    height    : 40px;
+    text-align: center;
+    padding   : 10px 5px;
+  }
+
+  .timeline .status h6 {
+    font-weight: 400;
+    font-size  : 11px;
+  }
+
+  .timeline .status:before {
+    width        : 13px;
+    height       : 13px;
+    border-radius: 50px;
+    border       : 1px solid #ddd;
+    top          : -7px;
+    left         : 40%;
+  }
+
+  /* for cancel */
+  .timeline .status-cancel {
+    height    : 40px;
+    text-align: center;
+    padding   : 10px 5px;
+  }
+
+  .timeline .status-cancel h6 {
+    font-weight: 400;
+    font-size  : 11px;
+  }
+
+  .timeline .status-cancel:before {
+    width        : 13px;
+    height       : 13px;
+    border-radius: 50px;
+    border       : 1px solid #ddd;
+    top          : -7px;
+    left         : 40%;
+  }
+
+  /* for return */
+  .timeline .status-return {
+    height    : 40px;
+    text-align: center;
+    padding   : 10px 5px;
+  }
+
+  .timeline .status-return h6 {
+    font-weight: 400;
+    font-size  : 11px;
+  }
+
+  .timeline .status-return:before {
+    width        : 13px;
+    height       : 13px;
+    border-radius: 50px;
+    border       : 1px solid #ddd;
+    top          : -7px;
+    left         : 40%;
+  }
+
+}
