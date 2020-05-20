@@ -124,7 +124,7 @@ class Admin(models.Model):
     ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin', blank=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     ordered_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
-    status = models.CharField(choices=order_status, max_length=20, default='Order Placed')
+    status = models.CharField(choices=order_status, max_length=200, default='Order Placed')
 
     def __str__(self):
         return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.status)
