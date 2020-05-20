@@ -137,28 +137,24 @@
 {% if user.is_superuser or user.is_staff %}
 {% if count == 0 %}
 <!--cart page if cart has no items-->
-<section class="portfolio sect-pt4">
+<section class="portfolio">
     <div class="container">
-        <div class="col-md-12" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-            <div class="work-box">
-                <div class="row" style="padding: 20px 50px;">
-                    <div class="col">
-                        <h3>Admin Page</h3>
+        <div class="work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="cart-empty-title">Admin Page</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="work-img cart-img">
+                        <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <div class="work-img cart-img">
-                            <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <div class="work-content">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-8">
-                            <h5 class="cart-text">No Items Yet</h5>
-                        </div>
-                    </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3">
+                    <h5 class="cart-empty-text">No Items Yet</h5>
                 </div>
             </div>
         </div>
@@ -172,33 +168,20 @@
     <div class="container">
         {% for i in orders reversed %}
         <div class="row">
-            <div class="col-md-8" style="margin:auto;" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                <div class="work-box" style="margin-bottom:15px;">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="work-img" style="padding:8px;">
-                                <a href="{% url 'product_detail' slug=i.ordered_product.slug %}">
-                                    <img src="/media/{{ i.ordered_product.image_url_1 }}" alt="" class="img-fluid">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="work-content" style="padding:10px;">
-                                <div class="row">
-                                    <div class="col-sm-12 pi-text" style="padding-top:10px; text-align: left;">
-                                        <h6>ID {{ i.id }} ({{ i.ordered_product.title }})</h6>
-                                        <h6>{{ i.customer.username }}</h6>
-                                        <h6>{{ i.ordered_date }}</h6>
-                                        <h6>{{ i.status }}</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3 proceed-checkout" style="padding-top:50px;">
-                            <a href="{% url 'admin_product_page' order_id=i.id %}"
-                               class="proceed-btn" style="color: white;">
-                                Detail
-                            </a>
+            <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
+                <div class="row">
+                    <div class="col-6 col-md-5 work-img">
+                        <a href="{% url 'product_detail' slug=i.ordered_product.slug %}">
+                            <img src="/media/{{ i.ordered_product.image_url_1 }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-7 cart-text">
+                        <h6>ID {{ i.id }} ({{ i.ordered_product.title }})</h6>
+                        <h6>{{ i.customer.username }}</h6>
+                        <h6>{{ i.ordered_date }}</h6>
+                        <h6>{{ i.status }}</h6>
+                        <div class="add-to-cart-btn-2">
+                            <a href="{% url 'admin_product_page' order_id=i.id %}" style="color: white;">Detail</a>
                         </div>
                     </div>
                 </div>

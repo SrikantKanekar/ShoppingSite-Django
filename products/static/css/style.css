@@ -2780,6 +2780,7 @@ h6,
   padding       : 15px 25px 14px 25px;
   display       : block;
   text-align    : center;
+  margin: 10px;
 }
 
 .remove-btn {
