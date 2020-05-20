@@ -78,6 +78,8 @@ class Profile(models.Model):
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
     wishlist_products = models.ManyToManyField(Product, blank=True, related_name='wishlist')
     cart_products = models.ManyToManyField(Product, blank=True)
+    total_original = models.IntegerField(default=0)
+    total_offer = models.IntegerField(default=0)
     total = models.IntegerField(default=0)
 
     def __str__(self):

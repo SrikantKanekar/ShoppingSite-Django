@@ -11,11 +11,6 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-
     {% load static %}
 
     <!-- Google Fonts -->
@@ -57,6 +52,119 @@
 
 </head>
 <body>
+
+<!-- ======= Header ======= -->
+{% if request.path == '/' %}
+<header id=header class="fixed-top header-transparent">
+{% else %}
+<header id=header class="fixed-top header">
+{% endif %}
+    <div class="container">
+        <div class="logo float-left">
+            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
+        </div>
+        <nav class="nav-menu float-right d-none d-lg-block">
+            <ul>
+                <li>
+                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                        <div class="search">
+                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                            <div>
+                                <svg>
+                                    <use xlink:href="#path"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <input class="submit" type="submit" name="submit" value="Search"/>
+                    </form>
+                </li>
+                <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                <li><a href="{% url 'admin_page' %}">Admin</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
+                    <ul>
+                        <li><a href="{% url 'user' %}">User Profile</a></li>
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
+                        <li><a href="{% url 'order_history' %}">Orders</a></li>
+                        <li><a href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                </li>
+                {% elif request.path != "/login/" %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+
+                <li class="drop-down"><a href="">Category</a>
+                    <ul>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='camera' %}">Camera</a></li>
+                                <li><a href="{% url 'show_category' slug='laptops' %}">Laptops</a></li>
+                                <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile Accessories</a>
+                                </li>
+                                <li><a href="{% url 'show_category' slug='mobiles' %}">Mobiles</a></li>
+                                <li><a href="{% url 'show_category' slug='speakers' %}">Speakers</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='fashion' %}">Fashion</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='men' %}">Men's</a></li>
+                                <li><a href="{% url 'show_category' slug='women' %}">Women's</a></li>
+                                <li><a href="{% url 'show_category' slug='kids-and-baby' %}">Kids and Baby</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='home-and-furniture' %}">Home and
+                            Furniture</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='home-furnishing' %}">Home Furnishing</a></li>
+                                <li><a href="{% url 'show_category' slug='home-decor' %}">Home Decor</a></li>
+                                <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a>
+                                </li>
+                                <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House Keeping
+                                    Essentials</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen
+                                    Accessories</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='sports-books-and-more' %}">Sports,
+                            Books and More</a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='tv-appliances' %}">Tv &
+                            Appliances</a>
+                            <ul>
+                                <li><a href="{% url 'show_category' slug='air-conditioner' %}">Air Conditioner</a></li>
+                                <li><a href="{% url 'show_category' slug='washing-machine' %}">Washing Machine</a></li>
+                                <li><a href="{% url 'show_category' slug='televisions' %}">Televisions</a></li>
+                                <li><a href="{% url 'show_category' slug='refrigerator' %}">Refrigerator</a></li>
+                                <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen Appliances</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="drop-down"><a href="{% url 'show_category' slug='toys-and-baby' %}">Toys and Baby</a>
+                            <ul>
+                                <li><a href="#">Deep Drop Down 1</a></li>
+                                <li><a href="#">Deep Drop Down 2</a></li>
+                                <li><a href="#">Deep Drop Down 3</a></li>
+                                <li><a href="#">Deep Drop Down 4</a></li>
+                                <li><a href="#">Deep Drop Down 5</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
+
 
 {% block content %}
 {% endblock %}
@@ -108,6 +216,9 @@
 </footer><!-- End Footer -->
 
 <!--bootstrap-->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>

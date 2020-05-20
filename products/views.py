@@ -20,8 +20,9 @@ def show_category(request, slug):
 
 
 def product_detail(request, slug):
+    product = Product.objects.get(slug=slug)
+    off = round((product.original_price - product.offer_price) / product.original_price * 100)
     if request.user.is_authenticated:
-        product = Product.objects.get(slug=slug)
         profile = Profile.objects.get(user=request.user)
         comments = Comment.objects.filter(product=product)
         comment_count = comments.count()
@@ -35,12 +36,11 @@ def product_detail(request, slug):
                 return redirect('product_detail', slug=product.slug)
         else:
             comment_form = CommentForm()
-            return render(request, 'template/product_detail.html', {'product': product, 'profile': profile, 'comment_form': comment_form, 'comments': comments, 'comment_count': comment_count})
+            return render(request, 'template/product_detail.html', {'product': product, 'profile': profile, 'comment_form': comment_form, 'comments': comments, 'comment_count': comment_count, 'off': off})
     else:
-        product = Product.objects.get(slug=slug)
         comments = Comment.objects.filter(product=product)
         comment_count = comments.count()
-        return render(request, 'template/product_detail.html', {'product': product, 'comments': comments, 'comment_count': comment_count})
+        return render(request, 'template/product_detail.html', {'product': product, 'comments': comments, 'comment_count': comment_count, 'off': off})
 
 
 def faq(request):
@@ -189,12 +189,17 @@ def cart(request):
         profile = Profile.objects.get(user=request.user)
         count = profile.cart_products.all().count()
         products = profile.cart_products.all()
-        total = 0
+        total_offer = 0
+        total_original = 0
         for x in products:
-            total += x.offer_price
-        profile.total = total
+            total_original += x.original_price
+            total_offer += x.offer_price
+        profile.total_offer = total_offer
+        profile.total_original = total_original
+        profile.total = 250 + total_offer
         profile.save()
-        return render(request, 'template/Cart.html', {'profile': profile, 'count': count})
+        discount = total_original - total_offer
+        return render(request, 'template/Cart.html', {'profile': profile, 'count': count, 'discount': discount})
     else:
         return render(request, 'template/Cart.html')
 
@@ -227,10 +232,10 @@ def checkout(request):
         profile = Profile.objects.get(user=request.user)
         count = profile.cart_products.all().count()
         products = profile.cart_products.all()
-        total = 0
+        total_offer = 0
         for x in products:
-            total += x.offer_price
-        profile.total = total
+            total_offer += x.offer_price
+        profile.total = 250 + total_offer
         profile.save()
         return render(request, 'template/checkout.html', {
             'user_form': user_form,
