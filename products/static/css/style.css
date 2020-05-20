@@ -1499,12 +1499,12 @@ h6,
 }
 
 .portfolio .cart-text h3 {
-  color: #252525;
+  color        : #252525;
   margin-bottom: 0;
 }
 
 .portfolio .cart-text h6 {
-  color: #252525;
+  color        : #252525;
   margin-bottom: 0;
 }
 
@@ -3317,7 +3317,7 @@ h6,
   }
 
   .add-to-cart-btn-2 a {
-    top        : 75px;
+    top: 60px;
     right      : 8px;
     font-size  : 10px;
     font-weight: 500;
