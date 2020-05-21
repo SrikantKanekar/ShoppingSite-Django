@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products.apps.ProductsConfig',
     'mptt',
-    'star_ratings',
 ]
 
 MIDDLEWARE = [
