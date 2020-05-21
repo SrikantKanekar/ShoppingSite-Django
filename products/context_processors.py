@@ -11,3 +11,6 @@ def add_variable_to_context(request):
             'wishlist_count': wishlist_count,
             'cart_count': cart_count,
         }
+    else:
+        return {}
+
