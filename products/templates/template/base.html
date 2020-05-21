@@ -17,6 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
           rel="stylesheet">
 
+    <!-- star rating -->
+    <link rel="stylesheet" href="{% static 'vendor/star-ratings.css' %}">
+    <script type="text/javascript" src="{% static 'vendor/star-ratings.min.js' %}"></script>
+
+
     <!--timeline-->
     <link rel="stylesheet" href="{% static 'vendor/style_timeline.css' %}" type="text/css">
 
@@ -50,217 +55,227 @@
     <!-- css -->
     <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 28" id="path">
+            <path d="M32.9418651,-20.6880772 C37.9418651,-20.6880772 40.9418651,-16.6880772 40.9418651,-12.6880772
+        C40.9418651,-8.68807717 37.9418651,-4.68807717 32.9418651,-4.68807717 C27.9418651,-4.68807717 24.9418651,
+        -8.68807717 24.9418651,-12.6880772 C24.9418651,-16.6880772 27.9418651,-20.6880772 32.9418651,-20.6880772
+        L32.9418651,-29.870624 C32.9418651,-30.3676803 33.3448089,-30.770624 33.8418651,-30.770624 C34.08056,
+        -30.770624 34.3094785,-30.6758029 34.4782612,-30.5070201 L141.371843,76.386562"
+                  transform="translate(83.156854, 22.171573) rotate(-225.000000) translate(-83.156854, -22.171573)"></path>
+        </symbol>
+    </svg>
+
 </head>
 <body>
 
 <!-- ======= Header ======= -->
 {% if request.path == '/' %}
 <header id=header class="fixed-top header-transparent">
-{% else %}
-<header id=header class="fixed-top header">
-{% endif %}
-    <div class="container">
-        <div class="logo float-left">
-            <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
-        </div>
-        <nav class="nav-menu float-right d-none d-lg-block">
-            <ul>
-                <li>
-                    <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
-                        <div class="search">
-                            <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
-                            <div>
-                                <svg>
-                                    <use xlink:href="#path"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <input class="submit" type="submit" name="submit" value="Search"/>
-                    </form>
-                </li>
-                <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
-                {% if user.is_superuser or user.is_staff %}
-                <li><a href="{% url 'admin_page' %}">Admin</a></li>
-                {% endif %}
-                {% if user.is_authenticated %}
-                <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
-                    <ul>
-                        <li><a href="{% url 'user' %}">User Profile</a></li>
-                        <li><a href="{% url 'cart' %}">Cart</a></li>
-                        <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
-                        <li><a href="{% url 'order_history' %}">Orders</a></li>
-                        <li><a href="{% url 'logout' %}">logout</a></li>
-                    </ul>
-                </li>
-                {% elif request.path != "/login/" %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                {% endif %}
-
-                <li class="drop-down"><a href="">Category</a>
-                    <ul>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
-                            <ul>
-                                <li><a href="{% url 'show_category' slug='camera' %}">Camera</a></li>
-                                <li><a href="{% url 'show_category' slug='laptops' %}">Laptops</a></li>
-                                <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile Accessories</a>
-                                </li>
-                                <li><a href="{% url 'show_category' slug='mobiles' %}">Mobiles</a></li>
-                                <li><a href="{% url 'show_category' slug='speakers' %}">Speakers</a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='fashion' %}">Fashion</a>
-                            <ul>
-                                <li><a href="{% url 'show_category' slug='men' %}">Men's</a></li>
-                                <li><a href="{% url 'show_category' slug='women' %}">Women's</a></li>
-                                <li><a href="{% url 'show_category' slug='kids-and-baby' %}">Kids and Baby</a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='home-and-furniture' %}">Home and
-                            Furniture</a>
-                            <ul>
-                                <li><a href="{% url 'show_category' slug='home-furnishing' %}">Home Furnishing</a></li>
-                                <li><a href="{% url 'show_category' slug='home-decor' %}">Home Decor</a></li>
-                                <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a>
-                                </li>
-                                <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House Keeping
-                                    Essentials</a></li>
-                                <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen
-                                    Accessories</a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='sports-books-and-more' %}">Sports,
-                            Books and More</a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='tv-appliances' %}">Tv &
-                            Appliances</a>
-                            <ul>
-                                <li><a href="{% url 'show_category' slug='air-conditioner' %}">Air Conditioner</a></li>
-                                <li><a href="{% url 'show_category' slug='washing-machine' %}">Washing Machine</a></li>
-                                <li><a href="{% url 'show_category' slug='televisions' %}">Televisions</a></li>
-                                <li><a href="{% url 'show_category' slug='refrigerator' %}">Refrigerator</a></li>
-                                <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen Appliances</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="drop-down"><a href="{% url 'show_category' slug='toys-and-baby' %}">Toys and Baby</a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav><!-- .nav-menu -->
-    </div>
-</header><!-- End Header -->
-
-
-{% block content %}
-{% endblock %}
-
-<!-- ======= Footer ======= -->
-<footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement='top-bottom'
-        data-aos-duration="500">
-    <div class="footer-top">
+    {% else %}
+    <header id=header class="fixed-top header">
+        {% endif %}
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6  footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'homepage' %}">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about_us' %}">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'faq' %}">Faq</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact_us' %}">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h4>Contact Us</h4>
-                    <p>
-                        Margao Goa<br>
-                        India <br><br>
-                        <strong>Phone:</strong> 9673659439<br>
-                        <strong>Email:</strong> gulugulu@gmail.com<br>
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-info">
-                    <h3>About Shopping Site</h3>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                        valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                    <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <div class="logo float-left">
+                <h1 class="text-light"><a href="{% url 'homepage' %}"><span>Shopping Site</span></a></h1>
+            </div>
+            <nav class="nav-menu float-right d-none d-lg-block">
+                <ul>
+                    <li>
+                        <form action="{% url 'search' %}" method="GET" value="{{request.GET.q}}">
+                            <div class="search">
+                                <input type="text" name="q" value="{{request.GET.q}}" placeholder=" ">
+                                <div>
+                                    <svg>
+                                        <use xlink:href="#path"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <input class="submit" type="submit" name="submit" value="Search"/>
+                        </form>
+                    </li>
+                    <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                    {% if user.is_superuser or user.is_staff %}
+                    <li><a href="{% url 'admin_page' %}">Admin</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="drop-down"><a href="{% url 'user' %}">{{ user.username }}</a>
+                        <ul>
+                            <li><a href="{% url 'user' %}">User Profile</a></li>
+                            <li><a href="{% url 'cart' %}">Cart <span class="badge badge-colour">{{ cart_count }}</span></a>
+                            </li>
+                            <li><a href="{% url 'wishlist' %}">Wishlist <span class="badge badge-colour">{{ wishlist_count }}</span></a>
+                            </li>
+                            <li><a href="{% url 'order_history' %}">Orders <span class="badge badge-colour">{{ order_count }}</span></a>
+                            </li>
+                            <li><a href="{% url 'logout' %}">logout</a></li>
+                        </ul>
+                    </li>
+                    {% elif request.path != "/login/" %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+
+                    <li class="drop-down"><a href="">Category</a>
+                        <ul>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='electronics' %}">Electronics</a>
+                                <ul>
+                                    <li><a href="{% url 'show_category' slug='camera' %}">Camera</a></li>
+                                    <li><a href="{% url 'show_category' slug='laptops' %}">Laptops</a></li>
+                                    <li><a href="{% url 'show_category' slug='mobile-accessories' %}">Mobile
+                                        Accessories</a>
+                                    </li>
+                                    <li><a href="{% url 'show_category' slug='mobiles' %}">Mobiles</a></li>
+                                    <li><a href="{% url 'show_category' slug='speakers' %}">Speakers</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='fashion' %}">Fashion</a>
+                                <ul>
+                                    <li><a href="{% url 'show_category' slug='men' %}">Men's</a></li>
+                                    <li><a href="{% url 'show_category' slug='women' %}">Women's</a></li>
+                                    <li><a href="{% url 'show_category' slug='kids-and-baby' %}">Kids and Baby</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='home-and-furniture' %}">Home and
+                                Furniture</a>
+                                <ul>
+                                    <li><a href="{% url 'show_category' slug='home-furnishing' %}">Home Furnishing</a>
+                                    </li>
+                                    <li><a href="{% url 'show_category' slug='home-decor' %}">Home Decor</a></li>
+                                    <li><a href="{% url 'show_category' slug='home-improvement' %}">Home Improvement</a>
+                                    </li>
+                                    <li><a href="{% url 'show_category' slug='house-keeping-essentials' %}">House
+                                        Keeping
+                                        Essentials</a></li>
+                                    <li><a href="{% url 'show_category' slug='kitchen-accessories' %}">Kitchen
+                                        Accessories</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='sports-books-and-more' %}">Sports,
+                                Books and More</a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='tv-appliances' %}">Tv &
+                                Appliances</a>
+                                <ul>
+                                    <li><a href="{% url 'show_category' slug='air-conditioner' %}">Air Conditioner</a>
+                                    </li>
+                                    <li><a href="{% url 'show_category' slug='washing-machine' %}">Washing Machine</a>
+                                    </li>
+                                    <li><a href="{% url 'show_category' slug='televisions' %}">Televisions</a></li>
+                                    <li><a href="{% url 'show_category' slug='refrigerator' %}">Refrigerator</a></li>
+                                    <li><a href="{% url 'show_category' slug='kitchen-appliances' %}">Kitchen
+                                        Appliances</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="drop-down"><a href="{% url 'show_category' slug='toys-and-baby' %}">Toys and
+                                Baby</a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- .nav-menu -->
+        </div>
+    </header><!-- End Header -->
+
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement='top-bottom'
+            data-aos-duration="500">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-md-6  footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'homepage' %}">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about_us' %}">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'faq' %}">Faq</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact_us' %}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Margao Goa<br>
+                            India <br><br>
+                            <strong>Phone:</strong> 9673659439<br>
+                            <strong>Email:</strong> gulugulu@gmail.com<br>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>About Shopping Site</h3>
+                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
+                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong><span>Shopping Site</span></strong>. All Rights Reserved
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>Shopping Site</span></strong>. All Rights Reserved
+            </div>
         </div>
-    </div>
-</footer><!-- End Footer -->
+    </footer><!-- End Footer -->
 
-<!--bootstrap-->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <!--bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-<!-- Vendor JS Files -->
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
-<script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-<script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
-<script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'vendor/aos/aos.js' %}"></script>
-<script src="{% static 'vendor/jquery-ui.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.countdown.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.nice-select.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.zoom.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.dd.min.js' %}"></script>
-<script src="{% static 'vendor/jquery.slicknav.js' %}"></script>
+    <!--font awesome-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+            integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
-<!--font awesome-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'vendor/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.zoom.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.dd.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.slicknav.js' %}"></script>
 
-<!-- Template Main JS File -->
-<script src="{% static 'js/main.js' %}"></script>
-
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 28" id="path">
-        <path d="M32.9418651,-20.6880772 C37.9418651,-20.6880772 40.9418651,-16.6880772 40.9418651,-12.6880772
-        C40.9418651,-8.68807717 37.9418651,-4.68807717 32.9418651,-4.68807717 C27.9418651,-4.68807717 24.9418651,
-        -8.68807717 24.9418651,-12.6880772 C24.9418651,-16.6880772 27.9418651,-20.6880772 32.9418651,-20.6880772
-        L32.9418651,-29.870624 C32.9418651,-30.3676803 33.3448089,-30.770624 33.8418651,-30.770624 C34.08056,
-        -30.770624 34.3094785,-30.6758029 34.4782612,-30.5070201 L141.371843,76.386562"
-              transform="translate(83.156854, 22.171573) rotate(-225.000000) translate(-83.156854, -22.171573)"></path>
-    </symbol>
-</svg>
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
