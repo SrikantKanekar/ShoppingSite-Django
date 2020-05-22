@@ -20,7 +20,6 @@
   font-weight   : 100;
 }
 
-
 /* for delivery */
 .timeline .status {
   padding        : 20px 40px;
@@ -46,6 +45,7 @@
   top             : -15px;
   left            : 42%;
   transition      : all 200ms ease-in;
+  cursor          : pointer;
 }
 
 .timeline .li.complete .status {
@@ -90,6 +90,7 @@
   top             : -15px;
   left            : 42%;
   transition      : all 200ms ease-in;
+  cursor          : pointer;
 }
 
 
@@ -113,6 +114,7 @@
   padding        : 20px 40px;
   display        : flex;
   justify-content: center;
+  text-align: center;
   border-top     : 2px solid #D6DCE0;
   position       : relative;
   transition     : all 200ms ease-in;
@@ -131,8 +133,9 @@
   border          : 1px solid #ddd;
   position        : absolute;
   top             : -15px;
-  left            : 42%;
+  left            : 45%;
   transition      : all 200ms ease-in;
+  cursor          : pointer;
 }
 
 
@@ -154,6 +157,19 @@
 
 /* mobile */
 @media only screen and (max-width: 800px) {
+
+  .timeline .timestamp {
+    margin-bottom : 10px;
+    padding       : 0px;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    font-weight   : 100;
+  }
+
+  .timeline .timestamp span {
+    font-size: 11px;
+  }
 
   /* for delivery */
   .timeline .status {
@@ -206,7 +222,7 @@
 
   .timeline .status-return h6 {
     font-weight: 400;
-    font-size  : 11px;
+    font-size  : 9px;
   }
 
   .timeline .status-return:before {

@@ -105,26 +105,40 @@ class Comment(models.Model):
     rating = models.CharField(max_length=5, blank=True, null=True)
 
 
-order_status = [('Order Placed', 'Order Placed'),
-                ('Order Confirmed', 'Order Confirmed'),
-                ('Packing', 'Packing'),
-                ('Shipped', 'Shipped'),
-                ('Out for Delivery', 'Out for Delivery'),
-                ('Delivered', 'Delivered'),
-                ('Order Cancelled', 'Order Cancelled'),
-                ('Return Request Placed', 'Return Request Placed'),
-                ('Return Request Acknowledged', 'Return Request Acknowledged'),
-                ('Courier Service Informed', 'Courier Service Informed'),
-                ('Return Product Verified', 'Return Product Verified'),
-                ('Refund Completed', 'Refund Completed')
+order_status = [(0, 'Order Placed'),
+                (1, 'Order Confirmed'),
+                (2, 'Packing'),
+                (3, 'Shipped'),
+                (4, 'Out for Delivery'),
+                (5, 'Delivered'),
+                (6, 'Order Cancelled'),
+                (7, 'Return Request Placed'),
+                (8, 'Return Request Acknowledged'),
+                (9, 'Courier Service Informed'),
+                (10, 'Return Product Verified'),
+                (11, 'Refund Completed')
                 ]
 
 
 class Admin(models.Model):
     ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin', blank=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    ordered_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
-    status = models.CharField(choices=order_status, max_length=200, default='Order Placed')
+    status = models.IntegerField(choices=order_status, default=0)
+
+    order_placed_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
+    order_confirmed_date = models.DateTimeField(blank=True, null=True)
+    packing_date = models.DateTimeField(blank=True, null=True)
+    shipped_date = models.DateTimeField(blank=True, null=True)
+    out_for_delivery_date = models.DateTimeField(blank=True, null=True)
+    delivered_date = models.DateTimeField(blank=True, null=True)
+
+    order_cancelled_date = models.DateTimeField(blank=True, null=True)
+
+    return_request_placed_date = models.DateTimeField(blank=True, null=True)
+    return_request_acknowledged_date = models.DateTimeField(blank=True, null=True)
+    courier_service_informed_date = models.DateTimeField(blank=True, null=True)
+    return_product_verified_date = models.DateTimeField(blank=True, null=True)
+    refund_completed_date = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.status)

@@ -22,453 +22,102 @@
 <br>
 <br>
 
-{% if order.status == 'Order Placed' %}
+
+{% if order.status in delivery_list1 %}
 <div class="container">
     <div class="row">
         <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
+            {% for number, inner_list in delivery_list.items %}
+            {% for status, date in inner_list.items %}
+            <li class="li {% if number <= order.status %}complete{% endif %}">
+                <div class="timestamp">
+                    <span class="date">
+                        {% if date == null %}
+                        ---
+                        {% else %}
+                        {{ date|date:"j M" }}
+                        {% endif %}
+                    </span>
+                </div>
                 <div class="status">
-                    <h6> Order Placed </h6>
+                    <h6> {{ status }} </h6>
                 </div>
             </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
+            {% endfor %}
+            {% endfor %}
         </ul>
     </div>
 </div>
 
-{% elif order.status == 'Order Confirmed' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
 
-{% elif order.status == 'Packing' %}
+{% elif order.status == 6 %}
 <div class="container">
     <div class="row">
         <ul class="col-md-12 timeline" style="margin: auto;">
+            {% for number, inner_list in delivery_list.items %}
+            {% for status, date in inner_list.items %}
             <li class="li complete">
-                <div class="status">
-                    <h6> Order Placed </h6>
+                <div class="timestamp">
+                    <span class="date">
+                        {% if date == null %}
+                        ---
+                        {% else %}
+                        {{ date|date:"j M" }}
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="status-cancel">
+                    <h6> {{ status }} </h6>
                 </div>
             </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
+            {% endfor %}
+            {% endfor %}
         </ul>
     </div>
-</div>
-
-{% elif order.status == 'Shipped' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-{% elif order.status == 'Out for Delivery' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-{% elif order.status == 'Delivered' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-{% elif order.status == 'Order Cancelled' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-12 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Order Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Order Confirmed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Packing </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Shipped </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Out for Delivery </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-cancel">
-                    <h6> Delivered </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-4" style="text-align: center;padding-top: 30px">
             <h3>Order Cancelled</h3>
         </div>
     </div>
 </div>
 
-{% elif order.status == 'Return Request Placed' %}
+{% elif order.status in return_list1 %}
 <div class="container">
     <div class="row">
-        <ul class="col-md-11 timeline" style="margin: auto;">
-            <li class="li complete">
+        <ul class="col-md-12 timeline" style="margin: auto;">
+            {% for number, inner_list in return_list.items %}
+            {% for status, date in inner_list.items %}
+            <li class="li {% if number <= order.status %}complete{% endif %}">
+                <div class="timestamp">
+                    <span class="date">
+                        {% if date == null %}
+                        ---
+                        {% else %}
+                        {{ date|date:"j M" }}
+                        {% endif %}
+                    </span>
+                </div>
                 <div class="status-return">
-                    <h6> Return Request Placed </h6>
+                    <h6> {{ status }} </h6>
                 </div>
             </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Return Request Acknowledged </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Courier Service Informed </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Return Product Verified </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Refund Completed </h6>
-                </div>
-            </li>
+            {% endfor %}
+            {% endfor %}
         </ul>
     </div>
 </div>
 
-{% elif order.status == 'Return Request Acknowledged' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-11 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Acknowledged </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Courier Service Informed </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Return Product Verified </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Refund Completed </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
 
-{% elif order.status == 'Courier Service Informed' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-11 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Acknowledged </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Courier Service Informed </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Return Product Verified </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Refund Completed </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-{% elif order.status == 'Return Product Verified' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-11 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Acknowledged </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Courier Service Informed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Product Verified </h6>
-                </div>
-            </li>
-            <li class="li">
-                <div class="status-return">
-                    <h6> Refund Completed </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-
-{% elif order.status == 'Refund Completed' %}
-<div class="container">
-    <div class="row">
-        <ul class="col-md-11 timeline" style="margin: auto;">
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Placed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Request Acknowledged </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Courier Service Informed </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Return Product Verified </h6>
-                </div>
-            </li>
-            <li class="li complete">
-                <div class="status-return">
-                    <h6> Refund Completed </h6>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
 {% endif %}
 
 <br>
 <br>
 
-{% if order.status == 'Order Placed' or order.status == 'Order Confirmed' or order.status == 'Packing' %}
+{% if order.status in cancel_list %}
 <div class="container">
     <div class="row">
-        <div class="col-md-2" style="margin: auto;">
-            <a href="{% url 'admin_status_update' order_id=order.id status='Order Cancelled' %}"
+        <div class="col-7 col-md-3" style="margin: auto;">
+            <a href="{% url 'admin_status_update' order_id=order.id status=6 %}"
                style="color: white"
                class="proceed-btn">Cancel Order
             </a>
@@ -477,11 +126,12 @@
 </div>
 
 
-{% elif order.status == 'Delivered' %}
+{% elif order.status == 5 %}
 <div class="container">
     <div class="row">
-        <div class="col-md-2" style="margin: auto;">
-            <a href="{% url 'admin_status_update' order_id=order.id status='Return Request Placed' %}" style="color: white"
+        <div class="col-7 col-md-3" style="margin: auto;">
+            <a href="{% url 'admin_status_update' order_id=order.id status=7 %}"
+               style="color: white"
                class="proceed-btn">Return Order
             </a>
         </div>
@@ -491,7 +141,6 @@
 
 {% endif %}
 
-<br>
 <br>
 <br>
 <br>

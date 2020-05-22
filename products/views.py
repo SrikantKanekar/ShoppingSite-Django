@@ -6,6 +6,7 @@ from .forms import ProfileForm, UserForm, CommentForm, AddressForm, CheckoutForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.utils import timezone
 
 
 def homepage(request):
@@ -36,11 +37,14 @@ def product_detail(request, slug):
                 return redirect('product_detail', slug=product.slug)
         else:
             comment_form = CommentForm()
-            return render(request, 'template/product_detail.html', {'product': product, 'profile': profile, 'comment_form': comment_form, 'comments': comments, 'comment_count': comment_count, 'off': off})
+            return render(request, 'template/product_detail.html',
+                          {'product': product, 'profile': profile, 'comment_form': comment_form, 'comments': comments,
+                           'comment_count': comment_count, 'off': off})
     else:
         comments = Comment.objects.filter(product=product)
         comment_count = comments.count()
-        return render(request, 'template/product_detail.html', {'product': product, 'comments': comments, 'comment_count': comment_count, 'off': off})
+        return render(request, 'template/product_detail.html',
+                      {'product': product, 'comments': comments, 'comment_count': comment_count, 'off': off})
 
 
 def faq(request):
@@ -264,7 +268,29 @@ def order_history_update(request):
 
 def track_order(request, order_id):
     order = Admin.objects.get(id=order_id)
-    return render(request, 'template/track_order.html', {'order': order})
+    delivery_list1 = [0, 1, 2, 3, 4, 5]
+    delivery_list = {0: {'Order Placed': order.order_placed_date},
+                     1: {'Order Confirmed': order.order_confirmed_date},
+                     2: {'Packing': order.packing_date},
+                     3: {'Shipped': order.shipped_date},
+                     4: {'Out for Delivery': order.out_for_delivery_date},
+                     5: {'Delivered': order.delivered_date},
+                     }
+    cancel_list = [0, 1, 2]
+    return_list1 = [7, 8, 9, 10, 11]
+    return_list = {7: {'Return Request Placed': order.return_request_placed_date},
+                   8: {'Return Request Acknowledged': order.return_request_acknowledged_date},
+                   9: {'Courier Service Informed': order.courier_service_informed_date},
+                   10: {'Return Product Verified': order.return_product_verified_date},
+                   11: {'Refund Completed': order.refund_completed_date}
+                   }
+    return render(request, 'template/track_order.html', {'order': order,
+                                                         'delivery_list1': delivery_list1,
+                                                         'delivery_list': delivery_list,
+                                                         'cancel_list': cancel_list,
+                                                         'return_list1': return_list1,
+                                                         'return_list': return_list,
+                                                         })
 
 
 def admin_page(request):
@@ -281,6 +307,26 @@ def admin_product_page(request, order_id):
 
 def admin_status_update(request, order_id, status):
     order = Admin.objects.get(id=order_id)
+    if order.status == 1:
+        order.order_confirmed_date = timezone.now()
+    elif order.status == 2:
+        order.packing_date = timezone.now()
+    elif order.status == 3:
+        order.shipped_date = timezone.now()
+    elif order.status == 4:
+        order.out_for_delivery_date = timezone.now()
+    elif order.status == 5:
+        order.delivered_date = timezone.now()
+    elif order.status == 7:
+        order.return_request_placed_date = timezone.now()
+    elif order.status == 8:
+        order.return_request_acknowledged_date = timezone.now()
+    elif order.status == 9:
+        order.courier_service_informed_date = timezone.now()
+    elif order.status == 10:
+        order.return_product_verified_date = timezone.now()
+    elif order.status == 11:
+        order.refund_completed_date = timezone.now()
     order.status = status
     order.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

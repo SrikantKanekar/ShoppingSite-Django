@@ -63,7 +63,7 @@
                         <h6>ID {{ i.id }} ({{ i.ordered_product.title }})</h6>
                         <h6>{{ i.customer.username }}</h6>
                         <h6>{{ i.ordered_date }}</h6>
-                        <h6>{{ i.status }}</h6>
+                        <h6>{{ i.get_status_display }}</h6>
                         <div class="add-to-cart-btn-2">
                             <a href="{% url 'admin_product_page' order_id=i.id %}" style="color: white;">Detail</a>
                         </div>
