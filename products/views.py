@@ -307,25 +307,25 @@ def admin_product_page(request, order_id):
 
 def admin_status_update(request, order_id, status):
     order = Admin.objects.get(id=order_id)
-    if order.status == 1:
+    if status == 1:
         order.order_confirmed_date = timezone.now()
-    elif order.status == 2:
+    elif status == 2:
         order.packing_date = timezone.now()
-    elif order.status == 3:
+    elif status == 3:
         order.shipped_date = timezone.now()
-    elif order.status == 4:
+    elif status == 4:
         order.out_for_delivery_date = timezone.now()
-    elif order.status == 5:
+    elif status == 5:
         order.delivered_date = timezone.now()
-    elif order.status == 7:
+    elif status == 7:
         order.return_request_placed_date = timezone.now()
-    elif order.status == 8:
+    elif status == 8:
         order.return_request_acknowledged_date = timezone.now()
-    elif order.status == 9:
+    elif status == 9:
         order.courier_service_informed_date = timezone.now()
-    elif order.status == 10:
+    elif status == 10:
         order.return_product_verified_date = timezone.now()
-    elif order.status == 11:
+    elif status == 11:
         order.refund_completed_date = timezone.now()
     order.status = status
     order.save()
