@@ -2776,15 +2776,21 @@ h6,
 
 .proceed-btn {
   font-size     : 14px;
-  font-weight   : 500;
+  font-weight   : 600;
   color         : #ffffff;
   background    : #1e4356;
   text-transform: uppercase;
   padding       : 15px 25px 14px 25px;
-  display       : block;
+  display       : inline-flex;
   text-align    : center;
   margin        : 10px;
 }
+
+.proceed-btn span {
+  position: relative;
+  left: 8px;
+}
+
 
 .remove-btn {
   font-size     : 14px;

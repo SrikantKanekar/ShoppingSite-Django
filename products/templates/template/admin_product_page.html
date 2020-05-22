@@ -19,7 +19,6 @@
 </section><!-- ======= end title ======= -->
 
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-8" style="margin: auto;">
@@ -53,30 +52,49 @@
         <div class="col-md-12" style="margin: auto;">
             <div class="row">
                 <div class="col-7 col-md-2" style="margin: auto;">
-                    <a href="{% url 'admin_status_update' order_id=order.id status=1 %}"
-                       style="color: white"
-                       class="proceed-btn">Confirmed
+                    <a href="{% url 'admin_status_update' order_id=order.id status=1 %}" style="color: white"
+                       class="proceed-btn">
+                        Confirmed
+                        {% if order.order_confirmed_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-7 col-md-2" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=2 %}" style="color: white"
-                       class="proceed-btn">Packing
+                       class="proceed-btn">
+                        Packing
+                        {% if order.packing_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-7 col-md-2" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=3 %}" style="color: white"
-                       class="proceed-btn">Shipped
+                       class="proceed-btn">
+                        Shipped
+                        {% if order.shipped_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-7 col-md-2" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=4 %}"
                        style="color: white"
-                       class="proceed-btn">Delivering
+                       class="proceed-btn">
+                        Delivering
+                        {% if order.out_for_delivery_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-7 col-md-2" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=5 %}" style="color: white"
-                       class="proceed-btn">Delivered
+                       class="proceed-btn">
+                        Delivered
+                        {% if order.delivered_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
             </div>
@@ -85,26 +103,42 @@
             <div class="row">
                 <div class="col-10 col-md-3" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=8 %}"
-                       style="color: white"
-                       class="proceed-btn">Return Acknowledged
+                       style="color: white; padding: 15px 25px 14px 15px;"
+                       class="proceed-btn">
+                        Return Acknowledged
+                        {% if order.return_request_acknowledged_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-10 col-md-3" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=9 %}"
-                       style="color: white; padding: 15px 15px 14px 15px;"
-                       class="proceed-btn">Courier Service Informed
+                       style="color: white; padding: 15px 15px 14px 10px;"
+                       class="proceed-btn">
+                        Courier Service Informed
+                        {% if order.courier_service_informed_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-9 col-md-3" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=10 %}"
                        style="color: white;"
-                       class="proceed-btn">Product Verified
+                       class="proceed-btn">
+                        Product Verified
+                        {% if order.return_product_verified_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
                 <div class="col-9 col-md-3" style="margin: auto;">
                     <a href="{% url 'admin_status_update' order_id=order.id status=11 %}"
                        style="color: white"
-                       class="proceed-btn">Refund Completed
+                       class="proceed-btn">
+                        Refund Completed
+                        {% if order.refund_completed_date is not null %}
+                        <span><i class="fas fa-check"></i></span>
+                        {% endif %}
                     </a>
                 </div>
             </div>
