@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from .models import Category, Product, Profile, Comment, Admin
+from .models import Category, Product, Profile, Comment, Admin, Notification
 from django.contrib.auth import authenticate, login
 from .forms import UserLoginForm, UsersRegisterForm
 from .forms import ProfileForm, UserForm, CommentForm, AddressForm, CheckoutForm, ProfilePicForm
@@ -153,6 +153,16 @@ def update_address(request):
     })
 
 
+def notification(request):
+    notifications = Notification.objects.all()
+    return render(request, 'template/notification.html', {'notifications': notifications})
+
+
+def notification_info(request, notification_id):
+    notification = Notification.objects.get(id=notification_id)
+    return render(request, 'template/notification_info.html', {'notification': notification})
+
+
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('q')
@@ -172,8 +182,7 @@ def search(request):
 def wishlist(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        count = profile.wishlist_products.all().count()
-        return render(request, 'template/wishlist.html', {'profile': profile, 'count': count})
+        return render(request, 'template/wishlist.html', {'profile': profile})
     else:
         return render(request, 'template/wishlist.html')
 
@@ -193,7 +202,6 @@ def wishlist_update(request, product_id):
 def cart(request):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        count = profile.cart_products.all().count()
         products = profile.cart_products.all()
         total_offer = 0
         total_original = 0
@@ -205,7 +213,7 @@ def cart(request):
         profile.total = 250 + total_offer
         profile.save()
         discount = total_original - total_offer
-        return render(request, 'template/Cart.html', {'profile': profile, 'count': count, 'discount': discount})
+        return render(request, 'template/Cart.html', {'profile': profile, 'discount': discount})
     else:
         return render(request, 'template/Cart.html')
 
@@ -256,8 +264,7 @@ def checkout(request):
 def order_history(request):
     if request.user.is_authenticated:
         orders = Admin.objects.filter(customer=request.user)
-        count = orders.count()
-        return render(request, 'template/order_history.html', {'orders': orders, 'count': count})
+        return render(request, 'template/order_history.html', {'orders': orders})
     else:
         return render(request, 'template/order_history.html')
 
@@ -265,7 +272,8 @@ def order_history(request):
 def order_history_update(request):
     profile = Profile.objects.get(user=request.user)
     for ordered_products in profile.cart_products.all():
-        Admin.objects.create(ordered_product=ordered_products, customer=profile.user)
+        admin = Admin.objects.create(ordered_product=ordered_products, customer=profile.user)
+        Notification.objects.create(order=admin, user=profile.user)
         profile.cart_products.remove(ordered_products)
     return redirect('/order_history/')
 
@@ -299,9 +307,7 @@ def track_order(request, order_id):
 
 def admin_page(request):
     orders = Admin.objects.all()
-    count = orders.count()
-    return render(request, 'template/admin_page.html', {'orders': orders,
-                                                        'count': count})
+    return render(request, 'template/admin_page.html', {'orders': orders})
 
 
 def admin_product_page(request, order_id):

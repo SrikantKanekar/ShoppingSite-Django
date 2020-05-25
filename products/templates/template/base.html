@@ -17,11 +17,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
           rel="stylesheet">
 
-    <!--timeline-->
-    <link rel="stylesheet" href="{% static 'vendor/style_timeline.css' %}" type="text/css">
+    {% block scripts %}
+    {% endblock %}
 
-    <!-- search -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+          integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
 
     <!-- Vendor CSS Files -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -37,10 +38,6 @@
     <link rel="stylesheet" href="{% static 'vendor/jquery-ui.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/starability-all.min.css' %}" type="text/css">
-
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-          integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
 
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/media/assets/img/apple-touch-icon.png">
@@ -102,6 +99,8 @@
                             <li><a href="{% url 'wishlist' %}">Wishlist <span class="badge badge-colour">{{ wishlist_count }}</span></a>
                             </li>
                             <li><a href="{% url 'order_history' %}">Orders <span class="badge badge-colour">{{ order_count }}</span></a>
+                            </li>
+                            <li><a href="{% url 'notification' %}">Notification <span class="badge badge-colour">{{ notification_count }}</span></a>
                             </li>
                             <li><a href="{% url 'logout' %}">logout</a></li>
                         </ul>

@@ -125,8 +125,8 @@ def one_week_hence():
 
 
 class Admin(models.Model):
-    ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin', blank=True)
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin')
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(choices=order_status, default=0)
 
     order_placed_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
@@ -146,3 +146,11 @@ class Admin(models.Model):
 
     def __str__(self):
         return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.get_status_display())
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    order = models.ForeignKey(Admin, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s ==> %s' % (self.user.username, self.order.title)
