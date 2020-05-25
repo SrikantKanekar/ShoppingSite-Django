@@ -106,10 +106,10 @@ def update_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Profile updated!')
             return redirect('/user/')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Error')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -125,10 +125,10 @@ def update_profile_pic(request):
         profile_pic_form = ProfilePicForm(request.POST, request.FILES, instance=request.user.profile)
         if profile_pic_form.is_valid():
             profile_pic_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Profile updated!')
             return redirect('/user/')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Error')
     else:
         profile_pic_form = ProfilePicForm(instance=request.user.profile)
         return render(request, 'registration/update_profile_pic.html', {
@@ -142,10 +142,10 @@ def update_address(request):
         profile_form = AddressForm(request.POST, instance=request.user.profile)
         if profile_form.is_valid():
             profile_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Address updated!')
             return redirect('/user/')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Error')
     else:
         profile_form = AddressForm(instance=request.user.profile)
     return render(request, 'registration/update_address.html', {
@@ -183,8 +183,10 @@ def wishlist_update(request, product_id):
     profile = Profile.objects.get(user=request.user)
     if product_obj in profile.wishlist_products.all():
         profile.wishlist_products.remove(product_obj)
+        messages.error(request, 'Removed from Wishlist')
     else:
         profile.wishlist_products.add(product_obj)
+        messages.success(request, 'Added to Wishlist')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -213,8 +215,10 @@ def cart_update(request, product_id):
     profile = Profile.objects.get(user=request.user)
     if product_obj in profile.cart_products.all():
         profile.cart_products.remove(product_obj)
+        messages.error(request, 'Removed from Cart')
     else:
         profile.cart_products.add(product_obj)
+        messages.success(request, 'Added to Cart')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -226,7 +230,7 @@ def checkout(request):
         if user_form.is_valid() and checkout_form.is_valid():
             user_form.save()
             checkout_form.save()
-            messages.success(request, 'Your profile was successfully updated!')
+            messages.success(request, 'Order placed!')
             return redirect('/order_history_update/')
         else:
             messages.error(request, 'Please correct the error below.')

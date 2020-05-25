@@ -68,14 +68,14 @@ class Category(MPTTModel):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    dp = models.ImageField(upload_to='profile/img', blank=True, null=True)
-    country = models.CharField(max_length=20, blank=True, null=True)
-    state = models.CharField(max_length=20, blank=True, null=True)
-    city = models.CharField(max_length=20, blank=True, null=True)
-    street_address = models.CharField(max_length=50, blank=True, null=True)
-    postcode = models.IntegerField(blank=True, null=True)
-    phone_number = models.IntegerField(blank=True, null=True)
-    gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True, blank=True)
+    dp = models.ImageField(upload_to='profile/img', null=True)
+    country = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)
+    city = models.CharField(max_length=20, null=True)
+    street_address = models.CharField(max_length=50, null=True)
+    postcode = models.IntegerField(null=True)
+    phone_number = models.IntegerField(null=True)
+    gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), max_length=10, null=True)
     wishlist_products = models.ManyToManyField(Product, blank=True, related_name='wishlist')
     cart_products = models.ManyToManyField(Product, blank=True)
     total_original = models.IntegerField(default=0)
@@ -120,6 +120,10 @@ order_status = [(0, 'Order Placed'),
                 ]
 
 
+def one_week_hence():
+    return timezone.now() + timezone.timedelta(days=7)
+
+
 class Admin(models.Model):
     ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin', blank=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
@@ -130,7 +134,7 @@ class Admin(models.Model):
     packing_date = models.DateTimeField(blank=True, null=True)
     shipped_date = models.DateTimeField(blank=True, null=True)
     out_for_delivery_date = models.DateTimeField(blank=True, null=True)
-    delivered_date = models.DateTimeField(blank=True, null=True)
+    delivered_date = models.DateTimeField(default=one_week_hence, blank=True, null=True)
 
     order_cancelled_date = models.DateTimeField(blank=True, null=True)
 

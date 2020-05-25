@@ -17,11 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
           rel="stylesheet">
 
-    <!-- star rating -->
-    <link rel="stylesheet" href="{% static 'vendor/star-ratings.css' %}">
-    <script type="text/javascript" src="{% static 'vendor/star-ratings.min.js' %}"></script>
-
-
     <!--timeline-->
     <link rel="stylesheet" href="{% static 'vendor/style_timeline.css' %}" type="text/css">
 
@@ -189,7 +184,18 @@
                 </ul>
             </nav><!-- .nav-menu -->
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
+
+
+    <!--alert-->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
 
 
     {% block content %}
