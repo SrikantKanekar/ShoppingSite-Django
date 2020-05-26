@@ -63,8 +63,16 @@
                     <div class="col-6 col-md-7 cart-text">
                         <h3>{{ i.ordered_product.title }}</h3>
                         <h6>₹{{ i.ordered_product.offer_price }}</h6>
-                        <h6>{{ i.ordered_date }}</h6>
-                        <h6>{{ i.get_status_display }}</h6>
+                        <h6>Ordered On: {{ i.order_placed_date }}</h6>
+                        <h6 class="indicator">{{ i.get_status_display }}
+                            {% if i.status == 5 %}
+                            <span class="status-indicator-green"><i class="fas fa-check-circle"></i></span>
+                            {% elif i.status == 6 %}
+                            <span class="status-indicator-red"><i class="fas fa-check-circle"></i></span>
+                            {% elif i.status == 11 %}
+                            <span class="status-indicator-orange"><i class="fas fa-check-circle"></i></span>
+                            {% endif %}
+                        </h6>
                         <div class="add-to-cart-btn-2">
                             <a href="{% url 'track_order' order_id=i.id %}" style="color: white">Track Order</a>
                         </div>
@@ -72,7 +80,7 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 </section>
 {% endif %}

@@ -3326,6 +3326,24 @@ h6,
   color: black;
 }
 
+.status-indicator-green {
+  position: relative;
+  left: 1px;
+  color: rgb(63, 243, 63);
+}
+
+.status-indicator-red {
+  position: relative;
+  left: 1px;
+  color: rgb(216, 33, 33);
+}
+
+.status-indicator-orange {
+  position: relative;
+  left: 1px;
+  color: rgb(236, 166, 34);
+}
+
 /* -------------------------------------------------------------------------------------------------
 #user page
 ------------------------------------------------------------------------------------------------- */

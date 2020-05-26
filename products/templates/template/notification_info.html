@@ -26,8 +26,15 @@
                 <img src="/media/{{ notification.order.ordered_product.image_url_1 }}" alt="" class="img-fluid">
             </div>
             <div class="content col-6">
-                <h3>{{ notification.order.ordered_product.title }}</h3>
-                <h6>{{ notification.get_text_display }}</h6>
+                <h3 class="indicator">{{ notification.order.ordered_product.title }}
+                    {% if notification.order.status == 5 %}
+                    <span class="status-indicator-green"><i class="fas fa-check-circle"></i></span>
+                    {% elif notification.order.status == 6 %}
+                    <span class="status-indicator-red"><i class="fas fa-check-circle"></i></span>
+                    {% elif notification.order.status == 11 %}
+                    <span class="status-indicator-orange"><i class="fas fa-check-circle"></i></span>
+                    {% endif %}
+                </h3><h6>{{ notification.get_text_display }}</h6>
                 {% if notification.order.status < 5 %}
                 <h6><strong>Delivery</strong> Expected by {{ notification.order.delivered_date|date:"D, j M" }}</h6>
                 {% endif %}
