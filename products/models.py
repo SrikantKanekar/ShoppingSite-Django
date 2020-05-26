@@ -128,16 +128,13 @@ class Admin(models.Model):
     ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='admin')
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(choices=order_status, default=0)
-
     order_placed_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
     order_confirmed_date = models.DateTimeField(blank=True, null=True)
     packing_date = models.DateTimeField(blank=True, null=True)
     shipped_date = models.DateTimeField(blank=True, null=True)
     out_for_delivery_date = models.DateTimeField(blank=True, null=True)
     delivered_date = models.DateTimeField(default=one_week_hence, blank=True, null=True)
-
     order_cancelled_date = models.DateTimeField(blank=True, null=True)
-
     return_request_placed_date = models.DateTimeField(blank=True, null=True)
     return_request_acknowledged_date = models.DateTimeField(blank=True, null=True)
     courier_service_informed_date = models.DateTimeField(blank=True, null=True)
@@ -148,9 +145,25 @@ class Admin(models.Model):
         return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.get_status_display())
 
 
+notification_status = [(0, 'Your Order is Placed'),
+                       (1, 'Your Order is Confirmed'),
+                       (2, 'Order Packed'),
+                       (3, 'Your product is Shipped'),
+                       (4, 'Your product is out for Delivery'),
+                       (5, 'Your product is successfully Delivered'),
+                       (6, 'Your order is Cancelled'),
+                       (7, 'Your Return Request is Placed'),
+                       (8, 'Your Return Request is Acknowledged'),
+                       (9, 'Courier Service near you is Informed'),
+                       (10, 'Return Product Verified'),
+                       (11, 'Refund Completed')
+                       ]
+
+
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Admin, on_delete=models.CASCADE)
+    text = models.IntegerField(choices=notification_status, default=0)
 
     def __str__(self):
-        return '%s ==> %s' % (self.user.username, self.order.title)
+        return '%s ==> %s' % (self.user.username, self.order.ordered_product.title)

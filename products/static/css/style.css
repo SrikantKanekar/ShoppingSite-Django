@@ -3268,6 +3268,36 @@ h6,
   text-transform: capitalize;
 }
 
+/* ------------------------------------------------------------------------------------------------
+#notification 
+-------------------------------------------------------------------------------------------------*/
+.notification {
+  padding-bottom: 30px;
+}
+
+.notification img {
+  width      : 80%;
+  margin-left: 10%;
+}
+
+.notification .content {
+  padding: 15px;
+}
+
+.track-btn {
+  position      : relative;
+  left          : 10%;
+  top           : 110px;
+  width         : 35%;
+  text-align    : center;
+  font-size     : 17px;
+  font-weight   : 500;
+  padding       : 12px 20px;
+  color         : #ffffff;
+  background    : #1e4356;
+  text-transform: capitalize;
+}
+
 /* -------------------------------------------------------------------------------------------------
 #user page
 ------------------------------------------------------------------------------------------------- */
@@ -3309,13 +3339,13 @@ h6,
 
 .alert {
   position: fixed;
-  bottom: 7px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 350px;
-  opacity: 1;
-  z-index: 1500;
+  bottom  : 7px;
+  left    : 0;
+  right   : 0;
+  margin  : 0 auto;
+  width   : 350px;
+  opacity : 1;
+  z-index : 1500;
 }
 
 /* laptop */
@@ -3425,6 +3455,38 @@ h6,
   .alert {
     bottom: 15px;
     margin: 0 auto;
-    width: 90%;
+    width : 90%;
   }
+
+  .notification img {
+    width: 100%;
+    margin-left: 5%;
+  }
+
+  .notification .content{
+    padding: 3px;
+  }
+
+  .notification .content h3 {
+    font-size: 14px;
+  }
+
+  .notification .content h6 {
+    font-size: 11px;
+  }
+
+  .track-btn {
+    position      : relative;
+    left          : 18px;
+    top           : 5px;
+    width         : 100px;
+    text-align    : center;
+    font-size     : 12px;
+    font-weight   : 500;
+    padding       : 6px 10px;
+    color         : #ffffff;
+    background    : #1e4356;
+    text-transform: capitalize;
+  }
+
 }

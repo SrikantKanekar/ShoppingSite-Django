@@ -317,6 +317,7 @@ def admin_product_page(request, order_id):
 
 def admin_status_update(request, order_id, status):
     order = Admin.objects.get(id=order_id)
+    notification = Notification.objects.get(id=order_id)
     if int(status) == 1:
         order.order_confirmed_date = timezone.now()
     elif int(status) == 2:
@@ -338,5 +339,7 @@ def admin_status_update(request, order_id, status):
     elif int(status) == 11:
         order.refund_completed_date = timezone.now()
     order.status = status
+    notification.text = status
     order.save()
+    notification.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
