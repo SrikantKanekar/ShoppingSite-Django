@@ -153,16 +153,6 @@ def update_address(request):
     })
 
 
-def notification(request):
-    notifications = Notification.objects.all()
-    return render(request, 'template/notification.html', {'notifications': notifications})
-
-
-def notification_info(request, notification_id):
-    notification = Notification.objects.get(id=notification_id)
-    return render(request, 'template/notification_info.html', {'notification': notification})
-
-
 def search(request):
     if request.method == 'GET':
         query = request.GET.get('q')
@@ -328,6 +318,7 @@ def admin_status_update(request, order_id, status):
         order.out_for_delivery_date = timezone.now()
     elif int(status) == 5:
         order.delivered_date = timezone.now()
+        order.delivered = True
     elif int(status) == 7:
         order.return_request_placed_date = timezone.now()
     elif int(status) == 8:
@@ -340,6 +331,28 @@ def admin_status_update(request, order_id, status):
         order.refund_completed_date = timezone.now()
     order.status = status
     notification.text = status
+    notification.close = False
+    notification.seen = False
     order.save()
+    notification.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def notification(request):
+    notifications = Notification.objects.all()
+    return render(request, 'template/notification.html', {'notifications': notifications})
+
+
+def notification_info(request, notification_id):
+    notification = Notification.objects.get(id=notification_id)
+    notification.seen = True
+    notification.save()
+    return render(request, 'template/notification_info.html', {'notification': notification})
+
+
+def notification_close(request, notification_id):
+    notification = Notification.objects.get(id=notification_id)
+    notification.close = True
+    notification.seen = True
     notification.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

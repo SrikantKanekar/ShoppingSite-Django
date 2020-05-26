@@ -140,6 +140,7 @@ class Admin(models.Model):
     courier_service_informed_date = models.DateTimeField(blank=True, null=True)
     return_product_verified_date = models.DateTimeField(blank=True, null=True)
     refund_completed_date = models.DateTimeField(blank=True, null=True)
+    delivered = models.BooleanField(default=False)
 
     def __str__(self):
         return '%s ==> %s ==> %s' % (self.customer.username, self.ordered_product.title, self.get_status_display())
@@ -164,6 +165,8 @@ class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     order = models.ForeignKey(Admin, on_delete=models.CASCADE)
     text = models.IntegerField(choices=notification_status, default=0)
+    seen = models.BooleanField(default=False)
+    close = models.BooleanField(default=False)
 
     def __str__(self):
         return '%s ==> %s' % (self.user.username, self.order.ordered_product.title)

@@ -52,26 +52,35 @@
 <section class="portfolio">
     <div class="container">
         {% for notification in notifications reversed %}
+        {% if notification.close == False %}
         <div class="row">
             <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
                 <div class="row">
                     <div class="col-6 col-md-5 work-img">
                         <a href="{% url 'product_detail' slug=notification.order.ordered_product.slug %}">
-                            <img src="/media/{{ notification.order.ordered_product.image_url_1 }}" alt="" class="img-fluid">
+                            <img src="/media/{{ notification.order.ordered_product.image_url_1 }}" alt=""
+                                 class="img-fluid">
                         </a>
                     </div>
                     <div class="col-6 col-md-7 cart-text">
-                        <h3>{{ notification.order.ordered_product.title }}</h3>
+                        <h3>{{ notification.order.ordered_product.title }}
+                            {% if notification.seen == False %}
+                            <span class="badge badge-notification">New</span>
+                            {% endif %}
+                        </h3>
+                        <a class="close-icon" href="{% url 'notification_close' notification_id=notification.id %}"><span><i class="fas fa-times"></i></span></a>
                         <h6>{{ notification.order.ordered_date }}</h6>
                         <h6>{{ notification.order.get_status_display }}</h6>
-                        <div class="add-to-cart-btn-2">
-                            <a href="{% url 'notification_info' notification_id=notification.id %}" style="color: white">more</a>
+                        <div class="notification-btn">
+                            <a href="{% url 'notification_info' notification_id=notification.id %}"
+                               style="color: white">More</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    {% endfor %}
+        {% endif %}
+        {% endfor %}
     </div>
 </section>
 {% endif %}

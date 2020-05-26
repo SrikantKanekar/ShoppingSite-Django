@@ -28,7 +28,9 @@
             <div class="content col-6">
                 <h3>{{ notification.order.ordered_product.title }}</h3>
                 <h6>{{ notification.get_text_display }}</h6>
+                {% if notification.order.status < 5 %}
                 <h6><strong>Delivery</strong> Expected by {{ notification.order.delivered_date|date:"D, j M" }}</h6>
+                {% endif %}
                 <div class="track-btn">
                     <a href="{% url 'track_order' order_id=notification.order.id %}" style="color: white">
                         Track Order

@@ -18,8 +18,6 @@ urlpatterns = [
     path('user/update_profile', views.update_profile, name='update_profile'),
     path('user/update_address', views.update_address, name='update_address'),
     path('user/update_profile_pic', views.update_profile_pic, name='update_profile_pic'),
-    path('user/notification', views.notification, name='notification'),
-    path('user/notification/<int:notification_id>', views.notification_info, name='notification_info'),
     path('wishlist/', views.wishlist, name='wishlist'),
     path('wishlist_update/<int:product_id>', views.wishlist_update, name='wishlist_update'),
     path('cart/', views.cart, name='cart'),
@@ -31,4 +29,7 @@ urlpatterns = [
     path('admin_page/', views.admin_page, name='admin_page'),
     path('admin_product_page/<int:order_id>', views.admin_product_page, name='admin_product_page'),
     path('admin_status_update/<int:order_id>/<str:status>', views.admin_status_update, name='admin_status_update'),
+    path('user/notification', views.notification, name='notification'),
+    path('user/notification_info/<int:notification_id>', views.notification_info, name='notification_info'),
+    path('user/notification_close/<int:notification_id>', views.notification_close, name='notification_close'),
 ]

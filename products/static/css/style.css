@@ -3258,8 +3258,8 @@ h6,
 
 .add-to-cart-btn-2 a {
   position      : absolute;
-  top           : 85px;
-  right         : 60px;
+  bottom: 20px;
+  right         : 22px;
   font-size     : 16px;
   font-weight   : 600;
   padding       : 12px 20px;
@@ -3296,6 +3296,34 @@ h6,
   color         : #ffffff;
   background    : #1e4356;
   text-transform: capitalize;
+}
+
+.notification-btn {
+  position      : absolute;
+  right         : 22px;
+  bottom        : 20px;
+  text-align    : center;
+  width         : 150px;
+  font-size     : 18px;
+  font-weight   : 500;
+  padding       : 12px 20px;
+  color         : #ffffff;
+  background    : #1e4356;
+  text-transform: capitalize;
+}
+
+.close-icon {
+  position: absolute;
+  top     : 10px;
+  right   : 13px;
+}
+
+.close-icon span {
+  color: grey;
+}
+
+.close-icon:hover span {
+  color: black;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -3348,6 +3376,16 @@ h6,
   z-index : 1500;
 }
 
+.badge-notification {
+  position        : relative;
+  left            : 10px;
+  bottom          : 5px;
+  font-size       : 13px;
+  font-weight     : 350;
+  background-color: rgb(216, 41, 41);
+  color           : white;
+}
+
 /* laptop */
 @media only screen and (min-width: 801px) {
   .tab-item ul li a {
@@ -3361,7 +3399,9 @@ h6,
   }
 }
 
-/* mobile */
+/*---------------------------------------------------------------------------------------------------------------------
+ mobile 
+ --------------------------------------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 800px) {
   .tab-item ul li a {
     font-size  : 12px;
@@ -3416,8 +3456,8 @@ h6,
   }
 
   .add-to-cart-btn-2 a {
-    top        : 60px;
-    right      : 8px;
+    bottom: 10px;
+    right: 10px;
     font-size  : 10px;
     font-weight: 500;
     padding    : 5px 10px;
@@ -3459,11 +3499,11 @@ h6,
   }
 
   .notification img {
-    width: 100%;
+    width      : 100%;
     margin-left: 5%;
   }
 
-  .notification .content{
+  .notification .content {
     padding: 3px;
   }
 
@@ -3487,6 +3527,35 @@ h6,
     color         : #ffffff;
     background    : #1e4356;
     text-transform: capitalize;
+  }
+
+  .close-icon {
+    top  : 2px;
+    right: 10px;
+  }
+
+  .close-icon span {
+    font-size: 10px;
+  }
+
+  .badge-notification {
+    position        : relative;
+    left            : 5px;
+    bottom          : 2px;
+    font-size       : 9px;
+    padding         : 3px;
+    font-weight     : 300;
+    background-color: rgb(216, 41, 41);
+    color           : white;
+  }
+
+  .notification-btn {
+    right      : 10px;
+    bottom     : 10px;
+    width      : 60px;
+    font-size  : 12px;
+    font-weight: 500;
+    padding    : 4px 10px;
   }
 
 }
