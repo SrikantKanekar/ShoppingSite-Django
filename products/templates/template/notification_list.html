@@ -1,0 +1,40 @@
+{% for notification in notifications reversed %}
+{% if notification.close == False %}
+<div class="row">
+    <div class="col-11 col-md-8 work-box">
+        <div class="row">
+            <div class="col-6 col-md-5 work-img">
+                <a href="{% url 'product_detail' slug=notification.order.ordered_product.slug %}">
+                    <img src="/media/{{ notification.order.ordered_product.image_url_1 }}" alt=""
+                         class="img-fluid">
+                </a>
+            </div>
+            <div class="col-6 col-md-7 cart-text">
+                <h3>{{ notification.order.ordered_product.title }}
+                    {% if notification.seen == False %}
+                    <span class="badge badge-notification">New</span>
+                    {% endif %}
+                </h3>
+                <a class="close-icon js-notification-close"
+                   data-url="{% url 'notification_close' notification.id %}">
+                    <span><i class="fas fa-times"></i></span>
+                </a>
+                <h6 class="indicator">{{ notification.order.get_status_display }}
+                    {% if notification.order.status == 5 %}
+                    <span class="status-indicator-green"><i class="fas fa-check-circle"></i></span>
+                    {% elif notification.order.status == 6 %}
+                    <span class="status-indicator-red"><i class="fas fa-check-circle"></i></span>
+                    {% elif notification.order.status == 11 %}
+                    <span class="status-indicator-orange"><i class="fas fa-check-circle"></i></span>
+                    {% endif %}
+                </h6>
+                <div class="notification-btn">
+                    <a href="{% url 'notification_info' notification_id=notification.id %}" style="color:white">More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}

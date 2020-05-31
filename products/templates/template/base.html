@@ -6,35 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
           rel="stylesheet">
 
-    {% block scripts %}
-    {% endblock %}
-
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
           integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
 
+    {% load static %}
+
+    {% block scripts %}
+    {% endblock %}
+
     <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/venobox/venobox.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'vendor/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/animate.css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/icofont/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/boxicons/css/boxicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'vendor/elegant-icons.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/themify-icons.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'vendor/nice-select.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/jquery-ui.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'vendor/starability-all.min.css' %}" type="text/css">
@@ -86,7 +81,7 @@
                             <input class="submit" type="submit" name="submit" value="Search"/>
                         </form>
                     </li>
-                    <li class="active"><a href="{% url 'homepage' %}">Home</a></li>
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
                     {% if user.is_superuser or user.is_staff %}
                     <li><a href="{% url 'admin_page' %}">Admin</a></li>
                     {% endif %}
@@ -100,7 +95,8 @@
                             </li>
                             <li><a href="{% url 'order_history' %}">Orders <span class="badge badge-colour">{{ order_count }}</span></a>
                             </li>
-                            <li><a href="{% url 'notification' %}">Notification <span class="badge badge-colour">{{ notification_new_count }}</span></a>
+                            <li><a href="{% url 'notification' %}">Notification <span class="badge badge-colour"
+                                                                                      id="update-new-notification-count">{{ notification_new_count }}</span></a>
                             </li>
                             <li><a href="{% url 'logout' %}">logout</a></li>
                         </ul>
@@ -201,8 +197,7 @@
     {% endblock %}
 
     <!-- ======= Footer ======= -->
-    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-anchor-placement='top-bottom'
-            data-aos-duration="500">
+    <footer id="footer">
         <div class="footer-top">
             <div class="container">
                 <div class="row justify-content-center">
@@ -247,14 +242,12 @@
     </footer><!-- End Footer -->
 
     <!--bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
+    <script src="{% static 'vendor/jquery-3.5.1.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
 
     <!--font awesome-->
@@ -262,21 +255,14 @@
             integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
     <!-- Vendor JS Files -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
-    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/aos/aos.js' %}"></script>
     <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
     <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'vendor/aos/aos.js' %}"></script>
-    <script src="{% static 'vendor/jquery-ui.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.countdown.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery.nice-select.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.zoom.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery.dd.min.js' %}"></script>
+    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery-ui.min.js' %}"></script>
     <script src="{% static 'vendor/jquery.slicknav.js' %}"></script>
 
     <!-- Template Main JS File -->

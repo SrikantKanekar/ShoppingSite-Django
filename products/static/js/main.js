@@ -1,5 +1,4 @@
 (function ($) {
-  "use strict";
 
 
   // Toggle .header-scrolled class to #header when page is scrolled
@@ -97,35 +96,6 @@
     });
   }
 
-  // Intro carousel
-  var heroCarousel = $("#heroCarousel");
-
-  heroCarousel.on('slid.bs.carousel', function (e) {
-    $(this).find('h2').addClass('animated fadeInDown');
-    $(this).find('p').addClass('animated fadeInUp');
-    $(this).find('.btn-get-started').addClass('animated fadeInUp');
-  });
-  // Back to top button
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
-
-  $('.back-to-top').click(function () {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
-
-  // Initiate the venobox plugin
-  $(window).on('load', function () {
-    $('.venobox').venobox();
-  });
-
   // jQuery counterUp
   $('[data-toggle="counter-up"]').counterUp({
     delay: 10,
@@ -147,23 +117,6 @@
     dots: true,
     loop: true,
     items: 1
-  });
-
-  // Porfolio isotope and filter
-  $(window).on('load', function () {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      layoutMode: 'fitRows'
-    });
-
-    $('#portfolio-flters li').on('click', function () {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
-
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
-      });
-    });
-
   });
 
   // Initi AOS
@@ -251,5 +204,64 @@
       $(this).remove();
     });
   }, 2000);
+
+
+  // form update
+
+  var loadForm = function () {
+    var btn = $(this);
+    $.ajax({
+      url: btn.attr("data-url"),
+      type: "GET",
+      datatype: 'json',
+      beforeSend: function () {
+        $("#modal-book").modal("show");
+      },
+      success: function (data) {
+        $("#modal-book .modal-content").html(data.html_form);
+      }
+    }
+    )
+  }
+
+  var saveForm = function () {
+    var form = $(this);
+    $.ajax({
+      url: form.attr("action"),
+      data: form.serialize(),
+      type: form.attr("method"),
+      dataType: 'json',
+      success: function (data) {
+        $('#update').html(data.notification_list);
+        $("#modal-book").modal("hide");
+      }
+    });
+    return false;
+  };
+
+  $("#update").on("click", ".js-notification-close", loadForm);
+  $("#modal-book").on("submit", ".js-notification-close-form", saveForm);
+
+  // Notification close button
+  var notification_close = function () {
+    var btn = $(this);
+    $.ajax({
+      url: btn.attr("data-url"),
+      type: 'get',
+      dataType: 'json',
+      success: function (data) {
+        $('#update-notification').html(data.notification_list);
+        $('#update-new-notification-count').html(data.notification_new_count);
+        if(data.notification_count == true){
+          $('#update-notification-count').show();
+        };
+      }
+    });
+    return false;
+  };
+
+  $("#update-notification").on("click", ".js-notification-close", notification_close);
+  
+
 
 })(jQuery);

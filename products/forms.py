@@ -5,7 +5,7 @@ from .models import Profile, Comment
 
 class UserLoginForm(forms.Form):
     username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput, )
+    password = forms.CharField(widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)

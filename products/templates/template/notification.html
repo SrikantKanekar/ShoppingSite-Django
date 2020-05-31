@@ -18,80 +18,26 @@
     </div>
 </section><!-- ======= end title ======= -->
 
+
 {% if user.is_authenticated %}
 {% if notification_count == 0 %}
-<!--Notification page if Notification has no items-->
-<section class="portfolio">
-    <div class="container">
-        <div class="work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="cart-empty-title"></h3>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="work-img cart-img">
-                        <img src="/media/assets/img/cart img.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-6 col-md-3">
-                    <h5 class="cart-empty-text">No Notifications Yet</h5>
-                    <a class="shop-now-btn" style="color: white;" href="{% url 'homepage' %}">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'template/notification_empty.html' %}
 
 
 {% else %}
 <!-- normal Notification page -->
 <section class="portfolio">
     <div class="container">
-        {% for notification in notifications reversed %}
-        {% if notification.close == False %}
-        <div class="row">
-            <div class="col-11 col-md-8 work-box" data-aos="fade-up" data-aos-anchor-placement='top-bottom'>
-                <div class="row">
-                    <div class="col-6 col-md-5 work-img">
-                        <a href="{% url 'product_detail' slug=notification.order.ordered_product.slug %}">
-                            <img src="/media/{{ notification.order.ordered_product.image_url_1 }}" alt=""
-                                 class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-7 cart-text">
-                        <h3>{{ notification.order.ordered_product.title }}
-                            {% if notification.seen == False %}
-                            <span class="badge badge-notification">New</span>
-                            {% endif %}
-                        </h3>
-                        <a class="close-icon" href="{% url 'notification_close' notification_id=notification.id %}">
-                            <span><i class="fas fa-times"></i></span>
-                        </a>
-                        <h6 class="indicator">{{ notification.order.get_status_display }}
-                            {% if notification.order.status == 5 %}
-                            <span class="status-indicator-green"><i class="fas fa-check-circle"></i></span>
-                            {% elif notification.order.status == 6 %}
-                            <span class="status-indicator-red"><i class="fas fa-check-circle"></i></span>
-                            {% elif notification.order.status == 11 %}
-                            <span class="status-indicator-orange"><i class="fas fa-check-circle"></i></span>
-                            {% endif %}
-                        </h6>
-                        <div class="notification-btn">
-                            <a href="{% url 'notification_info' notification_id=notification.id %}" style="color:white">More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="update-notification">
+            {% include 'template/notification_list.html' %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
 </section>
+
+<div id="update-notification-count" style="display: none">
+    {% include 'template/notification_empty.html' %}
+</div>
+
 {% endif %}
 
 

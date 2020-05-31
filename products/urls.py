@@ -9,7 +9,6 @@ urlpatterns = [
     path('faq/', views.faq, name='faq'),
     path('contact_us/', views.contact_us, name='contact_us'),
     path('about_us/', views.about_us, name='about_us'),
-
     path('services/', views.services, name='services'),
     path('search/', views.search, name='search'),
     path('login/', views.login_view, name='login'),
@@ -31,5 +30,5 @@ urlpatterns = [
     path('admin_status_update/<int:order_id>/<str:status>', views.admin_status_update, name='admin_status_update'),
     path('user/notification', views.notification, name='notification'),
     path('user/notification_info/<int:notification_id>', views.notification_info, name='notification_info'),
-    path('user/notification_close/<int:notification_id>', views.notification_close, name='notification_close'),
+    path('user/notification_close/<int:pk>', views.notification_close, name='notification_close'),
 ]

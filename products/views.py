@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.utils import timezone
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 
 def homepage(request):
@@ -350,9 +352,17 @@ def notification_info(request, notification_id):
     return render(request, 'template/notification_info.html', {'notification': notification})
 
 
-def notification_close(request, notification_id):
-    notification = Notification.objects.get(id=notification_id)
+def notification_close(request, pk):
+    data = dict()
+    notification = Notification.objects.get(id=pk)
     notification.close = True
     notification.seen = True
     notification.save()
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    notifications = Notification.objects.all()
+    notification_count = Notification.objects.filter(user=request.user, close=False).count()
+    notification_new_count = Notification.objects.filter(user=request.user, seen=False).count()
+    data['notification_list'] = render_to_string('template/notification_list.html', {'notifications': notifications})
+    data['notification_new_count'] = notification_new_count
+    if notification_count == 0:
+        data['notification_count'] = True
+    return JsonResponse(data)
