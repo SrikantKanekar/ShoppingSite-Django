@@ -21,7 +21,7 @@
 
 {% if user.is_authenticated %}
 {% if notification_count == 0 %}
-{% include 'template/notification_empty.html' %}
+{% include 'template/notification/notification_empty.html' %}
 
 
 {% else %}
@@ -29,13 +29,13 @@
 <section class="portfolio">
     <div class="container">
         <div id="update-notification">
-            {% include 'template/notification_list.html' %}
+            {% include 'template/notification/notification_list.html' %}
         </div>
     </div>
 </section>
 
 <div id="update-notification-count" style="display: none">
-    {% include 'template/notification_empty.html' %}
+    {% include 'template/notification/notification_empty.html' %}
 </div>
 
 {% endif %}

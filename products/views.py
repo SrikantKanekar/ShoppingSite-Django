@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Category, Product, Profile, Comment, Admin, Notification
 from django.contrib.auth import authenticate, login
-from .forms import UserLoginForm, UsersRegisterForm
-from .forms import ProfileForm, UserForm, CommentForm, AddressForm, CheckoutForm, ProfilePicForm
+from .forms import UserLoginForm, UsersRegisterForm, UserForm
+from .forms import ProfileForm, CommentForm, AddressForm, CheckoutForm, ProfilePicForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -95,33 +95,34 @@ def register_view(request):
     })
 
 
+@login_required
 def user(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'template/user.html', {'profile': profile})
+    return render(request, 'template/user/user.html', {'profile': profile})
 
 
-@login_required
 def update_profile(request):
+    data = dict()
     if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Profile updated!')
-            return redirect('/user/')
+        form = ProfileForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            data['form_is_valid'] = True
+            profile = Profile.objects.get(user=request.user)
+            request.user.first_name = profile.first_name
+            request.user.last_name = profile.last_name
+            request.user.email = profile.email
+            request.user.save()
+            data['profile'] = render_to_string('template/user/profile_name.html', {'profile': profile})
         else:
-            messages.error(request, 'Error')
+            data['form_is_valid'] = False
     else:
-        user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'registration/update_profile.html', {
-        'user_form': user_form,
-        'profile_form': profile_form
-    })
+        form = ProfileForm(instance=request.user.profile)
+    data['html_form'] = render_to_string('template/user/update_profile.html',
+                                         {'profile_form': form}, request=request)
+    return JsonResponse(data)
 
 
-@login_required
 def update_profile_pic(request):
     if request.method == 'POST':
         profile_pic_form = ProfilePicForm(request.POST, request.FILES, instance=request.user.profile)
@@ -133,26 +134,27 @@ def update_profile_pic(request):
             messages.error(request, 'Error')
     else:
         profile_pic_form = ProfilePicForm(instance=request.user.profile)
-        return render(request, 'registration/update_profile_pic.html', {
+        return render(request, 'template/user/update_profile_pic.html', {
             'profile_pic_form': profile_pic_form
         })
 
 
-@login_required
 def update_address(request):
+    data = dict()
     if request.method == 'POST':
-        profile_form = AddressForm(request.POST, instance=request.user.profile)
-        if profile_form.is_valid():
-            profile_form.save()
-            messages.success(request, 'Address updated!')
-            return redirect('/user/')
+        form = AddressForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            data['form_is_valid'] = True
+            profile = Profile.objects.get(user=request.user)
+            data['profile'] = render_to_string('template/user/profile_name.html', {'profile': profile})
         else:
-            messages.error(request, 'Error')
+            data['form_is_valid'] = False
     else:
-        profile_form = AddressForm(instance=request.user.profile)
-    return render(request, 'registration/update_address.html', {
-        'profile_form': profile_form
-    })
+        form = AddressForm(instance=request.user.profile)
+    data['html_form'] = render_to_string('template/user/update_address.html',
+                                         {'profile_form': form}, request=request)
+    return JsonResponse(data)
 
 
 def search(request):
@@ -342,14 +344,14 @@ def admin_status_update(request, order_id, status):
 
 def notification(request):
     notifications = Notification.objects.all()
-    return render(request, 'template/notification.html', {'notifications': notifications})
+    return render(request, 'template/notification/notification.html', {'notifications': notifications})
 
 
 def notification_info(request, notification_id):
     notification = Notification.objects.get(id=notification_id)
     notification.seen = True
     notification.save()
-    return render(request, 'template/notification_info.html', {'notification': notification})
+    return render(request, 'template/notification/notification_info.html', {'notification': notification})
 
 
 def notification_close(request, pk):
@@ -361,7 +363,8 @@ def notification_close(request, pk):
     notifications = Notification.objects.all()
     notification_count = Notification.objects.filter(user=request.user, close=False).count()
     notification_new_count = Notification.objects.filter(user=request.user, seen=False).count()
-    data['notification_list'] = render_to_string('template/notification_list.html', {'notifications': notifications})
+    data['notification_list'] = render_to_string('template/notification/notification_list.html',
+                                                 {'notifications': notifications})
     data['notification_new_count'] = notification_new_count
     if notification_count == 0:
         data['notification_count'] = True

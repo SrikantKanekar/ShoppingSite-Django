@@ -1,0 +1,42 @@
+<tr>
+    <td class="p-catagory">First name</td>
+    <td class="p-catagory" style="text-transform: capitalize;">
+        {{ profile.first_name }}
+        <a class="js-update-profile" data-url="{% url 'update_profile' %}">
+            <i class="fas fa-user-edit"></i>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td class="p-catagory">last name</td>
+    <td class="p-catagory" style="text-transform: capitalize;">
+        {{ profile.last_name }}
+    </td>
+</tr>
+<tr>
+    <td class="p-catagory">email</td>
+    <td class="p-catagory" style="text-transform: lowercase;">{{ profile.email }}
+    </td>
+</tr>
+<tr>
+    <td class="p-catagory">gender</td>
+    <td class="p-catagory" style="text-transform: capitalize;">
+        {{ profile.gender }}
+    </td>
+</tr>
+<tr>
+    <td class="p-catagory">Phone Number</td>
+    <td class="p-catagory" style="text-transform: capitalize;">
+        {{ profile.phone_number }}
+    </td>
+</tr>
+<tr>
+    <td class="p-catagory">Address</td>
+    <td class="p-catagory" style="text-transform: capitalize;">
+        {{ profile.street_address }}, {{ profile.city }}, {{ profile.state }},
+        {{ profile.country }}
+        <a class="js-update-address" data-url="{% url 'update_address' %}">
+            <i class="fas fa-edit"></i>
+        </a>
+    </td>
+</tr>

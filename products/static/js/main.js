@@ -206,7 +206,7 @@
   }, 2000);
 
 
-  // form update
+  // User form update
 
   var loadForm = function () {
     var btn = $(this);
@@ -215,10 +215,10 @@
       type: "GET",
       datatype: 'json',
       beforeSend: function () {
-        $("#modal-book").modal("show");
+        $("#modal-user").modal("show");
       },
       success: function (data) {
-        $("#modal-book .modal-content").html(data.html_form);
+        $("#modal-user .modal-content").html(data.html_form);
       }
     }
     )
@@ -232,15 +232,24 @@
       type: form.attr("method"),
       dataType: 'json',
       success: function (data) {
-        $('#update').html(data.notification_list);
-        $("#modal-book").modal("hide");
+        if (data.form_is_valid) {
+          $('#user table').html(data.profile);
+          $("#modal-user").modal("hide");
+        }
+        else {
+          $("#modal-user .modal-content").html(data.html_form);
+        }
       }
     });
     return false;
   };
 
-  $("#update").on("click", ".js-notification-close", loadForm);
-  $("#modal-book").on("submit", ".js-notification-close-form", saveForm);
+  $("#user").on("click", ".js-update-profile", loadForm);
+  $("#modal-user").on("submit", ".js-update-profile-form", saveForm);
+
+  $("#user").on("click", ".js-update-address", loadForm);
+  $("#modal-user").on("submit", ".js-update-address-form", saveForm);
+
 
   // Notification close button
   var notification_close = function () {
@@ -252,7 +261,7 @@
       success: function (data) {
         $('#update-notification').html(data.notification_list);
         $('#update-new-notification-count').html(data.notification_new_count);
-        if(data.notification_count == true){
+        if (data.notification_count == true) {
           $('#update-notification-count').show();
         };
       }
@@ -260,8 +269,8 @@
     return false;
   };
 
-  $("#update-notification").on("click", ".js-notification-close", notification_close);
-  
+  $("#update-notification").on("touchstart click", ".js-notification-close", notification_close);
+
 
 
 })(jQuery);

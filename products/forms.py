@@ -86,16 +86,16 @@ class UsersRegisterForm(forms.ModelForm):
         return super(UsersRegisterForm, self).clean(*args, **keyargs)
 
 
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email')
-
-
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('gender', 'phone_number')
+        fields = ('first_name', 'last_name', 'email', 'gender', 'phone_number')
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('first_name', 'last_name', 'email', 'phone_number')
 
 
 class ProfilePicForm(forms.ModelForm):

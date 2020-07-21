@@ -2,53 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f08318cd-9b05-46b9-b838-6cbabe564d95" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/products/templates/template/user/update_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/products/templates/template/user/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/img/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/products/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/imagesloaded.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/isotope-layout/isotope.pkgd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/isotope-layout/isotope.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/jquery.nice-select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/jquery/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/jquery/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/nice-select.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/php-email-form/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/star-ratings.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/star-ratings.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/venobox/venobox.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/venobox/venobox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/static/vendor/venobox/venobox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/template/notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/notification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_address.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/user/update_address.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/registration/update_profile_pic.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/user/update_profile_pic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/notification/notification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/notification_empty.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/notification/notification_empty.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/notification_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/notification/notification_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/notification_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/template/notification/notification_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/templates/template/user.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,12 +35,74 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>gulu</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\djangoshop</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/myvenv/pyvenv.cfg" />
+        <option value="$PROJECT_DIR$/products/forms.py" />
+        <option value="$PROJECT_DIR$/products/views.py" />
+        <option value="$PROJECT_DIR$/products/templates/template/base.html" />
+        <option value="$PROJECT_DIR$/products/templates/template/Contact us.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectId" id="1ak6RviXv0qV31hdDjXBTJOsWZK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="djangoshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="djangoshop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="djangoshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="djangoshop" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="djangoshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="djangoshop" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="djangoshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="djangoshop" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -74,13 +113,27 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../windows/djangogirls" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Windows 10\Windows 10 update\djangoshop\products\templates\template\user" />
+      <recent name="C:\Windows 10\Windows 10 update\djangoshop\products\templates\template\notification" />
       <recent name="C:\Windows 10\Windows 10 update\djangoshop\products\static\vendor" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -104,12 +157,41 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21354167" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29787233" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -128,13 +210,12 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1590911961432">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1591356308109">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590911961432" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591356308109" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1589438305024">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -143,13 +224,77 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="503" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1589883970468" />
-    <state x="376" y="-10" width="585" height="728" key="find.popup" timestamp="1590385608207">
+    <state x="376" y="-10" width="585" height="728" key="find.popup" timestamp="1591376248992">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="376" y="-10" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1590385608207" />
+    <state x="376" y="-10" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1591376248992" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590925430852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590925430852" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#84#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/urls.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myvenv/pyvenv.cfg" />
+    <entry file="file://$PROJECT_DIR$/myvenv/Scripts/activate" />
+    <entry file="file://$PROJECT_DIR$/products/templates/template/Cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="103" column="40" lean-forward="true" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="247" column="29" selection-start-line="247" selection-start-column="29" selection-end-line="247" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/templates/template/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="69" column="43" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="99" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

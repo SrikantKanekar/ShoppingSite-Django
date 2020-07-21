@@ -1,0 +1,60 @@
+{% extends 'template/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- ======= title ======= -->
+<section class="portfolio portfolio-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">
+                        {{ user.username }}
+                    </h3>
+                    <div class="line-mf"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- ======= end title ======= -->
+
+
+<section class="user-page" id="user">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 dp">
+                {% if profile.dp %}
+                <img src="/media/{{ profile.dp }}" alt="">
+                {% else %}
+                <img src="/media/profile/img/default_profile_pic.png" alt="">
+                {% endif %}
+                <a href="{% url 'update_profile_pic' %}"><i class="fas fa-pencil-alt"></i></a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="specification-table">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table>
+                                {% include 'template/user/profile_name.html' %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE MODAL WE WILL BE USING -->
+<div class="modal fade" id="modal-user">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

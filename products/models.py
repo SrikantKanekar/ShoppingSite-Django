@@ -68,6 +68,9 @@ class Category(MPTTModel):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100, blank=True, null=True)
+    last_name = models.CharField(max_length=100, blank=True, null=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
     dp = models.ImageField(upload_to='profile/img', null=True)
     country = models.CharField(max_length=20, null=True)
     state = models.CharField(max_length=20, null=True)
