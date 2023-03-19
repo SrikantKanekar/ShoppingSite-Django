@@ -1,6 +1,6 @@
-# Shopping Site
+# Shopping website
 
-A Django shopping web application 
+This website is an online shopping platform built with Django that features various categories and sub-categories of products for customers to browse and purchase. Customers can read and leave reviews and ratings for products, add items to their wishlist and cart, and proceed to checkout. The website also includes pages for viewing orders and tracking their delivery status. Users can create accounts, login, and register to keep track of their orders and receive updates. It also has an admin section for managing products, orders, and tracking shipments.
 
 ## Screenshots
 
